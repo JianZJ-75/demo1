@@ -1,0 +1,164 @@
+{
+  "main": {
+    "id": "a43a72fc45b02689",
+    "type": "split",
+    "children": [
+      {
+        "id": "47eba25444317026",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ac895884b31c4cae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习报告.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6daf44940d8ebb76",
+    "type": "split",
+    "children": [
+      {
+        "id": "231c9ae58f606633",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0c3ad0d6ba8ef620",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "6490c2391d43a1cf",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "91b5159bee643fcd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "71a18f891a7cba30",
+    "type": "split",
+    "children": [
+      {
+        "id": "7b5722093d48900e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9fc3171ea92f38bf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "学习报告.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ef0dc8126b0d6297",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "学习报告.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e5a4982d26d75d7c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "cf64108e4d17b85e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "学习报告.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "ac895884b31c4cae",
+  "lastOpenFiles": [
+    "学习报告.md",
+    "JianZJ/out/production/JianZJ/udp_demo1/SendMessage.class",
+    "JianZJ/out/production/JianZJ/udp_demo1/ReceiveMessage.class",
+    "JianZJ/out/production/JianZJ/udp_demo1",
+    "JianZJ/out/production/JianZJ/Main.class",
+    "JianZJ/out/production/JianZJ",
+    "JianZJ/out/production",
+    "JianZJ/out",
+    "JianZJ/src/udp_demo1/ReceiveMessage.java",
+    "JianZJ/src/udp_demo1/SendMessage.java",
+    "JianZJ/src/udp_demo1",
+    "hit.md"
+  ]
+}
