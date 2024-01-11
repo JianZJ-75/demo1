@@ -2,7 +2,18 @@
  * @Author: JianZJ
  * @Date: 2024/1/9 15:37
  */
-//TIP 要<b>运行</b>代码，请按 <shortcut actionId="Run"/> 或
+
+class Solution {
+    public int addMinimum(String word) {
+        int n = word.length();
+        int cnt = 1;
+        for (int i = 1; i < n; i++) {
+            if (word.charAt(i) <= word.charAt(i - 1))
+                cnt++;
+        }
+        return 3 * cnt - n;
+    }
+}//TIP 要<b>运行</b>代码，请按 <shortcut actionId="Run"/> 或
 // 点击间距中的 <icon src="AllIcons.Actions.Execute"/> 图标。
 public class Main {
     public static void main(String[] args) {
