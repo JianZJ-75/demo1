@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "安装Linux.md",
+                "file": "安装Linux (2).md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "安装Linux.md",
+                "file": "安装Linux (2).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "安装Linux.md",
+                "file": "安装Linux (2).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "安装Linux.md"
+                "file": "安装Linux (2).md"
               }
             }
           }
@@ -173,10 +173,12 @@
   },
   "active": "f9eae975afd7d283",
   "lastOpenFiles": [
-    "Pasted image 20240112123107.png",
+    "学习报告.md",
+    "安装Linux (2).md",
     "网络编程.md",
     "安装Linux.md",
-    "学习报告.md",
+    "安装Linux.docx",
+    "Pasted image 20240112123107.png",
     "Pasted image 20240112122906.png",
     "Pasted image 20240112122816.png",
     "Pasted image 20240112122433.png",
@@ -186,7 +188,6 @@
     "Pasted image 20240112121738.png",
     "Pasted image 20240112121527.png",
     "Pasted image 20240112121506.png",
-    "Pasted image 20240112121340.png",
     "未命名",
     "JianZJ/out/production/JianZJ/udp_demo1/SendMessage.class",
     "JianZJ/out/production/JianZJ/udp_demo1/ReceiveMessage.class",
@@ -196,7 +197,6 @@
     "JianZJ/out/production",
     "JianZJ/out",
     "JianZJ/src/udp_demo1/ReceiveMessage.java",
-    "JianZJ/src/udp_demo1/SendMessage.java",
     "hit.md"
   ]
 }
