@@ -30,9 +30,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "f9eae975afd7d283",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "安装Linux.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "网络编程.md",
+                "file": "安装Linux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "网络编程.md",
+                "file": "安装Linux.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "网络编程.md"
+                "file": "安装Linux.md"
               }
             }
           }
@@ -159,10 +171,22 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "bd200b0ad125fcd9",
+  "active": "f9eae975afd7d283",
   "lastOpenFiles": [
-    "学习报告.md",
+    "Pasted image 20240112123107.png",
     "网络编程.md",
+    "安装Linux.md",
+    "学习报告.md",
+    "Pasted image 20240112122906.png",
+    "Pasted image 20240112122816.png",
+    "Pasted image 20240112122433.png",
+    "Pasted image 20240112122145.png",
+    "Pasted image 20240112121947.png",
+    "Pasted image 20240112121852.png",
+    "Pasted image 20240112121738.png",
+    "Pasted image 20240112121527.png",
+    "Pasted image 20240112121506.png",
+    "Pasted image 20240112121340.png",
     "未命名",
     "JianZJ/out/production/JianZJ/udp_demo1/SendMessage.class",
     "JianZJ/out/production/JianZJ/udp_demo1/ReceiveMessage.class",
