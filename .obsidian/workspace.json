@@ -30,21 +30,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "f9eae975afd7d283",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "安装Linux (2).md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -110,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "安装Linux (2).md",
+                "file": "网络编程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "安装Linux (2).md",
+                "file": "网络编程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "安装Linux (2).md"
+                "file": "网络编程.md"
               }
             }
           }
@@ -171,8 +159,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "f9eae975afd7d283",
+  "active": "0c3ad0d6ba8ef620",
   "lastOpenFiles": [
+    "短链接项目.md",
     "学习报告.md",
     "安装Linux (2).md",
     "网络编程.md",
