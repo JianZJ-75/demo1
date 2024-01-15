@@ -1,7 +1,5 @@
 package studycontent;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -51,6 +49,7 @@ public class string {
          *    如果拼接的字符串是一个空字符串（""），那么 concat 的效率要更高一点,毕竟不需要 new StringBuilder 对象。
          * s8 用第一个来分割并拼接
          * s10 用最后一个来分割拼接
+         * s11 StringUtils在jdk11后被移除
          */
         String s8 = s1.concat(s2);
         String s9 = String.join("-", s1, s2);
@@ -58,7 +57,7 @@ public class string {
         s10.add("123");
         s10.add("456");
         s10.add("789");
-        String s11 = StringUtils.join(s10, "-");
+//        String s11 = StringUtils.join(s10, "-");
         // 数字转字符串
         String s12 = String.valueOf(123);
     }
