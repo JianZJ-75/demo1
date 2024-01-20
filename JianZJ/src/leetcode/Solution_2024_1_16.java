@@ -45,7 +45,7 @@ public class Solution_2024_1_16 {
     public int dfs(int i, int j, boolean ok) {
         if (j > max_sum)
             return 0;
-        if (i == - 1)
+        if (i == -1)
         {
             if (j >= min_sum)
                 return 1;

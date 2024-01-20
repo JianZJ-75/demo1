@@ -1,30 +1,35 @@
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
 /**
  * @Author: JianZJ
  * @Date: 2024/1/9 15:37
  */
 
-class Solution {
-    public int addMinimum(String word) {
-        int n = word.length();
-        int cnt = 1;
-        for (int i = 1; i < n; i++) {
-            if (word.charAt(i) <= word.charAt(i - 1))
-                cnt++;
-        }
-        return 3 * cnt - n;
-    }
-}//TIP 要<b>运行</b>代码，请按 <shortcut actionId="Run"/> 或
-// 点击间距中的 <icon src="AllIcons.Actions.Execute"/> 图标。
 public class Main {
-    public static void main(String[] args) {
-        //TIP 当文本光标位于高亮显示的文本处时按 <shortcut actionId="ShowIntentionActions"/>
-        // 查看 IntelliJ IDEA 建议如何修复。
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP 按 <shortcut actionId="Debug"/> 开始调试代码。我们已经设置了一个 <icon src="AllIcons.Debugger.Db_set_breakpoint"/> 断点
-            // 但您始终可以通过按 <shortcut actionId="ToggleLineBreakpoint"/> 添加更多断点。
-            System.out.println("i = " + i);
+    public long minimumCost(int[] nums, int k, int dist) {
+        PriorityQueue<Long> q = new PriorityQueue<Long>();
+        int n = nums.length;
+        int l = 2;
+        long ans = (long)1e14;
+        long sum = (long)nums[0] + (long)nums[l + dist];
+        Arrays.sort(nums, l, l + dist);
+        for (int i = l; i < l + dist; i++)
+            q.offer((long) nums[i]);
+        for (int i = 1; i <= k - 2; i++) {
+            sum += q.peek();
+            q.poll();
         }
+        for (int i = l + dist + 1; i < n; i++) {
+            sum -= (long)nums[i - 1] + (long)nums[l];
+            q.offer((long) nums[i - 1]);
+
+            l++;
+            ans = Math.min(ans, sum);
+        }
+        return ans;
+    }
+    public static void main(String[] args) {
+
     }
 }
