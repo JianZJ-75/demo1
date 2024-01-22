@@ -45,5 +45,8 @@ public class Main {
 
         // 输出排序后的数组
         System.out.println(Arrays.toString(array));
+        int t = 1;
+        Integer q = t;
+        System.out.println(q);
     }
 }
