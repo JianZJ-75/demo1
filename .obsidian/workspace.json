@@ -159,14 +159,24 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "0c3ad0d6ba8ef620",
+  "active": "bd200b0ad125fcd9",
   "lastOpenFiles": [
-    "短链接项目.md",
+    "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_28.java~",
+    "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_28.java",
+    "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_20.java~",
+    "JianZJ/src/leetcode/Jan_2024/Solution2024_1_14.java",
+    "JianZJ/src/leetcode/Jan_2024/Solution2024_1_13.java",
+    "JianZJ/src/leetcode/Jan_2024/Solution2024_1_12.java",
+    "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_29.java",
+    "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_27.java",
+    "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_26.java",
+    "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_25.java",
+    "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_24.java",
     "学习报告.md",
+    "短链接项目.md",
     "安装Linux (2).md",
     "网络编程.md",
     "安装Linux.md",
-    "安装Linux.docx",
     "Pasted image 20240112123107.png",
     "Pasted image 20240112122906.png",
     "Pasted image 20240112122816.png",
@@ -177,15 +187,6 @@
     "Pasted image 20240112121738.png",
     "Pasted image 20240112121527.png",
     "Pasted image 20240112121506.png",
-    "未命名",
-    "JianZJ/out/production/JianZJ/udp_demo1/SendMessage.class",
-    "JianZJ/out/production/JianZJ/udp_demo1/ReceiveMessage.class",
-    "JianZJ/out/production/JianZJ/udp_demo1",
-    "JianZJ/out/production/JianZJ/Main.class",
-    "JianZJ/out/production/JianZJ",
-    "JianZJ/out/production",
-    "JianZJ/out",
-    "JianZJ/src/udp_demo1/ReceiveMessage.java",
     "hit.md"
   ]
 }
