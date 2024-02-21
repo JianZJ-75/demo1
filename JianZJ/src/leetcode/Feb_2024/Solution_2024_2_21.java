@@ -5,9 +5,9 @@ import java.util.Map;
 
 /**
  * @Author 22798
- * @Date 2024/2/20 18:31
+ * @Date 2024/2/21 18:27
  */
-public class Solution_2024_2_20 {
+public class Solution_2024_2_21 {
     /**
      * Definition for a binary tree node.
      * public class TreeNode {
@@ -36,13 +36,14 @@ public class Solution_2024_2_20 {
         }
     }
     Map<Integer, Integer> mp = new HashMap<>();
-    int[] preorder;
     int[] inorder;
-    int idx = -1;
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        this.preorder = preorder;
+    int[] postorder;
+    int idx;
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
         this.inorder = inorder;
+        this.postorder = postorder;
         int n = inorder.length;
+        idx = n;
         for (int i = 0; i < n; i++)
             mp.put(inorder[i], i);
         return dfs(0, n - 1);
@@ -50,7 +51,7 @@ public class Solution_2024_2_20 {
     public TreeNode dfs(int l, int r) {
         if (l > r)
             return null;
-        int val = preorder[++idx];
+        int val = postorder[--idx];
         TreeNode left = dfs(l, mp.get(val) - 1);
         TreeNode right = dfs(mp.get(val) + 1, r);
         return new TreeNode(val, left, right);
