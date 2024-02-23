@@ -7,9 +7,14 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        String q = "Dada";
-        q = new StringBuilder(q).reverse().toString();
-        System.out.println(new Main().lastNonEmptyString("aabcbbca"));
+        List<Integer> a = new ArrayList<>();
+        int i = 0;
+        for (int j = 1; j <= 10; j++) {
+            for (int k = 1; k <= j; k++)
+                a.add(k);
+            System.out.println(a);
+            a.clear();
+        }
     }
     public String lastNonEmptyString(String s) {
         String res = new String();
