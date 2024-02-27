@@ -1,14 +1,8 @@
 package design;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.HashSet;
 /**
  * @Author 22798
- * @Date 2024/2/26 22:47
+ * @Date 2024/2/27 23:02
  */
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 
 public class CastleExplorer extends JFrame {
 
@@ -41,9 +36,11 @@ public class CastleExplorer extends JFrame {
     }
 
     private void initializeCells() {
+        // Randomly generate castle walls
+        Random random = new Random();
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                cells[i][j] = '#'; // Initialize all cells with walls
+                cells[i][j] = random.nextBoolean() ? '#' : '-';
             }
         }
     }
@@ -53,36 +50,66 @@ public class CastleExplorer extends JFrame {
         setTitle("Castle Explorer");
         setSize(cols * 30, rows * 30);
 
+        // Initialize grid cells
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                JPanel cellPanel = new JPanel();
+                CellPanel cellPanel = new CellPanel(i, j);
                 cellPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-                cellPanel.setBackground(Color.BLACK);
+                cellPanel.setBackground(cells[i][j] == '#' ? Color.BLACK : Color.WHITE);
                 gridPanel.add(cellPanel);
             }
         }
 
-        gridPanel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                int col = e.getX() / 30;
-                int row = e.getY() / 30;
-                if (cells[row][col] == '#') {
-                    cells[row][col] = '-';
-                    gridPanel.getComponent(row * cols + col).setBackground(Color.WHITE);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Cannot remove wall here.");
-                }
-            }
-        });
-
-        add(gridPanel, BorderLayout.CENTER);
-
+        // Add buttons
         JButton calculateButton = new JButton("Calculate");
         calculateButton.addActionListener(e -> calculate());
-        add(calculateButton, BorderLayout.SOUTH);
+
+        JButton clearButton = new JButton("Clear");
+        clearButton.addActionListener(e -> clear());
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(calculateButton);
+        buttonPanel.add(clearButton);
+
+        // Add components to frame
+        add(gridPanel, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
     }
 
+    // Custom panel for each grid cell with mouse listener
+    private class CellPanel extends JPanel {
+        private final int row;
+        private final int col;
+
+        public CellPanel(int row, int col) {
+            this.row = row;
+            this.col = col;
+            addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (SwingUtilities.isRightMouseButton(e)) {
+                        toggleCell(row, col);
+                    } else if (e.getClickCount() == 2) {
+                        switchCell(row, col);
+                    }
+                }
+            });
+        }
+    }
+
+    // Toggle cell between wall and empty space
+    private void toggleCell(int row, int col) {
+        cells[row][col] = cells[row][col] == '#' ? '-' : '#';
+        gridPanel.getComponent(row * cols + col).setBackground(cells[row][col] == '#' ? Color.BLACK : Color.WHITE);
+    }
+
+    // Switch cell between wall and empty space on double click
+    private void switchCell(int row, int col) {
+        cells[row][col] = cells[row][col] == '#' ? '-' : '#';
+        gridPanel.getComponent(row * cols + col).setBackground(cells[row][col] == '#' ? Color.BLACK : Color.WHITE);
+    }
+
+    // Explore the castle to find rooms
     private void exploreRoom(int row, int col, ArrayList<Point> room) {
         if (row < 0 || col < 0 || row >= rows || col >= cols) {
             return;
@@ -100,7 +127,12 @@ public class CastleExplorer extends JFrame {
         exploreRoom(row, col - 1, room);
     }
 
+    // Find all rooms in the castle
     private void findRooms() {
+        visited.clear();
+        rooms.clear();
+        maxRoomSize = 0;
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (!visited.contains(new Point(i, j)) && cells[i][j] != '#') {
@@ -112,6 +144,7 @@ public class CastleExplorer extends JFrame {
         }
     }
 
+    // Highlight rooms on the grid
     private void highlightRooms() {
         Color[] colors = {Color.YELLOW, Color.ORANGE};
         int colorIndex = 0;
@@ -125,10 +158,21 @@ public class CastleExplorer extends JFrame {
         }
     }
 
+    // Calculate number of rooms and max room size
     private void calculate() {
         findRooms();
         highlightRooms();
         JOptionPane.showMessageDialog(null, "Number of rooms: " + rooms.size() + "\nLargest room size: " + maxRoomSize);
+    }
+
+    // Clear all walls from the castle
+    private void clear() {
+        initializeCells(); // Reinitialize cells with random walls
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                gridPanel.getComponent(i * cols + j).setBackground(cells[i][j] == '#' ? Color.BLACK : Color.WHITE);
+            }
+        }
     }
 
     public static void main(String[] args) {

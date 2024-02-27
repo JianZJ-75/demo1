@@ -1,4 +1,6 @@
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * @Author: JianZJ
@@ -7,7 +9,19 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-
+        Frame frame = new Frame();
+        frame.setSize(400, 400);
+        frame.setLayout(null);
+        frame.setBackground(Color.CYAN);
+        Panel p1 = new Panel();
+        Panel p2 = new Panel();
+        p1.setBounds(0, 0, 400, 200);
+        p1.setBackground(Color.green);
+        p2.setBounds(0, 200, 400, 200);
+        p2.setBackground(Color.red);
+//        frame.add(p1);
+        frame.add(p2);
+        frame.setVisible(true);
     }
     public String lastNonEmptyString(String s) {
         String res = new String();
