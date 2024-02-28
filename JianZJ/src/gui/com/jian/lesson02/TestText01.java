@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 public class TestText01 {
     public static void main(String[] args) {
         // 启动！
-        MyFrame myFrame = new MyFrame();
+        new MyFrame();
     }
 }
 

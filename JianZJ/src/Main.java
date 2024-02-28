@@ -10,42 +10,31 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Frame frame = new Frame();
-        frame.setSize(400, 400);
-        frame.setLayout(null);
-        frame.setBackground(Color.CYAN);
-        Panel p1 = new Panel();
-        Panel p2 = new Panel();
-        p1.setBounds(0, 0, 400, 200);
-        p1.setBackground(Color.green);
-        p2.setBounds(0, 200, 400, 200);
-        p2.setBackground(Color.red);
-//        frame.add(p1);
-        frame.add(p2);
+        Button btn = new Button("op!");
+        frame.setLayout(new FlowLayout());
+        frame.add(btn);
+        Integer i = 1;
+        Main1 main1 = new Main1(btn, i);
+        main1.c();
+        System.out.println(i);
+        frame.pack();
         frame.setVisible(true);
     }
-    public String lastNonEmptyString(String s) {
-        String res = new String();
-        Map<Character, List<Integer>> mp = new HashMap<>();
-        int n = s.length();
-        int mx = 0;
-        for (int i = 0; i < n; i++) {
-            char j = s.charAt(i);
-            mp.computeIfAbsent(j, t -> new ArrayList<>()).add(i);
-            mp.putIfAbsent(j, new ArrayList<>());
-            mp.get(j).add(i);
-            mx = Math.max(mx, mp.get(j).size());
-        }
-        List<Integer> ans = new ArrayList<>();
-        for (List<Integer> i : mp.values()) {
-            if (i.size() == mx)
-                ans.add(i.get(mx - 1));
-        }
-        ans.sort((a, b) -> a - b);
-        for (int i : ans)
-            res += s.charAt(i);
-        return res;
+}
+
+class Main1 {
+    Button btn;
+    Integer i;
+    public Main1(Button btn, Integer i) {
+        this.btn = btn;
+        this.i = i;
+    }
+    public void c() {
+        i = 3123;
+        btn.setLabel("no!!!!");
     }
 }
+
 class Solution {
     private final static int MX = (int) 1e5;
     private final static boolean[] np = new boolean[MX + 1]; // 质数=false 非质数=true
