@@ -4,8 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+>>>>>>> 9e71139da8ca18cc02269ad659b66b136cf15aa8
 
 /**
  * @Author JianZJ
@@ -28,7 +31,10 @@ public class Castle {
     private int base_interval = 10;
     private int panel_width;
     private int panel_height;
+<<<<<<< HEAD
     private List<MyJPanel> panelList;
+=======
+>>>>>>> 9e71139da8ca18cc02269ad659b66b136cf15aa8
 
     // 获取行的值
     public void getRows() {
@@ -67,7 +73,10 @@ public class Castle {
         // 初始房间数量
         quantity = rows * lines;
         size = new int[quantity + 1];
+<<<<<<< HEAD
         panelList = new ArrayList<>();
+=======
+>>>>>>> 9e71139da8ca18cc02269ad659b66b136cf15aa8
     }
 
     public static void main(String[] args) {
@@ -97,13 +106,18 @@ public class Castle {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     // 处理
+<<<<<<< HEAD
                     changeColor();
+=======
+
+>>>>>>> 9e71139da8ca18cc02269ad659b66b136cf15aa8
                     // 弹窗
                     JOptionPane.showMessageDialog(null, "Number of rooms: " + quantity + "\nLargest room size: " + max_size);
                 }
             });
 
             // 面板设置
+<<<<<<< HEAD
             // 面板1
             panel1.setBackground(Color.BLACK);
             panel1.setBounds(0, 0, panel_width, panel_height);
@@ -117,6 +131,12 @@ public class Castle {
             addRoom(panel2);
 
             // 面板3
+=======
+            panel1.setBackground(Color.BLACK);
+            panel1.setBounds(0, 0, panel_width, panel_height);
+            panel1.setLayout(null);
+            panel2.setBounds(base_interval, base_interval, panel_width - 2 * base_interval, panel_height - 2 * base_interval);
+>>>>>>> 9e71139da8ca18cc02269ad659b66b136cf15aa8
             panel3.add(button);
             panel3.setBounds(0, panel_height, panel_width, 40);
 
@@ -131,6 +151,7 @@ public class Castle {
             setResizable(false);
         }
 
+<<<<<<< HEAD
         // 改色
         public void changeColor() {
             for (var i : panelList) {
@@ -154,6 +175,8 @@ public class Castle {
             }
         }
 
+=======
+>>>>>>> 9e71139da8ca18cc02269ad659b66b136cf15aa8
         // 计算主窗口大小
         public void calc() {
             if (!(base_size * rows + (rows + 1) * base_interval <= height && base_size * lines + (lines + 1) * base_interval <= width)) {
@@ -177,6 +200,10 @@ public class Castle {
         public MyJPanel myJPanel1;
         public MyJPanel myJPanel2;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9e71139da8ca18cc02269ad659b66b136cf15aa8
         public MyJButton(MyJPanel myJPanel1, MyJPanel myJPanel2) {
             this.myJPanel1 = myJPanel1;
             this.myJPanel2 = myJPanel2;
