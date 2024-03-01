@@ -2,9 +2,13 @@ package design;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,13 +26,24 @@ public class Castle {
     private int max_size = 1;
     // 每个房间大小
     private int[] size;
+    // 主窗口宽
     private int width = 750;
+    // 主窗口高
     private int height = 750;
+    // 房间边长
     private int base_size = 50;
+    // 房间间距
     private int base_interval = 10;
+    // 房间面板宽
     private int panel_width;
+    // 房间面板高
     private int panel_height;
+    // 房间列表
     private List<MyJPanel> panelList;
+    // 行按钮列表
+    private List<MyJButton> rows_buttons;
+    // 列按钮列表
+    private List<MyJButton> lines_buttons;
 
     // 获取行的值
     public void getRows() {
@@ -67,12 +82,10 @@ public class Castle {
         // 初始房间数量
         quantity = rows * lines;
         size = new int[quantity + 1];
+        Arrays.setAll(size, i -> 1);
         panelList = new ArrayList<>();
-    }
-
-    public static void main(String[] args) {
-        // 启动
-        new Castle().load();
+        rows_buttons = new ArrayList<>();
+        lines_buttons = new ArrayList<>();
     }
 
     // 主窗口
@@ -113,8 +126,12 @@ public class Castle {
             panel2.setBackground(Color.BLACK);
             panel2.setBounds(base_interval, base_interval, panel_width - 2 * base_interval, panel_height - 2 * base_interval);
             panel2.setLayout(null);
+
             // 添加房间面板
             addRoom(panel2);
+
+            // 添加边
+            addWall(panel2);
 
             // 面板3
             panel3.add(button);
@@ -131,10 +148,55 @@ public class Castle {
             setResizable(false);
         }
 
+        // 添加墙
+        public void addWall(JPanel panel2) {
+            int x = 0, y = base_size;
+            // 行边
+            int idx = 0;
+            for (int i = 1; i <= rows - 1; i++) {
+                for (int j = 1; j <= lines; j++) {
+                    ++idx;
+                    MyJButton button = new MyJButton(panelList.get(idx - 1), panelList.get(idx + lines - 1));
+                    button.addActionListener(button.new MyActionListener(button));
+                    button.setBounds(x, y, base_size, base_interval);
+                    button.setBackground(Color.BLACK);
+                    panel2.add(button);
+                    rows_buttons.add(button);
+                    x += base_size + base_interval;
+                }
+                x = 0;
+                y += base_size + base_interval;
+            }
+
+            x = base_size;
+            y = 0;
+            // 列边
+            idx = 0;
+            for (int i = 1; i <= rows; i++) {
+                for (int j = 1; j <= lines - 1; j++) {
+                    ++idx;
+                    MyJButton button = new MyJButton(panelList.get(idx - 1), panelList.get(idx));
+                    button.addActionListener(button.new MyActionListener(button));
+                    button.setBounds(x, y, base_interval, base_size);
+                    button.setBackground(Color.BLACK);
+                    panel2.add(button);
+                    lines_buttons.add(button);
+                    x += base_size + base_interval;
+                }
+                ++idx;
+                x = base_size;
+                y += base_size + base_interval;
+            }
+        }
+
         // 改色
         public void changeColor() {
             for (var i : panelList) {
-                i.setBackground(Color.YELLOW);
+                int x = new DSU().find(i.id);
+                if (size[x] == max_size)
+                    i.setBackground(Color.ORANGE);
+                else
+                    i.setBackground(Color.YELLOW);
             }
         }
 
@@ -143,7 +205,7 @@ public class Castle {
             int x = 0, y = 0, idx = 0;
             for (int i = 1; i <= rows; i++) {
                 for (int j = 1; j <= lines; j++) {
-                    MyJPanel panel = new MyJPanel(++idx);
+                    MyJPanel panel = new MyJPanel(++idx, idx);
                     panel.setBounds(x, y, base_size, base_size);
                     panel2.add(panel);
                     panelList.add(panel);
@@ -173,6 +235,7 @@ public class Castle {
         }
     }
 
+    // 边类
     class MyJButton extends JButton {
         public MyJPanel myJPanel1;
         public MyJPanel myJPanel2;
@@ -181,16 +244,78 @@ public class Castle {
             this.myJPanel1 = myJPanel1;
             this.myJPanel2 = myJPanel2;
         }
+
+        // 按钮监听类
+        class MyActionListener implements ActionListener {
+            MyJButton button;
+
+            public MyActionListener(MyJButton button) {
+                this.button = button;
+            }
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (myJPanel1.idx != myJPanel2.idx) {
+                    quantity--;
+                    // 合并
+                    new DSU(myJPanel1, myJPanel2);
+                }
+                // 换色
+                button.setBackground(Color.WHITE);
+            }
+        }
     }
 
+    // 房间类
     class MyJPanel extends JPanel {
         // 面板所对应的房间
+        public int idx;
+        // 面板id
         public int id;
 
-        public MyJPanel(int id) {
+        public MyJPanel(int idx, int id) {
             this.id = id;
+            this.idx = idx;
             setBackground(Color.WHITE);
             setSize(base_size, base_size);
         }
+    }
+
+    // 并查集类
+    class DSU {
+
+        public DSU() {}
+
+        public DSU(MyJPanel panel1, MyJPanel panel2) {
+            union(panel1.id, panel2.id);
+        }
+
+        public int find(int x) {
+            MyJPanel panel = panelList.get(x - 1);
+            if (panel.idx == panel.id)
+                return panel.id;
+            panel.idx = find(panel.idx);
+            return panel.idx;
+        }
+
+        public void union(int x, int y) {
+            int fx = find(x), fy = find(y);
+            if (fx == fy)
+                return;
+            if (size[fx] > size[fy]) {
+                int t = fy;
+                fy = fx;
+                fx = t;
+            }
+            MyJPanel panel = panelList.get(fx - 1);
+            panel.idx = fy;
+            size[fy] += size[fx];
+            max_size = Math.max(max_size, size[fy]);
+        }
+    }
+
+    public static void main(String[] args) {
+        // 启动
+        new Castle().load();
     }
 }
