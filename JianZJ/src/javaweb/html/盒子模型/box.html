@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            /* 指定width height为盒子的高宽 */
+            background-color: aquamarine;
+            /* 背景色 */
+
+            padding: 20px;
+            /* 内边距, 上 右 下 左 */
+            border: 10px solid red;
+            /* 边框, 宽度 线条类型 颜色 */
+            margin: 30px;
+            /* 外边距, 上 右 下 左 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+    css盒子模型
+        组成 : 内容(content) 内边距(padding) 边框(border) 外边距(margin)
+     -->
+
+    <!-- 
+    div标签与span标签均为没有语义的标签
+        div 
+            一行只显示一个（独占一行）
+            宽度默认是父元素的宽度，高度默认由内容撑开
+            可以设置宽高(width, height)
+        span 
+            一样可以显示多个
+            宽度和高度默认由内容撑开
+            不可以设置宽高(width, height)
+     -->
+    <div>
+        A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A
+    </div>
+
+</body>
+
+</html>
