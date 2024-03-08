@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-指令-v-if和v-show</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- 条件性的渲染某元素, 判定为true时渲染, 否则不渲染 -->
+        年龄<input type="text" v-model="age">经判定, 为:
+        <span v-if="age <= 35">年轻人（35及以下）</span>
+        <span v-else-if="age > 35 && age < 60">中年人（35-60）</span>
+        <span v-else>老年人（60及以上）</span>
+
+        <br><br>
+
+        <!-- 根据条件展示某元素, 区别在于切换的是display属性的值 -->
+        年龄<input type="text" v-model="age">经判定, 为:
+        <span v-show="age <= 35">年轻人（35及以下）</span>
+        <span v-show="age > 35 && age < 60">中年人（35-60）</span>
+        <span v-show="age >= 60">老年人（60及以上）</span>
+
+    </div>
+
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            age: 20
+        },
+        methods: {
+
+        }
+    })
+</script>
+
+</html>
