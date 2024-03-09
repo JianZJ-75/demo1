@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>在线表格编辑器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="menu">
+          <button id="newTable">新建表格</button>
+    </div>
+
+    <div id="editorContainer">
+          
+        <!-- 动态插入表格窗口 -->
+    </div>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            width: 100px;
+            /* 设置单元格宽度 */
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .selected {
+            background-color: #ffff99;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    </head>
+
+    <body>
+        <h2>在线表格编辑器 </h2>
+        <div class="toolbar">
+                <label for="fontFamily">Font Family:</label>
+                <select id="fontFamily">
+                    <option value="Arial">Arial</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Verdana">Verdana</option>
+            </select>
+
+            <label for="fontSize">Font Size:</label>
+            <select id="fontSize">
+                    <option value="10px">10px</option>
+                    <option value="12px">12px</option>
+                    <option value="14px">14px</option>
+                    <option value="16px">16px</option>
+                    <option value="18px">18px</option>
+                    <option value="20px">20px</option>
+                    <option value="22px">22px</option>
+                    <option value="24px">24px</option>
+            </select>
+            <label for="fontColor">Font Color:</label>
+            <input type="color" id="fontColor">
+            <button onclick="setFont()">Apply Font</button>
+            <button onclick="addRow()">添加行</button>
+            <button onclick="addCol()">添加列</button>
+            <button onclick="mergeCells()">合并选中单元格</button>
+            <button id="saveAsBtn">另存为...</button>
+            <button id="saveToDesktopBtn">保存到桌面</button>
+            <br><br>
+            <table id="dataTable" cellspacing="0" cellpadding="0">
+                    <tr>
+                            <th>列1</th>
+                            <th>列2</th>
+                            <th>列3</th>
+                        </tr>
+                    <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                    <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+            </table>
+            <script>
+                // 添加行和列的按钮点击事件
+                document.getElementById('newTable').addEventListener('click', function () {
+                    createNewTable();
+                });
+
+                function createNewTable() {
+                    const container = document.getElementById('editorContainer');
+                    const newTable = document.createElement('div');
+                    newTable.className = 'tableWindow';
+
+                    // 创建表格窗口内容
+                    newTable.innerHTML = `
+    <h2>新表格 <span class="closeButton" onclick="closeTable(this)">×</span></h2>
+    <table class="tableEditor" id="dataTable">
+      <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+      </tr>
+    </table>
+    <button onclick="addRow(this)">增加行</button>
+    <button onclick="addCol(this)">增加列</button>
+  `;
+                    container.appendChild(newTable);
+
+
+                }
+
+                function closeTable(element) {
+                    element.parentElement.parentElement.remove();
+                }
+                let currentFile = "table.csv";
+                document.getElementById("saveAsBtn").addEventListener("click", saveAsFile);
+                document.getElementById("saveToDesktopBtn").addEventListener("click", saveToDesktop);
+
+                function saveAsFile() {
+                    let fileName = prompt("请输入文件名（包括.csv后缀）:");
+                    if (fileName && fileName.endsWith(".csv")) {
+                        currentFile = fileName;
+                        saveToDesktop();
+                    } else {
+                        alert("文件名需要以.csv结尾");
+                    }
+                }
+
+                function saveToDesktop() {
+                    let table = document.getElementById("dataTable");
+                    let rows = table.rows;
+                    let csvContent = "data:text/csv;charset=utf-8,";
+
+                    // 添加表格标题
+                    for (let i = 0; i < rows.length; i++) {
+                        let row = [],
+                            cols = rows[i].cells;
+                        for (let j = 0; j < cols.length; j++) {
+                            row.push(cols[j].innerText);
+                        }
+                        csvContent += row.join(",") + "\r\n";
+                    }
+                    // 生成一个 Blob 对象
+                    let blob = new Blob([csvContent], {
+                        type: "text/csv"
+                    });
+                    // 创建一个临时的 URL 对象
+                    let url = window.URL.createObjectURL(blob);
+                    // 创建一个 a 标签，并模拟点击以下载文件
+                    let a = document.createElement("a");
+                    a.href = url;
+                    a.download = currentFile; // 使用当前文件名
+                    document.body.appendChild(a);
+                    a.click();
+
+                    // 释放 URL 对象
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                }
+
+                function setFont() {
+                    const fontFamily = document.getElementById('fontFamily').value;
+                    const fontSize = document.getElementById('fontSize').value;
+                    const fontColor = document.getElementById('fontColor').value;
+
+                    const table = document.getElementById('dataTable');
+                    table.style.fontFamily = fontFamily;
+                    table.style.fontSize = fontSize;
+                    table.style.color = fontColor;
+
+                    // Update the contenteditable cells to match the new font settings
+                    const cells = table.getElementsByTagName('td');
+                    for (let i = 0; i < cells.length; i++) {
+                        cells[i].style.fontFamily = fontFamily;
+                        cells[i].style.fontSize = fontSize;
+                        cells[i].style.color = fontColor;
+                    }
+                }
+                let selectedCell = null;
+                // 为所有单元格添加点击事件
+                function initCellEvents() {
+                    document.querySelectorAll('#dataTable td').forEach(cell => {
+                        cell.addEventListener('click', function () {
+                            if (selectedCell) {
+                                selectedCell.classList.remove('selected');
+                            }
+                            this.classList.add('selected');
+                            selectedCell = this;
+                        });
+                    });
+                }
+                initCellEvents();
+
+                function addRow() {
+                    let table = document.getElementById("dataTable");
+                    let row = table.insertRow(-1); // 在末尾插入新行
+                    for (let i = 0; i < table.rows[0].cells.length; i++) {
+                        let cell = row.insertCell(i);
+                        cell.contentEditable = true;
+                        cell.addEventListener('click', function () {
+                            if (selectedCell) {
+                                selectedCell.classList.remove('selected');
+                            }
+                            this.classList.add('selected');
+                            selectedCell = this;
+                        });
+                    }
+                }
+
+                function addCol() {
+                    let table = document.getElementById("dataTable");
+                    for (let i = 0; i < table.rows.length; i++) {
+                        let cell = table.rows[i].insertCell(-1); // 在每行的末尾插入新列
+                        cell.contentEditable = true;
+                        cell.addEventListener('click', function () {
+                            if (selectedCell) {
+                                selectedCell.classList.remove('selected');
+                            }
+                            this.classList.add('selected');
+                            selectedCell = this;
+                        });
+                    }
+                }
+
+                function mergeCells() {
+                    if (!selectedCell) {
+                        alert('请先选择一个单元格！');
+                        return;
+                    }
+                    // 获取选中的单元格的行列索引
+                    let row = selectedCell.parentElement.rowIndex;
+                    let col = selectedCell.cellIndex;
+                    // 提示用户输入要合并的行列数
+                    let rowsToMerge = prompt("请输入要合并的行数（包括当前行）:");
+                    let colsToMerge = prompt("请输入要合并的列数（包括当前列）:");
+                    if (rowsToMerge && colsToMerge) {
+                        rowsToMerge = parseInt(rowsToMerge);
+                        colsToMerge = parseInt(colsToMerge);
+                        if (rowsToMerge <= 0 || colsToMerge <= 0) {
+                            alert('行数和列数必须是正整数！');
+                            return;
+                        }
+                        // 检查合并范围是否超出表格边界
+                        if (row + rowsToMerge > document.getElementById("dataTable").rows.length ||
+                            col + colsToMerge > document.getElementById("dataTable").rows[0].cells.length) {
+                            alert('合并范围超出表格边界！');
+                            return;
+                        }
+                        // 执行合并操作
+                        for (let i = row; i < row + rowsToMerge; i++) {
+                            for (let j = col; j < col + colsToMerge; j++) {
+                                if (i !== row || j !== col) {
+                                    // 隐藏除了选中单元格外的其他单元格
+                                    document.getElementById("dataTable").rows[i].cells[j].style.display = 'none';
+                                }
+                            }
+                        }
+                        // 更新选中单元格的行列跨度
+                        selectedCell.rowSpan = rowsToMerge;
+                        selectedCell.colSpan = colsToMerge;
+                    }
+                }
+            </script>
+
+    </body>
+
+</html>
