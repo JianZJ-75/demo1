@@ -21,6 +21,15 @@
             <el-table-column prop="address" label="地址">
             </el-table-column>
         </el-table>
+
+        <br>
+
+        <!-- Pagination 分页组件 -->
+        <el-pagination background layout="total, ->, sizes, prev, pager, next, jumper" 
+         @size-change="handleSizeChange"
+         @current-change="handleCurrentChange" 
+         :total="1000">
+        </el-pagination>
     </div>
 </template>
 
@@ -29,24 +38,24 @@ export default {
     data() {
         return {
             tableData: [{
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
+                date: '2004-xx-xx',
+                name: '侯陈琛',
+                address: '滁州'
             }, {
-                date: '2016-05-04',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1517 弄'
-            }, {
-                date: '2016-05-01',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1519 弄'
-            }, {
-                date: '2016-05-03',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1516 弄'
+                date: '2004-xx-xx',
+                name: '章耀东',
+                address: '池州'
             }]
         }
     },
+    methods: {
+        handleSizeChange: (val) => {
+            alert("每页记录数变化" + val);
+        },
+        handleCurrentChange: (val) => {
+            alert("页码发生变化" + val);
+        }
+    }
 }
 </script>
 
