@@ -3,8 +3,9 @@
         <el-container style="height: 700px; border: 1px solid #eee">
 
             <el-header style="font-size: 40px; background-color: rgb(238, 241, 246)">tlias 智能学习辅助系统</el-header>
+
             <el-container>
-                <el-aside width="200px">
+                <el-aside width="230px" style="border: 1px solid #eee">
                     <el-menu :default-openeds="['1', '3']">
                         <el-submenu index="1">
                             <template slot="title"><i class="el-icon-message"></i>系统信息管理</template>
@@ -44,9 +45,17 @@
                     <el-table :data="tableData" border>
                         <el-table-column prop="name" label="姓名" width="180">
                         </el-table-column>
-                        <el-table-column prop="image" label="图像" width="180">
+                        <el-table-column label="图像" width="180">
+                            <template slot-scope="scope">
+                                <img :src="scope.row.image" width="100px" height="70px">
+                            </template>
                         </el-table-column>
-                        <el-table-column prop="gender" label="性别" width="140">
+                        <el-table-column label="性别" width="140">
+                            <template slot-scope="scope">
+                                <!-- <div v-if="scope.row.gender == 1">男</div>
+                                <div v-else>女</div> -->
+                                {{ scope.row.gender == 1 ? "男" : "女" }}
+                            </template>
                         </el-table-column>
                         <el-table-column prop="job" label="职位" width="140">
                         </el-table-column>
@@ -73,6 +82,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {
@@ -94,6 +105,12 @@ export default {
         handleCurrentChange(val) {
             alert("页码发生变化" + val);
         },
+    },
+    mounted() {
+        // 发送异步请求, 获取数据
+        axios.get("https://mock.apifox.cn/m1/3128855-0-default/emp/list").then((result) => {
+            this.tableData = result.data.data;
+        });
     }
 }
 </script>
