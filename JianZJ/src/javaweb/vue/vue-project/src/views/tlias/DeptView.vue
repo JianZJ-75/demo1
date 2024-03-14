@@ -20,47 +20,14 @@
                 </el-aside>
 
                 <el-main>
-                    <!-- 表单 -->
-                    <el-form :inline="true" :model="searchForm" class="demo-form-inline">
-                        <el-form-item label="姓名">
-                            <el-input v-model="searchForm.name" placeholder="请输入员工姓名"></el-input>
-                        </el-form-item>
-
-                        <el-form-item label="性别">
-                            <el-select v-model="searchForm.gender" placeholder="请选择">
-                                <el-option label="男" value="1"></el-option>
-                                <el-option label="女" value="2"></el-option>
-                            </el-select>
-                        </el-form-item>
-
-                        <el-form-item label="入职日期">
-                            <!-- 日期选择器 -->
-                            <el-date-picker v-model="searchForm.entrydate" type="datetimerange" range-separator="至"
-                                start-placeholder="开始日期" end-placeholder="结束日期">
-                            </el-date-picker>
-                        </el-form-item>
-
-                        <el-form-item>
-                            <el-button type="primary" @click="onSubmit">查询</el-button>
-                        </el-form-item>
-                    </el-form>
                     
                     <!-- 表格 -->
                     <el-table :data="tableData" border>
                         <el-table-column prop="name" label="姓名" width="180">
                         </el-table-column>
                         <el-table-column label="图像" width="180">
-                            <template slot-scope="scope">
-                                <img :src="scope.row.image" width="100px" height="70px">
-                            </template>
                         </el-table-column>
                         <el-table-column label="性别" width="140">
-                            <!-- 插槽, 将父组件属性传给子组件 -->
-                            <template slot-scope="scope">
-                                <!-- <div v-if="scope.row.gender == 1">男</div>
-                                <div v-else>女</div> -->
-                                {{ scope.row.gender == 1 ? "男" : "女" }}
-                            </template>
                         </el-table-column>
                         <el-table-column prop="job" label="职位" width="140">
                         </el-table-column>
@@ -87,7 +54,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
     data() {
@@ -111,12 +77,6 @@ export default {
             alert("页码发生变化" + val);
         },
     },
-    mounted() {
-        // 发送异步请求, 获取数据
-        axios.get("https://mock.apifox.cn/m1/3128855-0-default/emp/list").then((result) => {
-            this.tableData = result.data.data;
-        });
-    }
 }
 </script>
 
