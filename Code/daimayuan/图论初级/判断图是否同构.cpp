@@ -35,18 +35,30 @@ ll gcd(ll a, ll b)
 
 void Jian()
 {
-    ll n;
-    cin >> n;
-    ll a[n + 1];
+    ll n, m;
+    cin >> n >> m;
+    ll a[n + 1] = {0}, b[n + 1] = {0};
+    rep(i, 1, m)
+    {
+        ll u, v;
+        cin >> u >> v;
+        a[u]++;
+        a[v]++;
+    }
+    rep(i, 1, m)
+    {
+        ll u, v;
+        cin >> u >> v;
+        b[u]++;
+        b[v]++;
+    }
+    sort(a + 1, a + 1 + n);
+    sort(b + 1, b + 1 + n);
+    bool ok = 1;
     rep(i, 1, n)
-        cin >> a[i];
-    ll sum = 0;
-    rep(i, 1, n)
-        sum += a[i];
-    if (sum & 1)
-        cout << "No\n";
-    else
-        cout << "Yes\n";
+        if (a[i] != b[i])
+            ok = 0;
+    cout << (ok ? "Yes\n" : "No\n");
 }
 
 signed main()

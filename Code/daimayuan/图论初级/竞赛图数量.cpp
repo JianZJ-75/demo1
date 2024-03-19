@@ -37,16 +37,8 @@ void Jian()
 {
     ll n;
     cin >> n;
-    ll a[n + 1];
-    rep(i, 1, n)
-        cin >> a[i];
-    ll sum = 0;
-    rep(i, 1, n)
-        sum += a[i];
-    if (sum & 1)
-        cout << "No\n";
-    else
-        cout << "Yes\n";
+    ll m = (n - 1) * n / 2;
+    cout << qmi(2, m) << endl;
 }
 
 signed main()
