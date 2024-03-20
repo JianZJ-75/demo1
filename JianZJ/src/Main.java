@@ -1,6 +1,10 @@
-import java.awt.*;
 import java.util.*;
-import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.IntFunction;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @Author: JianZJ
@@ -9,90 +13,73 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Frame frame = new Frame();
-        Button btn = new Button("op!");
-        frame.setLayout(new FlowLayout());
-        frame.add(btn);
-        Integer i = 1;
-        Main1 main1 = new Main1(btn, i);
-        main1.c();
-        System.out.println(i);
-        frame.pack();
-        frame.setVisible(true);
-    }
-}
+        ArrayList<String> list = new ArrayList<>();
+        Collections.addAll(list, "张无忌-男-15", "周芷若-女-14", "赵敏-女-13", "张强-男-20", "张三丰-男-100", "张翠山-男-40", "张良-男-35", "王二麻子-男-37", "谢广坤-男-41");
 
-class Main1 {
-    Button btn;
-    Integer i;
-    public Main1(Button btn, Integer i) {
-        this.btn = btn;
-        this.i = i;
-    }
-    public void c() {
-        i = 3123;
-        btn.setLabel("no!!!!");
-    }
-}
+        // collect(Collector collector) 收集流中的数据，放到集合中(List Set Map)
+        // 注意：
+        //      如果我们要收集到Map集合当中，键不能重复，否则会报错
 
-class Solution {
-    private final static int MX = (int) 1e5;
-    private final static boolean[] np = new boolean[MX + 1]; // 质数=false 非质数=true
+        // 收集到List集合当中
+        // 需求：
+        // 我要把所有的男性收集起来
+        List<String> list1 = list.stream()
+                .filter(s -> "男".equals(s.split("-")[1]))
+                .collect(Collectors.toList());
+        System.out.println(list1);
 
-    static {
-        np[1] = true;
-        for (int i = 2; i * i <= MX; i++) {
-            if (!np[i]) {
-                for (int j = i * i; j <= MX; j += i) {
-                    np[j] = true;
-                }
-            }
-        }
-    }
+        // 收集到Set集合当中
+        // 需求：
+        // 我要把所有的男性收集起来
+        Set<String> set = list.stream()
+                .filter(s -> "男".equals(s.split("-")[1]))
+                .collect(Collectors.toSet());
+        System.out.println(set);
 
-    public long countPaths(int n, int[][] edges) {
-        List<Integer>[] g = new ArrayList[n + 1];
-        Arrays.setAll(g, e -> new ArrayList<>());
-        for (var e : edges) {
-            int x = e[0], y = e[1];
-            g[x].add(y);
-            g[y].add(x);
-        }
+        // 收集到Map集合当中
+        // 谁作为键，谁作为值
+        // 需求：
+        // 我要把所有的男性收集起来
+        // 键：姓名 值：年龄
 
-        long ans = 0;
-        int[] size = new int[n + 1];
-        var nodes = new ArrayList<Integer>();
-        for (int x = 1; x <= n; x++) {
-            if (np[x]) { // 跳过非质数
-                continue;
-            }
-            int sum = 0;
-            for (int y : g[x]) { // 质数 x 把这棵树分成了若干个连通块
-                if (!np[y]) {
-                    continue;
-                }
-                if (size[y] == 0) { // 尚未计算过
-                    nodes.clear();
-                    dfs(y, -1, g, nodes); // 遍历 y 所在连通块，在不经过质数的前提下，统计有多少个非质数
-                    for (int z : nodes) {
-                        size[z] = nodes.size();
+        // 张无忌-男-15
+        Map<String, Integer> map = list.stream()
+                .filter(s -> "男".equals(s.split("-")[1]))
+                /*
+                 *       toMap : 参数一表示键的生成规则
+                 *               参数二表示值的生成规则
+                 *
+                 *   参数一：
+                 *       Function泛型一：表示流中每一个数据的类型
+                 *               泛型二：表示Map集合中的数据类型
+                 *       方法apply形参：依次表示流里面每一个数据的类型
+                 *               方法体：生成键的代码
+                 *               返回值：已经生成的键
+                 *
+                 *   参数二：
+                 *       Function泛型一：表示流中每一个数据的类型
+                 *               泛型二：表示Map集合中的数据类型
+                 *       方法apply形参：依次表示流里面每一个数据的类型
+                 *               方法体：生成值的代码
+                 *               返回值：已经生成的值
+                 *
+                 * */
+                .collect(Collectors.toMap(new Function<String, String>() {
+                    @Override
+                    public String apply(String s) {
+                        return s.split("-")[0];
                     }
-                }
-                // 这 size[y] 个非质数与之前遍历到的 sum 个非质数，两两之间的路径只包含质数 x
-                ans += (long) size[y] * sum;
-                sum += size[y];
-            }
-            ans += sum; // 从 x 出发的路径
-        }
-        return ans;
-    }
+                }, new Function<String, Integer>() {
+                    @Override
+                    public Integer apply(String s) {
+                        return Integer.parseInt(s.split("-")[2]);
+                    }
+                }));
+        map.entrySet().stream().forEach(s -> System.out.println(s));
 
-    private void dfs(int x, int fa, List<Integer>[] g, List<Integer> nodes) {
-        nodes.add(x);
-        for (int y : g[x]) {
-            if (y != fa && np[y]) {
-                dfs(y, x, g, nodes);
-            }
-        }
+        Map<String, Integer> map1 = list.stream()
+                .filter(s -> "男".equals(s.split("-")[1]))
+                .collect(Collectors.toMap(s -> s.split("-")[0], s -> Integer.parseInt(s.split("-")[2])));
+        map.entrySet().stream().forEach(s -> System.out.println(s));
     }
 }
