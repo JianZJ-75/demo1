@@ -38,57 +38,35 @@ vector<ll> edges[N];
 ll sz[N];
 ll n, k, cnt;
 
-void dfs(ll x, ll fa)
+void dfs(ll x, ll fa, ll mid)
 {
     sz[x] = 1;
     for (auto i : edges[x])
     {
         if (i == fa)
             continue;
-        dfs(i, x);
+        dfs(i, x, mid);
+        if (sz[i] >= mid)
+        {
+            cnt++;
+            continue;
+        }
         sz[x] += sz[i];
     }
 }
 
 bool ok(ll x)
 {
-    ll cnt = 0;
-    if (sz[1] >= x)
-        cnt += sz[1] / x;
-    // rep(i, 1, n)
-    //     if (sz[i] >= x)
-    //         cnt += sz[i] / x;
-    return cnt <= k;
-}
-
-void tt(ll x, ll fa, ll mid)
-{
-    ll q = edges[x].size();
-    for (auto i : edges[x])
-    {
-        if (i == fa)
-        {
-            q--;
-            continue;
-        }
-        if (q > 1 && sz[i] > mid || q == 1 && sz[i] + 1 > mid)
-        {
-            cnt++;
-            q--;
-        }
-        
-        // if (q == 1 && sz[i] > mid || q > 1 && sz[i] + 1 < mid)
-        // {
-        //     cnt++;
-        //     q--;
-        // }
-        tt(i, x, mid); 
-    }
+    memset(sz, 0, sizeof(sz));
+    cnt = 0;
+    dfs(1, -1, x);
+    if (sz[1] < x)
+        cnt--;
+    return cnt >= k;
 }
 
 void Jian()
 {
-    memset(sz, 0, sizeof(sz));
     cin >> n >> k;
     rep(i, 1, n)
         edges[i].clear();
@@ -99,27 +77,16 @@ void Jian()
         edges[u].push_back(v);
         edges[v].push_back(u);
     }
-    dfs(1, -1);
-    rep(i, 1, n)
-    {
-        sort(edges[i].begin(), edges[i].end(), [&](ll a, ll b) {
-            return sz[a] > sz[b];
-        });
-    }
     ll l = 0, r = n + 1;
     while (r - l > 1)
     {
-        cnt = 0;
         ll mid = (l + r) / 2;
-        tt(1, -1, mid);
-        if (cnt <= k)
-            r = mid;
-        else
+        if (ok(mid))
             l = mid;
-        // cout << mid << "    " << cnt << endl;
-        // cout << l << " " << r << endl;
+        else
+            r = mid;
     }
-    cout << r << endl;
+    cout << l << endl;
 }
 
 signed main()
