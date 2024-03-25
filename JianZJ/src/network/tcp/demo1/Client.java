@@ -1,4 +1,4 @@
-package network.udp.network.tcp.demo1;
+package network.tcp.demo1;
 
 import java.io.IOException;
 import java.io.OutputStream;
