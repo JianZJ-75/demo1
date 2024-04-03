@@ -1,4 +1,4 @@
-package stream;
+package stream.demo;
 
 import java.util.ArrayList;
 import java.util.Collections;

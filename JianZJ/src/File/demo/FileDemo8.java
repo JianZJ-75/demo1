@@ -1,4 +1,4 @@
-package File;
+package File.demo;
 
 import java.io.File;
 
@@ -20,6 +20,6 @@ public class FileDemo8 {
             if (file.isFile() && file.getName().endsWith(".txt"))
                 System.out.println(file);
         }
-        
+
     }
 }

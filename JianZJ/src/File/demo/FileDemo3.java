@@ -1,4 +1,4 @@
-package File;
+package File.demo;
 
 import java.io.File;
 import java.util.Date;
@@ -37,7 +37,7 @@ public class FileDemo3 {
         String path1 = f3.getAbsolutePath();
         System.out.println(path1);
 
-        File f4 = new File("JianZJ\\src\\File\\FileDemo3");
+        File f4 = new File("JianZJ\\src\\File\\demo\\FileDemo3");
         String path2 = f4.getAbsolutePath();
         System.out.println(path2);
 
@@ -48,7 +48,7 @@ public class FileDemo3 {
         String path3 = f5.getPath();
         System.out.println(path3);
 
-        File f6 = new File("JianZJ\\src\\File\\FileDemo3");
+        File f6 = new File("JianZJ\\src\\File\\demo\\FileDemo3");
         String path4 = f6.getPath();
         System.out.println(path4);
 
