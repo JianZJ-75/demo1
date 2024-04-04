@@ -16,6 +16,6 @@ public class Test3 {
     }
 
     public static boolean haveAVI() {
-
+        return false;
     }
 }
