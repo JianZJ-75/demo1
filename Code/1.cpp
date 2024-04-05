@@ -1,70 +1,45 @@
 #include <bits/stdc++.h>
-#define ll long long
-#define dd double
-#define endl '\n'
-#define pii pair<ll, ll>
-#define x first
-#define y second
-#define rep(i, a, b) for (ll i = a; i <= b; i++)
-#define rrep(i, a, b) for (ll i = a; i >= b; i--)
-#define INF 0x3f3f3f3f
-#define LINF 0x3f3f3f3f3f3f3f3f
-const ll M = 1e9 + 7;
-const ll mod = 998244353;
-
 using namespace std;
-
-ll qmi(ll a, ll b)
+const int N = 1e6 + 10;
+int n, p[N], d[N];
+void solved()
 {
-    ll ret = 1;
-    while (b)
+    cin >> n;
+    for (int i = 2; i <= n; i++)
     {
-        if (b & 1)
-            ret = ret * a % mod;
-        b /= 2;
-        a = a * a % mod;
+        cin >> p[i];
+        d[p[i]]++;
     }
-    return ret;
-}
-
-ll gcd(ll a, ll b)
-{
-    if (a < b)
-        swap(a, b);
-    return b ? gcd(b, a % b) : a;
-}
-
-void Jian()
-{
-    ll n, m;
-    cin >> n >> m;
-    ll cnt = 0;
-    rep(i, 1, n / i)
+    queue<int> q;
+    for (int i = 1; i <= n; i++)
+        if (d[i] == 0)
+            q.push(i);
+    int Min = q.size(), sz = 0;
+    while (!q.empty())
     {
-        if (n % i == 0)
+        sz++;
+        int now = q.size();
+        for (int i = 1; i <= now; i++)
         {
-            cnt++;
-            if (n / i != i)
-                cnt++;
+            int x = q.front();
+            q.pop();
+            d[p[x]]--;
+            if (d[p[x]] == 0)
+                q.push(p[x]);
         }
+        Min = min(Min, sz + (int)q.size());
     }
-    if (cnt == 1)
-    {
-        cout << 1 << endl;
-        return;
-    }
-    cout << (mod + qmi(cnt, m) - 1) % mod << endl;
+    cout << Min << endl;
 }
 
 signed main()
 {
-    srand(time(0));
     ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+    cin.tie(NULL);
+    cout.tie(NULL);
     int _ = 1;
     cin >> _;
     while (_--)
-        Jian();
+        solved();
     return 0;
 }
