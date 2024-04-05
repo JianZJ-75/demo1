@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  * @Author JianZJ
  * @Date 2024/3/21 0:38
  */
-public class TestDemo1 {
+public class Test1 {
     /*
     * 数据过滤
     *
