@@ -13,7 +13,9 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        new Main().init(1);
+        int i = Integer.numberOfLeadingZeros(180);
+        System.out.println(Integer.toBinaryString(180));
+        System.out.println(i);
     }
 
     public void init(int a)
