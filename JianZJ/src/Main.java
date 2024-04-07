@@ -13,11 +13,7 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        Map<Integer, Boolean> mp = new HashMap<>();
-        mp.put(1, false);
-        Boolean b = mp.get(1);
-        b = true;
-        System.out.println(mp.get(1));
+        System.out.println(Integer.toBinaryString(47802));
     }
 
     public void init(int a)

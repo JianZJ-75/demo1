@@ -24,8 +24,8 @@ public class ByteStreamDemo1 {
 
         // 2. 读取数据
         int b;
-        while ((b = fis.read()) != -1)
-            System.out.print((char) b);
+        b = fis.read();
+        System.out.println((char) b);
 
         // 3. 释放资源
         fis.close();
