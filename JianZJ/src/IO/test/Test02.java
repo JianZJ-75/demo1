@@ -3,6 +3,9 @@ package IO.test;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @Author JianZJ
@@ -25,16 +28,16 @@ public class Test02 {
         // 解密只需将加密的文件再进行一次异或
 
         // 1. 创建对象关联原始文件
-        FileInputStream fis = new FileInputStream("src\\IO\\resource\\ency.jpg");
+        FileInputStream fis = new FileInputStream("src\\IO\\resource\\75.jpg");
 
         // 2. 创建对象关联加密文件
-        FileOutputStream fos = new FileOutputStream("src\\IO\\resource\\redu.jpg");
+        FileOutputStream fos = new FileOutputStream("src\\IO\\resource\\ency.jpg");
 
         // 3. 加密处理
         final int K = 100;
         int b;
         while((b = fis.read()) != -1) {
-            fos.write(b ^ K);
+            fos.write(b);
         }
 
         // 4. 释放资源
