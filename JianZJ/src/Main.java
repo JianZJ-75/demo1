@@ -18,31 +18,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        File fb = new File("src\\IO\\resource\\fb.jpg");
-
-        File origin = new File("src\\IO\\resource\\zj.jpg");
-
-        FileInputStream fis = new FileInputStream(origin);
-        FileOutputStream fos = new FileOutputStream(fb);
-
-        int b;
-        while ((b = fis.read()) != -1) {
-            fos.write(b);
-        }
-
-        FileInputStream fis1 = new FileInputStream(fb);
-        FileOutputStream fos1 = new FileOutputStream(origin);
-
-        while ((b = fis1.read()) != -1) {
-            fos1.write(b ^ K);
-        }
-
-        fis1.close();
-        fos1.close();
-        fos.close();
-        fis.close();
-
-        fb.delete();
+        String s = "dadas";
+        String t = s;
+        s += "das";
+        System.out.println(s);
+        System.out.println(t);
 
     }
 }

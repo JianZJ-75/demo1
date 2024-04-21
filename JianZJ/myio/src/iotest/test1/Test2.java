@@ -66,7 +66,7 @@ public class Test2 {
         // 6. 写出数据
         // 细节:
         // 糊涂包的相对路径, 不是相对于当前项目而言的, 而是相对class文件而言的
-        FileUtil.writeLines(list, "E:\\Git\\demo1\\JianZJ\\myio\\src\\resource\\names.txt", "UTF-8", true);
+        FileUtil.writeLines(list, "E:\\Git\\demo1\\JianZJ\\myio\\src\\resource\\names.txt", "UTF-8", false);
 
     }
 
