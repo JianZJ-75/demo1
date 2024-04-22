@@ -1,0 +1,3356 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-743380-5"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-743380-5');
+        </script>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="X-Csrf-Token" content="93d45ee3aece693c60315aebef6c17a0"/>
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=0.01"/>
+
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery-1.8.3.js"></script>
+    <script type="application/javascript">
+        window.locale = "en";
+        window.standaloneContest = false;
+        function adjustViewport() {
+            var screenWidthPx = Math.min($(window).width(), window.screen.width);
+            var siteWidthPx = 1100; // min width of site
+            var ratio = Math.min(screenWidthPx / siteWidthPx, 1.0);
+            var viewport = "width=device-width, initial-scale=" + ratio;
+            $('#viewport').attr('content', viewport);
+            var style = $('<style>html * { max-height: 1000000px; }</style>');
+            $('html > head').append(style);
+        }
+
+        if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+            adjustViewport();
+        }
+
+        /* Protection against trailing dot in domain. */
+        let hostLength = window.location.host.length;
+        if (hostLength > 1 && window.location.host[hostLength - 1] === '.') {
+            window.location = window.location.protocol + "//" + window.location.host.substring(0, hostLength - 1);
+        }
+    </script>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta http-equiv="profileName" content="j2">
+    <meta name="google-site-verification" content="OTd2dN5x4nS4OPknPI9JFg36fKxjqY0i1PSfFPv_J90"/>
+    <meta property="fb:admins" content="100001352546622" />
+    <meta property="og:image" content="//codeforces.org/s/14218/images/codeforces-sponsored-by-ton.png" />
+    <link rel="image_src" href="//codeforces.org/s/14218/images/codeforces-sponsored-by-ton.png" />
+    <meta property="og:title" content="JianZJ - Codeforces"/>
+    <meta property="og:description" content=""/>
+    
+    <meta property="og:site_name" content="Codeforces"/>
+    
+    
+    
+    
+    
+    
+    <meta name="utc_offset" content="+03:00"/>
+    <meta name="verify-reformal" content="f56f99fd7e087fb6ccb48ef2" />
+    <title>JianZJ - Codeforces</title>
+        <meta name="description" content="Codeforces. Programming competitions and contests, programming community" />
+        <meta name="keywords" content="programming algorithm contest competition informatics olympiads c++ java graphs vkcup" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/font-awesome.min.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/line-awesome.min.css" type="text/css" charset="utf-8" />
+
+        <link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="//codeforces.org/s/14218/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="//codeforces.org/s/14218/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="//codeforces.org/s/14218/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="//codeforces.org/s/14218/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="//codeforces.org/s/14218/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="//codeforces.org/s/14218/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="//codeforces.org/s/14218/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="//codeforces.org/s/14218/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="//codeforces.org/s/14218/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="//codeforces.org/s/14218/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="//codeforces.org/s/14218/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="//codeforces.org/s/14218/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="//codeforces.org/s/14218/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="//codeforces.org/s/14218/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--CombineResourcesFilter-->
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/prettify.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/clear.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/style.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/ttypography.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/problem-statement.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/second-level-menu.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/roundbox.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/datatable.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/table-form.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/topic.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/jquery.jgrowl.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/facebox.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/jquery.wysiwyg.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/jquery.autocomplete.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/codeforces.datepick.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/colorbox.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/css/jquery.drafts.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="//codeforces.org/s/14218/css/calendar_yearview_blocks.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="//codeforces.org/s/14218/css/community.css" type="text/css" charset="utf-8" />
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$$$','$$$']], displayMath: [['$$$$$$','$$$$$$']]}
+    });
+    MathJax.Hub.Register.StartupHook("End", function () {
+        Codeforces.runMathJaxListeners();
+    });
+    </script>
+    <script type="text/javascript" async
+            src="https://mathjax.codeforces.org/MathJax.js?config=TeX-AMS_HTML-full"
+    >
+    </script>
+    <!-- /MathJax -->
+
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/prettify/prettify.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/pushstream.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.lavalamp.min.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.jgrowl.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.swipe.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/facebox.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.wysiwyg.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/controls/wysiwyg.colorpicker.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/controls/wysiwyg.table.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/controls/wysiwyg.image.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/controls/wysiwyg.link.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.datepick.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.ie6blocker.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.ba-bbq.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/jquery.drafts.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/autosize.min.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/sjcl.js"></script>
+    <script type="text/javascript" src="/scripts/6b85576e9c46da79d6c5be56f701a53a/en/codeforces-options.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/codeforces.js?v=20160131"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/EventCatcher.js?v=20160131"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/preparedVerdictFormats-en.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/js/confetti.min.js"></script>
+    <!--/CombineResourcesFilter-->
+
+    <link rel="stylesheet" href="//codeforces.org/s/14218/markitup/skins/markitup/style.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="//codeforces.org/s/14218/markitup/sets/markdown/style.css" type="text/css" charset="utf-8" />
+
+
+    <script type="text/javascript" src="//codeforces.org/s/14218/markitup/jquery.markitup.js"></script>
+    <script type="text/javascript" src="//codeforces.org/s/14218/markitup/sets/markdown/set.js"></script>
+
+    <!--[if IE]>
+    <style>
+        #sidebar {
+            padding-left: 1em;
+            margin: 1em 1em 1em 0;
+        }
+    </style>
+    <![endif]-->
+
+
+        <script id="nocomb.calendar_yearview_blocks.js" src="//codeforces.org/s/14218/js/calendar_yearview_blocks.js" type="text/javascript"></script>
+        <script id="nocomb.jquery.flot.min.js" src="//codeforces.org/s/14218/js/jquery.flot.min.js" type="text/javascript"></script>
+        <script id="nocomb.jquery.flot.time.min.js" src="//codeforces.org/s/14218/js/jquery.flot.time.min.js" type="text/javascript"></script>
+        <script id="nocomb.jquery.flot.navigate.min.js" src="//codeforces.org/s/14218/js/jquery.flot.navigate.min.js" type="text/javascript"></script>
+
+
+</head>
+<body class=" "><span style='display:none;' class='csrf-token' data-csrf='93d45ee3aece693c60315aebef6c17a0'>&nbsp;</span>
+
+<!-- .notificationTextCleaner used in Codeforces.showAnnouncements() -->
+<div class="notificationTextCleaner" style="font-size: 0"></div>
+<div class="button-up" style="display: none; opacity: 0.7; width: 50px; height:100%; position: fixed; left: 0; top: 0; cursor: pointer; text-align: center; line-height: 35px; color: #d3dbe4; font-weight: bold; font-size: 3.0rem;"><i class="icon-circle-arrow-up"></i></div>
+<div class="verdictPrototypeDiv" style="display: none;"></div>
+
+<!-- Codeforces JavaScripts. -->
+<script type="text/javascript">
+    String.prototype.hashCode = function() {
+        var hash = 0, i, chr;
+        if (this.length === 0) return hash;
+        for (i = 0; i < this.length; i++) {
+            chr   = this.charCodeAt(i);
+            hash  = ((hash << 5) - hash) + chr;
+            hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
+    };
+
+    var queryMobile = Codeforces.queryString.mobile;
+    if (queryMobile === "true" || queryMobile === "false") {
+        Codeforces.putToStorage("useMobile", queryMobile === "true");
+    } else {
+        var useMobile = Codeforces.getFromStorage("useMobile");
+        if (useMobile === true || useMobile === false) {
+            if (useMobile != false) {
+                Codeforces.redirect(Codeforces.updateUrlParameter(document.location.href, "mobile", useMobile));
+            }
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    if (window.parent.frames.length > 0) {
+        window.stop();
+    }
+</script>
+
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+    (function () {
+        jQuery.expr[':'].containsCI = function(elem, index, match) {
+            return !match || !match.length || match.length < 4 || !match[3] || (
+                    elem.textContent || elem.innerText || jQuery(elem).text() || ''
+            ).toLowerCase().indexOf(match[3].toLowerCase()) >= 0;
+        }
+    }(jQuery));
+
+    $.ajaxPrefilter(function(options, originalOptions, xhr) {
+        var csrf = Codeforces.getCsrfToken();
+
+        if (csrf) {
+            var data = originalOptions.data;
+            if (originalOptions.data !== undefined) {
+                if (Object.prototype.toString.call(originalOptions.data) === '[object String]') {
+                    data = $.deparam(originalOptions.data);
+                }
+            } else {
+                data = {};
+            }
+            options.data = $.param($.extend(data, { csrf_token: csrf }));
+        }
+    });
+
+    window.getCodeforcesServerTime = function(callback) {
+        $.post("/data/time", {}, callback, "json");
+    }
+
+    window.updateTypography = function () {
+        $("div.ttypography code").addClass("tt");
+        $("div.ttypography pre>code").addClass("prettyprint").removeClass("tt");
+        $("div.ttypography table").addClass("bordertable");
+        prettyPrint();
+    }
+
+    $.ajaxSetup({ scriptCharset: "utf-8" ,contentType: "application/x-www-form-urlencoded; charset=UTF-8", headers: {
+        'X-Csrf-Token': Codeforces.getCsrfToken()
+    }});
+
+    window.updateTypography();
+
+    Codeforces.signForms();
+
+    setTimeout(function() {
+        $(".second-level-menu-list").lavaLamp({
+            fx: "backout",
+            speed: 700
+        });
+    }, 100);
+
+
+    Codeforces.countdown();
+    $("a[rel='photobox']").colorbox();
+
+
+    function showAnnouncements(json) {
+        //info("j=" + JSON.stringify(json));
+
+        if (json.t != "a") {
+            return;
+        }
+
+        setTimeout(function() {
+            Codeforces.showAnnouncements(json.d, "en");
+        }, Math.random() * 500);
+    }
+
+    function showEventCatcherUserMessage(json) {
+        if (json.t == "s") {
+            var points = json.d[5];
+            var passedTestCount = json.d[7];
+            var judgedTestCount = json.d[8];
+            var verdict = preparedVerdictFormats[json.d[12]];
+            var verdictPrototypeDiv = $(".verdictPrototypeDiv");
+            verdictPrototypeDiv.html(verdict);
+            if (judgedTestCount != null && judgedTestCount != undefined) {
+                verdictPrototypeDiv.find(".verdict-format-judged").text(judgedTestCount);
+            }
+            if (passedTestCount != null && passedTestCount != undefined) {
+                verdictPrototypeDiv.find(".verdict-format-passed").text(passedTestCount);
+            }
+            if (points != null && points != undefined) {
+                verdictPrototypeDiv.find(".verdict-format-points").text(points);
+            }
+            Codeforces.showMessage(verdictPrototypeDiv.text());
+        }
+    }
+
+    $(".clickable-title").each(function() {
+        var title = $(this).attr("data-title");
+        if (title) {
+            var tmp = document.createElement("DIV");
+            tmp.innerHTML = title;
+            $(this).attr("title", tmp.textContent || tmp.innerText || "");
+        }
+    });
+
+    $(".clickable-title").click(function() {
+        var title = $(this).attr("data-title");
+        if (title) {
+            Codeforces.alert(title);
+        } else {
+            Codeforces.alert($(this).attr("title"));
+        }
+    }).css("position", "relative").css("bottom", "3px");
+
+        Codeforces.showDelayedMessage();
+
+    Codeforces.reformatTimes();
+
+    //Codeforces.initializePubSub();
+    if (window.codeforcesOptions.subscribeServerUrl) {
+        window.eventCatcher = new EventCatcher(
+            window.codeforcesOptions.subscribeServerUrl,
+            [
+                Codeforces.getGlobalChannel(),
+                Codeforces.getUserChannel(),
+                Codeforces.getUserShowMessageChannel(),
+                Codeforces.getContestChannel(),
+                Codeforces.getParticipantChannel(),
+                Codeforces.getTalkChannel()
+            ]
+        );
+
+        if (Codeforces.getParticipantChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getParticipantChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getContestChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getContestChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getGlobalChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getGlobalChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getUserChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getUserChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getUserShowMessageChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getUserShowMessageChannel(), function(json) {
+                showEventCatcherUserMessage(json);
+            });
+        }
+    }
+
+    Codeforces.setupContestTimes("/data/contests");
+    Codeforces.setupSpoilers();
+    Codeforces.setupTutorials("/data/problemTutorial");
+        });
+    </script>
+
+
+<div id="body">
+        
+
+<div class="side-bell" style="visibility: hidden; display: none; opacity: 0.7; width: 40px; position: fixed; right: 0; top: 0; cursor: pointer; text-align: center; line-height: 35px; color: #d3dbe4; font-weight: bold; font-size: 1.5rem;">
+    <span class="icon-stack" style="width: 100%;">
+        <i class="icon-circle icon-stack-base"></i>
+        <i class="icon-bell-alt icon-light"></i>
+    </span>
+    <br/>
+    <span class="side-bell__count" style="position: relative; top: -10px;"></span>
+</div>
+
+
+<div id="header" style="position: relative;">
+    <div style="float:left; max-height: 60px;">
+                    <a href="/"><img height="65" style="height: 65px;" alt="Codeforces" title="Codeforces" src="//codeforces.org/s/14218/images/codeforces-sponsored-by-ton.png"/></a>
+    </div>
+    <div class="lang-chooser">
+        <div style="text-align: right;">
+            <a href="?locale=en"><img src="//codeforces.org/s/14218/images/flags/24/gb.png" title="In English" alt="In English"/></a>
+            <a href="?locale=ru"><img src="//codeforces.org/s/14218/images/flags/24/ru.png" title="По-русски" alt="По-русски"/></a>
+        </div>
+
+        <div >
+                        <a href="/enter?back=%2Fprofile%2FJianZJ">Enter</a>
+                     | 
+                        <a href="/register">Register</a>
+                    
+        </div>
+
+
+
+    </div>
+    <br style="clear: both;"/>
+</div>
+        
+
+
+    <div class="roundbox menu-box borderTopRound borderBottomRound" style="">
+    <div class="menu-list-container">
+    <ul class="menu-list main-menu-list">
+                <li class=""><a href="/">Home</a></li>
+                <li class=""><a href="/top">Top</a></li>
+                <li class=""><a href="/catalog">Catalog</a></li>
+                <li class=""><a href="/contests">Contests</a></li>
+                <li class=""><a href="/gyms">Gym</a></li>
+                <li class=""><a href="/problemset">Problemset</a></li>
+                <li class=""><a href="/groups">Groups</a></li>
+                <li class=""><a href="/ratings">Rating</a></li>
+                <li class=""><a href="/edu/courses"><span class="edu-menu-item">Edu</span></a></li>
+                <li class=""><a href="/apiHelp">API</a></li>
+                <li class=""><a href="/calendar">Calendar</a></li>
+                <li class=""><a href="/help">Help</a></li>
+    </ul>
+        <form method="post" action="/search"><input type='hidden' name='csrf_token' value='93d45ee3aece693c60315aebef6c17a0'/>
+            <input class="search" name="query" data-isPlaceholder="true" value=""/>
+        </form>
+    <br style="clear: both;"/>
+</div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input.search").focus(function () {
+                if ($(this).attr("data-isPlaceholder") === "true") {
+                    $(this).val("");
+                    $(this).removeAttr("data-isPlaceholder");
+                }
+            });
+        });
+    </script>
+            <br style="height: 3em; clear: both;"/>
+
+        <div style="position: relative;">
+                        <div id="sidebar">
+
+    <div class="roundbox sidebox borderTopRound " style="">
+        <div class="caption titled">&rarr; Pay attention
+            <div class="top-links">
+            </div>
+        </div>
+<div style="padding: 0.5em;">
+        <div style="text-align:center;border-bottom: 1px solid rgb(185, 185, 185);margin:0 -0.5em 0.5em -0.5em;padding: 0 1em 0.5em 1em;">
+            <span class='contest-state-phase'>Before contest</span><br/><a href="/contests/1965,1966">Codeforces Round 941 (Div. 1)</a><br/><span class='countdown' home='//codeforces.org/s/14218' noRedirection='true' textBeforeRedirect=''><span title="130:18:01">5 days</span></span>
+        </div>
+        <div style="text-align:center;">
+            <span class='contest-state-phase'>Before contest</span><br/><a href="/contests/1965,1966">Codeforces Round 941 (Div. 2)</a><br/><span class='countdown' home='//codeforces.org/s/14218' noRedirection='true' textBeforeRedirect=''><span title="130:18:01">5 days</span></span>
+        </div>
+</div>
+    </div>
+
+<style data-nocturne="true" type="text/css">
+._StreamsSidebarFrame_frame {
+  padding: 0.5em 0.5em 0 0.5em;
+}
+._StreamsSidebarFrame_frame ._StreamsSidebarFrame_stream {
+  text-align: center;
+  border-bottom: 1px solid #b9b9b9;
+  margin: 0 -0.5em 0.5em -0.5em;
+  padding: 0 1em 0.5em 1em;
+}
+._StreamsSidebarFrame_frame ._StreamsSidebarFrame_stream ._StreamsSidebarFrame_user {
+  margin: 0 0 0.5em 0;
+  font-size: 0.8em;
+}
+._StreamsSidebarFrame_frame ._StreamsSidebarFrame_stream ._StreamsSidebarFrame_timeMark {
+  color: #777;
+  font-size: 0.9em;
+}
+._StreamsSidebarFrame_frame ._StreamsSidebarFrame_stream:last-of-type {
+  border-bottom: unset;
+  margin: unset;
+  padding: 0 0.5em 0.5em 1em;
+}
+._StreamsSidebarFrame_frame ._viewAll {
+  text-align: right;
+}
+.moreRunningStreamsSidebarNote {
+  color: #777 !important;
+  text-decoration: none;
+}
+</style>
+
+
+<script data-nocturne="true"> $(function () {
+
+}); </script>
+
+
+<div class="roundbox sidebox top-contributed borderTopRound " style="">
+<div class="caption titled">&rarr; Top rated
+<div class="top-links">
+</div>
+</div>
+<table class="rtable ">
+<tbody>
+<tr>
+<th class="left" style="width:2.25em;">#</th>
+<th class="">User</th>
+<th class="" style="width:5em;">Rating</th>
+</tr>
+<tr>
+<td class="left dark">1</td>
+<td class=" dark"><a href="/profile/ecnerwala" title="Legendary Grandmaster ecnerwala" class="rated-user user-legendary"><span class="legendary-user-first-letter">e</span>cnerwala</a></td>
+<td class=" dark">3648</td>
+</tr>
+<tr>
+<td class="left ">2</td>
+<td class=""><a href="/profile/Benq" title="Legendary Grandmaster Benq" class="rated-user user-legendary"><span class="legendary-user-first-letter">B</span>enq</a></td>
+<td class="">3580</td>
+</tr>
+<tr>
+<td class="left dark">3</td>
+<td class=" dark"><a href="/profile/orzdevinwang" title="Legendary Grandmaster orzdevinwang" class="rated-user user-legendary"><span class="legendary-user-first-letter">o</span>rzdevinwang</a></td>
+<td class=" dark">3570</td>
+</tr>
+<tr>
+<td class="left ">4</td>
+<td class=""><a href="/profile/cnnfls_csy" title="Legendary Grandmaster cnnfls_csy" class="rated-user user-legendary"><span class="legendary-user-first-letter">c</span>nnfls_csy</a></td>
+<td class="">3569</td>
+</tr>
+<tr>
+<td class="left dark">5</td>
+<td class=" dark"><a href="/profile/Geothermal" title="Legendary Grandmaster Geothermal" class="rated-user user-legendary"><span class="legendary-user-first-letter">G</span>eothermal</a></td>
+<td class=" dark">3568</td>
+</tr>
+<tr>
+<td class="left ">6</td>
+<td class=""><a href="/profile/tourist" title="Legendary Grandmaster tourist" class="rated-user user-legendary"><span class="legendary-user-first-letter">t</span>ourist</a></td>
+<td class="">3565</td>
+</tr>
+<tr>
+<td class="left dark">7</td>
+<td class=" dark"><a href="/profile/maroonrk" title="Legendary Grandmaster maroonrk" class="rated-user user-legendary"><span class="legendary-user-first-letter">m</span>aroonrk</a></td>
+<td class=" dark">3530</td>
+</tr>
+<tr>
+<td class="left ">8</td>
+<td class=""><a href="/profile/Radewoosh" title="Legendary Grandmaster Radewoosh" class="rated-user user-legendary"><span class="legendary-user-first-letter">R</span>adewoosh</a></td>
+<td class="">3520</td>
+</tr>
+<tr>
+<td class="left dark">9</td>
+<td class=" dark"><a href="/profile/Um_nik" title="Legendary Grandmaster Um_nik" class="rated-user user-legendary"><span class="legendary-user-first-letter">U</span>m_nik</a></td>
+<td class=" dark">3481</td>
+</tr>
+<tr>
+<td class="left bottom">10</td>
+<td class="bottom"><a href="/profile/jiangly" title="Legendary Grandmaster jiangly" class="rated-user user-legendary"><span class="legendary-user-first-letter">j</span>iangly</a></td>
+<td class="bottom">3467</td>
+</tr>
+</tbody>
+</table>
+<div class="bottom-links">
+<table style="width:100%;">
+<tbody>
+<tr>
+<td style="text-align:left;">
+<a href="/ratings/countries">Countries</a> |
+<a href="/ratings/cities">Cities</a> |
+<a href="/ratings/organizations">Organizations</a>
+</td>
+<td style="text-align:right;">
+<a href="/ratings">View all &rarr;</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+    <div class="roundbox sidebox top-contributed borderTopRound " style="">
+        <div class="caption titled">&rarr; Top contributors
+            <div class="top-links">
+            </div>
+        </div>
+        <table class="rtable ">
+            <tbody>
+                <tr>
+                            <th class="left" style="width:2.25em;">#</th>
+                            <th class="">User</th>
+                            <th class="" style="width:5em;">Contrib.</th>
+                </tr>
+                    <tr>
+                                <td class="left  dark">1</td>
+                                <td class=" dark"><a href="/profile/maomao90" title="Grandmaster maomao90" class="rated-user user-red">maomao90</a></td>
+                                <td class=" dark">174</td>
+                    </tr>
+                    <tr>
+                                <td class="left ">2</td>
+                                <td class=""><a href="/profile/awoo" title="Master awoo" class="rated-user user-orange">awoo</a></td>
+                                <td class="">164</td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark">3</td>
+                                <td class=" dark"><a href="/profile/adamant" title="Grandmaster adamant" class="rated-user user-red">adamant</a></td>
+                                <td class=" dark">163</td>
+                    </tr>
+                    <tr>
+                                <td class="left ">4</td>
+                                <td class=""><a href="/profile/TheScrasse" title="Grandmaster TheScrasse" class="rated-user user-red">TheScrasse</a></td>
+                                <td class="">159</td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark">5</td>
+                                <td class=" dark"><a href="/profile/nor" title="Master nor" class="rated-user user-orange">nor</a></td>
+                                <td class=" dark">158</td>
+                    </tr>
+                    <tr>
+                                <td class="left ">6</td>
+                                <td class=""><a href="/profile/maroonrk" title="Legendary Grandmaster maroonrk" class="rated-user user-legendary"><span class="legendary-user-first-letter">m</span>aroonrk</a></td>
+                                <td class="">156</td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark">7</td>
+                                <td class=" dark"><a href="/profile/-is-this-fft-" title="Grandmaster -is-this-fft-" class="rated-user user-red">-is-this-fft-</a></td>
+                                <td class=" dark">151</td>
+                    </tr>
+                    <tr>
+                                <td class="left ">8</td>
+                                <td class=""><a href="/profile/SecondThread" title="International Master SecondThread" class="rated-user user-orange">SecondThread</a></td>
+                                <td class="">146</td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark">8</td>
+                                <td class=" dark"><a href="/profile/orz" title="International Grandmaster orz" class="rated-user user-red">orz</a></td>
+                                <td class=" dark">146</td>
+                    </tr>
+                    <tr>
+                                <td class="left bottom">10</td>
+                                <td class="bottom"><a href="/profile/pajenegod" title="Grandmaster pajenegod" class="rated-user user-red">pajenegod</a></td>
+                                <td class="bottom">145</td>
+                    </tr>
+            </tbody>
+        </table>
+            <div class="bottom-links">
+                <table style="width:100%;">
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left;">
+                            </td>
+                            <td style="text-align:right;">
+                                    <a href="/top-contributed">View all &rarr;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });
+    </script>
+
+
+
+
+    <div class="roundbox sidebox borderTopRound " style="">
+        <div class="caption titled">&rarr; Find user
+            <div class="top-links">
+            </div>
+        </div>
+        <form class="handleForm" method="post"><input type='hidden' name='csrf_token' value='93d45ee3aece693c60315aebef6c17a0'/>
+            <div style="padding:1em;text-align:right;">
+                <label style="padding-right:1em;">Handle:
+                    <input style="width:12em;" type="text" class="handleBox"/>
+                </label>
+            </div>
+            <div style="padding: 0 1em 1em 1em;text-align:right;">
+                <input style="height:1.65em;padding:0 0.75em;" type="submit" value="Find"/>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+    $(".handleBox").autocomplete("/data/handles", {
+        delay: 200,
+        width: 200,
+        selectFirst: false,
+        matchContains: true,
+        minChars: 3
+    });
+    $(".handleForm").attr("autocomplete", "off").submit(function () {
+        var link = "/profile/userHandle".replace(
+            "userHandle", $(this).find(".handleBox").val()
+        );
+        window.location = link;
+        return false;
+    });
+        });
+    </script>
+
+
+
+
+
+    <div class="roundbox sidebox borderTopRound " style="">
+        <div class="caption titled">&rarr; Recent actions
+            <div class="top-links">
+            </div>
+        </div>
+        <div class="recent-actions">
+            <ul>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/atcoder_official" title="Unrated, atcoder_official" class="rated-user user-black">atcoder_official</a>        &rarr;
+        <a href="/blog/entry/128633">AtCoder Beginner Contest 350 Announcement</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/UTPC_Admin" title="Master UTPC_Admin" class="rated-user user-orange">UTPC_Admin</a>        &rarr;
+        <a href="/blog/entry/128529">UT Open (UTOPC) 2024</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/akcube" title="Master akcube" class="rated-user user-orange">akcube</a>        &rarr;
+        <a href="/blog/entry/128716">Codeforces Round #940 and CodeCraft-23 (Div. 2) Editorial</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/antontrygubO_o" title="Legendary Grandmaster antontrygubO_o" class="rated-user user-legendary"><span class="legendary-user-first-letter">a</span>ntontrygubO_o</a>        &rarr;
+        <a href="/blog/entry/127830">[ONE DAY LEFT] MIT Informatics Tournament 2024 Spring Invitational</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/fangahawk" title="Master fangahawk" class="rated-user user-orange">fangahawk</a>        &rarr;
+        <a href="/blog/entry/128597">Codeforces Round #940 and CodeCraft-23 (Div. 2)</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/awoo" title="Master awoo" class="rated-user user-orange">awoo</a>        &rarr;
+        <a href="/blog/entry/95890">Educational Codeforces Round 115 Editorial</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+        <img alt="Necropost" title="Necropost" src="//codeforces.org/s/14218/images/icons/hourglass.png"  style="vertical-align:middle; position: relative; top: 1px;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/GDCass1ni" title="Newbie GDCass1ni" class="rated-user user-gray">GDCass1ni</a>        &rarr;
+        <a href="/blog/entry/128695">how to find problems by samples ?</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/Sinux" title="Newbie Sinux" class="rated-user user-gray">Sinux</a>        &rarr;
+        <a href="/blog/entry/125893">900 rated problems so hard</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/ICPCNews" title="Unrated, ICPCNews" class="rated-user user-black">ICPCNews</a>        &rarr;
+        <a href="/blog/entry/128559">The 2023 ICPC World Finals Luxor</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/NegativeElo" title="Expert NegativeElo" class="rated-user user-blue">NegativeElo</a>        &rarr;
+        <a href="/blog/entry/128613">Code Cauldron 2.0 Inter College Coding Competition (Prizes worth 8K INR)</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/UTPC_Admin" title="Master UTPC_Admin" class="rated-user user-orange">UTPC_Admin</a>        &rarr;
+        <a href="/blog/entry/128692">UTPC Spring 2024 Open Contest Editorial</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/E869120" title="International Grandmaster E869120" class="rated-user user-red">E869120</a>        &rarr;
+        <a href="/blog/entry/128667">Serious Altitude Issue in IOI 2025</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/avighnakc" title="Specialist avighnakc" class="rated-user user-cyan">avighnakc</a>        &rarr;
+        <a href="/blog/entry/128605">INOI 2024 in a few days</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/TommasoUlian" title="Pupil TommasoUlian" class="rated-user user-green">TommasoUlian</a>        &rarr;
+        <a href="/blog/entry/128715">Runtime Error Bug in System Testing</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/fluxgamer999" title="Pupil fluxgamer999" class="rated-user user-green">fluxgamer999</a>        &rarr;
+        <a href="/blog/entry/128718">Array Stabilization (GCD version) Binary Search Solution</a>
+&nbsp;&nbsp;<img alt="Text created or updated" title="Text created or updated" src="//codeforces.org/s/14218/images/icons/x-update-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/maroonrk" title="Legendary Grandmaster maroonrk" class="rated-user user-legendary"><span class="legendary-user-first-letter">m</span>aroonrk</a>        &rarr;
+        <a href="/blog/entry/128665">AtCoder Regular Contest 176 Announcement</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/aropan" title="Grandmaster aropan" class="rated-user user-red">aropan</a>        &rarr;
+        <a href="/blog/entry/109095">CLIST News</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+        <img alt="Necropost" title="Necropost" src="//codeforces.org/s/14218/images/icons/hourglass.png"  style="vertical-align:middle; position: relative; top: 1px;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/avnithv" title="Master avnithv" class="rated-user user-orange">avnithv</a>        &rarr;
+        <a href="/blog/entry/128717">BioCode 2024 Contest in Gym</a>
+&nbsp;&nbsp;<img alt="Text created or updated" title="Text created or updated" src="//codeforces.org/s/14218/images/icons/x-update-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/Sal3h.Sa3d" title="Newbie Sal3h.Sa3d" class="rated-user user-gray">Sal3h.Sa3d</a>        &rarr;
+        <a href="/blog/entry/128711">Judgement failed</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/feeder1" title="International Grandmaster feeder1" class="rated-user user-red">feeder1</a>        &rarr;
+        <a href="/blog/entry/128467">Invitation to NUS CS3233 Final Team Contest 2024 Mirror</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/acraider" title="Master acraider" class="rated-user user-orange">acraider</a>        &rarr;
+        <a href="/blog/entry/128674">Summer Camp to Grow beyond Newbie and Pupil Range</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/FieryPhoenix" title="Master FieryPhoenix" class="rated-user user-orange">FieryPhoenix</a>        &rarr;
+        <a href="/blog/entry/76555">Codeforces Round #638 (Div. 2) Editorial</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+        <img alt="Necropost" title="Necropost" src="//codeforces.org/s/14218/images/icons/hourglass.png"  style="vertical-align:middle; position: relative; top: 1px;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/-is-this-fft-" title="Grandmaster -is-this-fft-" class="rated-user user-red">-is-this-fft-</a>        &rarr;
+        <a href="/blog/entry/128703">[Tutorial] Hungarian algorithm in Õ(mn) or O(n^3)</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/SAD_IN_NIGHTMARE" title="Newbie SAD_IN_NIGHTMARE" class="rated-user user-gray">SAD_IN_NIGHTMARE</a>        &rarr;
+        <a href="/blog/entry/128672">IATI 2024 Discussion</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="//codeforces.org/s/14218/images/icons/comment-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="/profile/IanDeHaan" title="Grandmaster IanDeHaan" class="rated-user user-red">IanDeHaan</a>        &rarr;
+        <a href="/blog/entry/126574">Teams Going to the 2024 ICPC North America Championship</a>
+&nbsp;&nbsp;<img alt="Text created or updated" title="Text created or updated" src="//codeforces.org/s/14218/images/icons/x-update-12x12.png" style="vertical-align:middle;"/>
+</div>
+</li>
+            </ul>
+        </div>
+            <div class="bottom-links">
+                <table style="width:100%;">
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left;">
+                            </td>
+                            <td style="text-align:right;">
+                                    <a href="/recent-actions">Detailed &rarr;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+                        <div id="pageContent" class="content-with-sidebar">
+                    <div class="second-level-menu">
+<ul class="second-level-menu-list">
+        <li><a
+                                        href="/profile/JianZJ">JianZJ</a></li>
+        <li><a
+                                        href="/blog/JianZJ">Blog</a></li>
+        <li><a
+                                        href="/teams/with/JianZJ">Teams</a></li>
+        <li><a
+                                        href="/submissions/JianZJ">Submissions</a></li>
+        <li><a
+                                        href="/contests/with/JianZJ">Contests</a></li>
+</ul>
+</div>
+
+<style>
+    .userbox {
+        overflow: hidden;
+    }
+    .userbox .info {
+        margin-right: 375px;
+        /*padding-top: 1em;*/
+        min-height: 20em;
+        margin-bottom: 1em;
+    }
+    .userbox .info li {
+        margin: 0.5em 0 1em 0;
+    }
+    .userbox input {
+        color: black;
+        height: 2em;
+        line-height: 1.5em;
+        font-size: 0.75em;
+        margin: 0.5em 0.5em 0.5em 0;
+    }
+
+    .userbox .main-info {
+        margin-bottom: 1em;
+    }
+
+    .userbox .badge {
+        position: relative;
+        right: 2px;
+        bottom: 4px;
+    }
+
+    .userbox .main-info-has-badge {
+        margin-bottom: 0.5em !important;
+        position: absolute;
+        left: 90px;
+        top: 0;
+    }
+
+    .userbox h1 {
+        font-size: 2.5rem;
+    }
+
+    .userbox h1.long_handle {
+        font-size: 2rem;
+    }
+
+    .userbox .user-rank {
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    .userbox .friendStar {
+        position: relative;
+        top: 4px !important;
+    }
+</style>
+
+
+
+    <div class="roundbox  borderTopRound borderBottomRound" style="padding:1em 1em 0 1em;">
+    <div class="userbox">
+
+<style>
+    .title-photo input.upload-photo {
+        color: black;
+        height: 2em;
+        line-height: 1.5em;
+        font-size: 0.75em;
+        margin: 0.5em 0.5em 0.5em 0;
+    }
+    .title-photo .badge {
+        position: absolute;
+        bottom: -30px;
+        transform: scale(0.75);
+    }
+</style>
+
+<div class="title-photo">
+    <div style="float:right;border:1px solid #B9B9B9;width:300px;min-height:150px;padding:12.5px;position: relative;margin-bottom: 1em;">
+    <div>
+        <div style="min-height:200px;line-height:200px;text-align:center;">
+<img style="margin:auto;vertical-align:middle;display:inline;"src='https://userpic.codeforces.org/2915830/title/e58330147558b41a.jpg'/>        </div>
+    </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+    function showChangeTitlePhotoForm() {
+        $("#change-title-photo").parent().hide();
+        $(".change-title-photo-form").slideDown();
+    }
+
+    $("input.upload-photo").click(function () {
+        Codeforces.confirm(
+            "Image can't contain offensive, rough or uncultured things. Also it can't contain anyone photo except you.\n\nDo you confirm that the image meets these criteria?",
+            function () {
+                $(".change-title-photo-form form").submit();
+            },
+            function () { },
+            "Yes",
+            "No"
+        );
+        return false;
+    });
+
+    $("#change-title-photo").click(function () {
+        showChangeTitlePhotoForm();
+    });
+    $("#unset-title-photo").click(function () {
+        Codeforces.confirm(
+            "Are you sure you want to unset your current photo?",
+            function () {
+                $(".unset-title-photo-form form").submit();
+            },
+            function () { },
+            "Yes",
+            "No"
+        );
+    });
+
+        });
+    </script>
+        <div class="info" style="position: relative;">
+            <div class="main-info ">
+                <div class="user-rank">
+                    <span class="user-cyan">Specialist </span>
+                </div>
+                <h1 >
+<a href="/profile/JianZJ" title="Specialist JianZJ" class="rated-user user-cyan">JianZJ</a>                </h1>
+
+            <div style="margin-top: 0.5em;">
+                <div style="font-size: 0.8em; color: #777;"><a href="/ratings/country/China">China</a></div>
+                <div style="font-size: 0.8em; color: #777;">From <a href="/ratings/organization/21265">HFUU</a></div>
+            </div>
+            </div>
+            <ul>
+                    <li>
+                            <img
+                                style="vertical-align:middle;margin-right:0.5em;"
+                                src="//codeforces.org/s/14218/images/icons/rating-24x24.png" alt="User''s contest rating in Codeforces community"
+                                title="User''s contest rating in Codeforces community"/>
+                        
+                            Contest rating:
+
+                        <span style="font-weight:bold;" class="user-cyan">1544</span> <span class="smaller"> (max. <span style="font-weight:bold;" class="user-cyan">specialist, </span> <span style="font-weight:bold;" class="user-cyan">1544</span>)</span>                    </li>
+                    <li>
+                            <img
+                                style="vertical-align:middle;margin-right:0.5em;"
+                                src="//codeforces.org/s/14218/images/icons/star_blue_24.png" alt="User''s contribution into Codeforces community"
+                                title="User''s contribution into Codeforces community"/>
+                        
+                            Contribution:
+
+                        <span style="color:gray;font-weight:bold;">0</span>                    </li>
+                    <li>
+                            <img
+                                style="vertical-align:middle;margin-right:0.5em;"
+                                src="//codeforces.org/s/14218/images/icons/star_yellow_24.png" />
+                        
+
+                        Friend of: 37 users                    </li>
+                    <li>
+                        
+                            Last visit:
+
+                        <span style='color:green;font-weight:bold;'>online now</span>                    </li>
+                    <li>
+                        
+                            Registered:
+
+                        <span class="format-humantime" title="Nov/20/2022 18:41">17 months ago</span>                    </li>
+                    <li>
+                            <a href="/blog/JianZJ"><img
+                                style="vertical-align:middle;margin-right:0.5em;"
+                                src="//codeforces.org/s/14218/images/icons/blog.png" alt="JianZJ's blog"
+                                title="JianZJ's blog"/></a>
+                        
+
+                        <a href="/blog/JianZJ">Blog entries (0)</a>,
+                                    <a href="/comments/with/JianZJ">comments</a>
+                    </li>
+                    <li>
+                            <a href="/usertalk/with/JianZJ"><img
+                                style="vertical-align:middle;margin-right:0.5em;"
+                                src="//codeforces.org/s/14218/images/actions/mail_generic.png" alt="Your talks with JianZJ"
+                                title="Your talks with JianZJ"/></a>
+                        
+
+                        <a href="/usertalk/with/JianZJ">Talks</a> |
+                                    <a href="/usertalk?other=JianZJ">Send message</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+    function updateFriendClickListeners() {
+        $("img.removeFriend").click(function () {
+            var img = $(this);
+            var friendUserId = img.attr("friendUserId");
+
+            $.post("/data/friend", {friendUserId: friendUserId, isAdd: "false"}, function(json) {
+                if (json["success"] === "true") {
+                    var newImg = img.clone().removeClass("removeFriend").addClass("addFriend");
+                    newImg.attr("src", "//codeforces.org/s/14218/images/icons/star_gray_24.png");
+                    newImg.attr("title", "Click to add to users you are following");
+                    img.css("display", "none");
+                    img.after(newImg);
+                    updateFriendClickListeners();
+                } else {
+                    alert(json["reason"]);
+                }
+            }, "json");
+            return false;
+        });
+
+        $("img.addFriend").click(function () {
+            var img = $(this);
+            var friendUserId = img.attr("friendUserId");
+            $.post("/data/friend", {friendUserId: friendUserId, isAdd: "true"}, function(json) {
+                if (json["success"] === "true") {
+                    var newImg = img.clone().removeClass("addFriend").addClass("removeFriend");
+                    newImg.attr("src", "//codeforces.org/s/14218/images/icons/star_yellow_24.png");
+                    newImg.attr("title", "Click to remove from users you are following");
+                    img.css("display", "none");
+                    img.after(newImg);
+                    updateFriendClickListeners();
+                } else {
+                    alert(json["reason"]);
+                }
+            }, "json");
+            return false;
+        });
+    }
+
+    updateFriendClickListeners();
+        });
+    </script>
+
+<form class="trust-user-form-proto"><input type='hidden' name='csrf_token' value='93d45ee3aece693c60315aebef6c17a0'/>
+    <input class="trust-user-form-checkbox" type="checkbox"/>
+    <i class="icon-question-sign clickable-title" data-title="<div class='ttypography'>
+<p>
+This user does not have permission to perform one or more actions from the list:
+</p>
+<ul>
+<li>write blog posts/comments,</li>
+<li>create mashups,</li>
+<li>create private groups.</li>
+</ul>
+<p>You can confirm that you know the user personally and guarantee reasonableness and adequacy. In this case, you can grant him rights by noting your trust.
+</p>
+<p>In case of violation of any rules of the site, administrative penalties can be applied to you (up to the ban). Think twice before confirming your trust.</p>
+<p>You can review the list of people you trust by <a href='/trustList'>the link</a>.
+</p></div>"></i>
+</form>
+
+<style>
+    .trust-user-form-proto {
+        display: none;
+    }
+
+    .trust-user-form, .trust-user-form form {
+        display: inline;
+        padding: 0;
+        margin: 0;
+        line-height: 1rem;
+    }
+
+    .trust-user-form input {
+        padding: 0;
+        margin: 0;
+        position: relative;
+        top: 7px;
+    }
+</style>
+
+<script>
+    $(function () {
+        $(".trust-user-form").each(function () {
+            var p = $(".trust-user-form-proto").clone(true, true).removeClass("trust-user-form-proto");
+            $(".trust-user-form").append(p);
+            var checked = $(this).attr("data-value") === "true";
+            $(".trust-user-form input").each(function() {
+                $(this).prop('checked', checked);
+            }).change(function () {
+                var title = $(".trust-user-form .clickable-title").attr("data-title");
+                var $this = $(this);
+                var value = $this.prop('checked');
+                if (value) {
+                    Codeforces.confirm(title + " <br/><b>Are you sure you want to trust the user?</b>", function () {
+                        $.post("/data/trusts", {
+                            action: "change",
+                            targetUserId: 2915830,
+                            value: value
+                        }, function (result) {
+                            if (result["success"] === "true") {
+                                Codeforces.reload();
+                            }
+                        }, "json");
+                        $this.prop("checked", value);
+                    }, function() {}, "Yes", "No");
+                } else {
+                    Codeforces.confirm("Are you sure you want to remove the user from your trust list?", function () {
+                        $.post("/data/trusts", {
+                            action: "change",
+                            targetUserId: 2915830,
+                            value: value
+                        }, function (result) {
+                            if (result["success"] === "true") {
+                                Codeforces.reload();
+                            }
+                        }, "json");
+                        $this.prop("checked", value);
+                    }, function() {}, "Yes", "No");
+                }
+                $this.prop("checked", checked);
+                return false;
+            });
+        });
+    })
+</script>
+
+    </div>
+
+    
+<style data-nocturne="true" type="text/css">
+
+</style>
+
+
+    <div class="roundbox  borderTopRound borderBottomRound" style="padding:2em 1em 0 1em;margin-top:1em;">
+        <div class="notice zoomTip" style="display:none;margin-left:4em;float:left;position:relative;text-align:left;bottom:1em;right:0.6em;font-size:1.0rem;">
+            Click on the graph to enable the zoom feature.
+        </div>
+
+        <div style="float:right;position:relative;text-align:right;bottom:2em;right:6px;font-size:1.0rem;">
+            <form action="" method="get" id="typeSelectForm">
+                <label>
+                    <select name="graphType" style="font-size:1.0rem !important;padding:1px;">
+                        <option value="rated" selected>Only rated</option>
+                        <option value="all" >All</option>
+                    </select>
+                </label>
+            </form>
+        </div>
+
+        <div id="usersRatingGraphPlaceholder" style="width:100%;height:300px;"></div>
+    </div>
+
+<script data-nocturne="true"> $(function () {
+    $("#typeSelectForm select").change(function() {
+        $("#typeSelectForm").submit();
+    });
+
+    var data = [];
+
+    data.push([
+            [
+                1670772900000,
+                353,
+                1771,
+                "Codeforces Round 837 (Div. 2)",
+                "",
+                353,
+                8638,
+                "/contest/1771/standings/participant/145623198#p145623198",
+                "newbie",
+                "newbie",
+                "8698309",
+                "Codeforces Round 837 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Dec/11/2022 18:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=11&month=12&year=2022&hour=18&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1670855700000,
+                696,
+                1766,
+                "Educational Codeforces Round 139 (Rated for Div. 2)",
+                "",
+                343,
+                4989,
+                "/contest/1766/standings/participant/145747012#p145747012",
+                "newbie",
+                "newbie",
+                "8705622",
+                "Educational Codeforces Round 139 (Rated for Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Dec/12/2022 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=12&month=12&year=2022&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1671114900000,
+                818,
+                1762,
+                "Codeforces Round 838 (Div. 2)",
+                "",
+                122,
+                10400,
+                "/contest/1762/standings/participant/145863123#p145863123",
+                "newbie",
+                "newbie",
+                "8745579",
+                "Codeforces Round 838 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Dec/15/2022 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=15&month=12&year=2022&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1671201300000,
+                997,
+                1767,
+                "Educational Codeforces Round 140 (Rated for Div. 2)",
+                "",
+                179,
+                5630,
+                "/contest/1767/standings/participant/145985491#p145985491",
+                "newbie",
+                "newbie",
+                "8752488",
+                "Educational Codeforces Round 140 (Rated for Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Dec/16/2022 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=16&month=12&year=2022&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1671287700000,
+                1201,
+                1774,
+                "Polynomial Round 2022 (Div. 1 + Div. 2, Rated, Prizes!)",
+                "",
+                204,
+                2786,
+                "/contest/1774/standings/participant/145985523#p145985523",
+                "pupil",
+                "pupil",
+                "8762901",
+                "Polynomial Round 2022 (Div. 1 + Div. 2, Rated, Prizes!)",
+                "<span class=\"format-time\" data-locale=\"en\">Dec/17/2022 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=17&month=12&year=2022&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1671374100000,
+                1207,
+                1772,
+                "Codeforces Round 839 (Div. 3)",
+                "",
+                6,
+                6052,
+                "/contest/1772/standings/participant/145985534#p145985534",
+                "pupil",
+                "pupil",
+                "8800707",
+                "Codeforces Round 839 (Div. 3)",
+                "<span class=\"format-time\" data-locale=\"en\">Dec/18/2022 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=18&month=12&year=2022&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1672151700000,
+                1166,
+                1731,
+                "Codeforces Round 841 (Div. 2) and Divide by Zero 2022",
+                "",
+                -41,
+                7623,
+                "/contest/1731/standings/participant/146640120#p146640120",
+                "newbie",
+                "newbie",
+                "8839737",
+                "Codeforces Round 841 (Div. 2) and Divide by Zero 2022",
+                "<span class=\"format-time\" data-locale=\"en\">Dec/27/2022 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=27&month=12&year=2022&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1672410900000,
+                1145,
+                1770,
+                "Good Bye 2022: 2023 is NEAR",
+                "",
+                -21,
+                10050,
+                "/contest/1770/standings/participant/146730313#p146730313",
+                "newbie",
+                "newbie",
+                "8873933",
+                "Good Bye 2022: 2023 is NEAR",
+                "<span class=\"format-time\" data-locale=\"en\">Dec/30/2022 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=30&month=12&year=2022&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1672756500000,
+                1150,
+                1779,
+                "Hello 2023",
+                "",
+                5,
+                8128,
+                "/contest/1779/standings/participant/147010135#p147010135",
+                "newbie",
+                "newbie",
+                "8905960",
+                "Hello 2023",
+                "<span class=\"format-time\" data-locale=\"en\">Jan/03/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=3&month=1&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1672929300000,
+                1110,
+                1768,
+                "Codeforces Round 842 (Div. 2)",
+                "",
+                -40,
+                10034,
+                "/contest/1768/standings/participant/147090154#p147090154",
+                "newbie",
+                "newbie",
+                "8941934",
+                "Codeforces Round 842 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Jan/05/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=5&month=1&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1673188500000,
+                1027,
+                1783,
+                "Educational Codeforces Round 141 (Rated for Div. 2)",
+                "",
+                -83,
+                12726,
+                "/contest/1783/standings/participant/147363365#p147363365",
+                "newbie",
+                "newbie",
+                "8987202",
+                "Educational Codeforces Round 141 (Rated for Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Jan/08/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=8&month=1&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1673349300000,
+                1032,
+                1775,
+                "Codeforces Round 843 (Div. 2)",
+                "",
+                5,
+                6198,
+                "/contest/1775/standings/participant/147455955#p147455955",
+                "newbie",
+                "newbie",
+                "9015015",
+                "Codeforces Round 843 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Jan/10/2023 14:15<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=10&month=1&year=2023&hour=14&min=15&sec=0&p1=166"
+            ]
+            ,
+            [
+                1674570900000,
+                1135,
+                1792,
+                "Educational Codeforces Round 142 (Rated for Div. 2)",
+                "",
+                103,
+                3675,
+                "/contest/1792/standings/participant/148288123#p148288123",
+                "newbie",
+                "newbie",
+                "9055571",
+                "Educational Codeforces Round 142 (Rated for Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Jan/24/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=24&month=1&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1674830100000,
+                1193,
+                1790,
+                "Codeforces Round 847 (Div. 3)",
+                "",
+                58,
+                3609,
+                "/contest/1790/standings/participant/148543071#p148543071",
+                "newbie",
+                "newbie",
+                "9101519",
+                "Codeforces Round 847 (Div. 3)",
+                "<span class=\"format-time\" data-locale=\"en\">Jan/27/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=27&month=1&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1675262100000,
+                1119,
+                1778,
+                "Codeforces Round 848 (Div. 2)",
+                "",
+                -74,
+                10876,
+                "/contest/1778/standings/participant/148893754#p148893754",
+                "newbie",
+                "newbie",
+                "9139351",
+                "Codeforces Round 848 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Feb/01/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=1&month=2&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1675434900000,
+                1151,
+                1791,
+                "Codeforces Round 849 (Div. 4)",
+                "",
+                32,
+                4785,
+                "/contest/1791/standings/participant/148982177#p148982177",
+                "newbie",
+                "newbie",
+                "9148473",
+                "Codeforces Round 849 (Div. 4)",
+                "<span class=\"format-time\" data-locale=\"en\">Feb/03/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=3&month=2&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1675598700000,
+                1153,
+                1786,
+                "Codeforces Round 850 (Div. 2, based on VK Cup 2022 - Final Round)",
+                "Codeforces Round 850 (Div. 2, основан на Финальном раунде VK Cup 2022)",
+                2,
+                3731,
+                "/contest/1786/standings/participant/149169781#p149169781",
+                "newbie",
+                "newbie",
+                "9180308",
+                "Codeforces Round 850 (Div. 2, based on VK Cup 2022 - Final Round)",
+                "<span class=\"format-time\" data-locale=\"en\">Feb/05/2023 15:05<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=5&month=2&year=2023&hour=15&min=5&sec=0&p1=166"
+            ]
+            ,
+            [
+                1677767700000,
+                1196,
+                1800,
+                "Codeforces Round 855 (Div. 3)",
+                "",
+                43,
+                3852,
+                "/contest/1800/standings/participant/150792839#p150792839",
+                "newbie",
+                "newbie",
+                "9335171",
+                "Codeforces Round 855 (Div. 3)",
+                "<span class=\"format-time\" data-locale=\"en\">Mar/02/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=2&month=3&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1679141100000,
+                1185,
+                1806,
+                "Codeforces Round 858 (Div. 2)",
+                "",
+                -11,
+                5241,
+                "/contest/1806/standings/participant/151902119#p151902119",
+                "newbie",
+                "newbie",
+                "9428051",
+                "Codeforces Round 858 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Mar/18/2023 15:05<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=18&month=3&year=2023&hour=15&min=5&sec=0&p1=166"
+            ]
+            ,
+            [
+                1679582100000,
+                1249,
+                1809,
+                "Educational Codeforces Round 145 (Rated for Div. 2)",
+                "",
+                64,
+                3296,
+                "/contest/1809/standings/participant/151902143#p151902143",
+                "pupil",
+                "pupil",
+                "9459453",
+                "Educational Codeforces Round 145 (Rated for Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Mar/23/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=23&month=3&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1680273300000,
+                1302,
+                1810,
+                "CodeTON Round 4 (Div. 1 + Div. 2, Rated, Prizes!)",
+                "",
+                53,
+                3485,
+                "/contest/1810/standings/participant/152876170#p152876170",
+                "pupil",
+                "pupil",
+                "9539021",
+                "CodeTON Round 4 (Div. 1 + Div. 2, Rated, Prizes!)",
+                "<span class=\"format-time\" data-locale=\"en\">Mar/31/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=31&month=3&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1681549500000,
+                1267,
+                1820,
+                "Codeforces Round 866 (Div. 2)",
+                "",
+                -35,
+                3633,
+                "/contest/1820/standings/participant/153862825#p153862825",
+                "pupil",
+                "pupil",
+                "9650188",
+                "Codeforces Round 866 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Apr/15/2023 12:05<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=15&month=4&year=2023&hour=12&min=5&sec=0&p1=166"
+            ]
+            ,
+            [
+                1682346900000,
+                1270,
+                1822,
+                "Codeforces Round 867 (Div. 3)",
+                "",
+                3,
+                3300,
+                "/contest/1822/standings/participant/154331172#p154331172",
+                "pupil",
+                "pupil",
+                "9699477",
+                "Codeforces Round 867 (Div. 3)",
+                "<span class=\"format-time\" data-locale=\"en\">Apr/24/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=24&month=4&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1683297300000,
+                1154,
+                1826,
+                "Codeforces Round 870 (Div. 2)",
+                "",
+                -116,
+                6275,
+                "/contest/1826/standings/participant/154896245#p154896245",
+                "newbie",
+                "newbie",
+                "9771394",
+                "Codeforces Round 870 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">May/05/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=5&month=5&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1683547500000,
+                1208,
+                1825,
+                "Codeforces Round 872 (Div. 2)",
+                "",
+                54,
+                2794,
+                "/contest/1825/standings/participant/155118300#p155118300",
+                "pupil",
+                "pupil",
+                "9793896",
+                "Codeforces Round 872 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">May/08/2023 15:05<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=8&month=5&year=2023&hour=15&min=5&sec=0&p1=166"
+            ]
+            ,
+            [
+                1686062100000,
+                1208,
+                1840,
+                "Codeforces Round 878 (Div. 3)",
+                "",
+                0,
+                5413,
+                "/contest/1840/standings/participant/156773595#p156773595",
+                "pupil",
+                "pupil",
+                "10089092",
+                "Codeforces Round 878 (Div. 3)",
+                "<span class=\"format-time\" data-locale=\"en\">Jun/06/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=6&month=6&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1688654100000,
+                1108,
+                1847,
+                "Codeforces Round 882 (Div. 2)",
+                "",
+                -100,
+                12032,
+                "/contest/1847/standings/participant/158559946#p158559946",
+                "newbie",
+                "newbie",
+                "10329150",
+                "Codeforces Round 882 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Jul/06/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=6&month=7&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1688740500000,
+                1224,
+                1846,
+                "Codeforces Round 883 (Div. 3)",
+                "",
+                116,
+                2068,
+                "/contest/1846/standings/participant/158559955#p158559955",
+                "pupil",
+                "pupil",
+                "10333014",
+                "Codeforces Round 883 (Div. 3)",
+                "<span class=\"format-time\" data-locale=\"en\">Jul/07/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=7&month=7&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1689086100000,
+                1201,
+                1844,
+                "Codeforces Round 884 (Div. 1 + Div. 2)",
+                "",
+                -23,
+                8061,
+                "/contest/1844/standings/participant/158559958#p158559958",
+                "pupil",
+                "pupil",
+                "10357814",
+                "Codeforces Round 884 (Div. 1 + Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Jul/11/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=11&month=7&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1689518100000,
+                1216,
+                1848,
+                "Codeforces Round 885 (Div. 2)",
+                "",
+                15,
+                4429,
+                "/contest/1848/standings/participant/159206649#p159206649",
+                "pupil",
+                "pupil",
+                "10418964",
+                "Codeforces Round 885 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Jul/16/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=16&month=7&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1690122900000,
+                1283,
+                1853,
+                "Codeforces Round 887 (Div. 2)",
+                "",
+                67,
+                3062,
+                "/contest/1853/standings/participant/159634622#p159634622",
+                "pupil",
+                "pupil",
+                "10451037",
+                "Codeforces Round 887 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Jul/23/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=23&month=7&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1690468500000,
+                1367,
+                1849,
+                "Educational Codeforces Round 152 (Rated for Div. 2)",
+                "",
+                84,
+                2314,
+                "/contest/1849/standings/participant/159942136#p159942136",
+                "pupil",
+                "pupil",
+                "10597851",
+                "Educational Codeforces Round 152 (Rated for Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Jul/27/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=27&month=7&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1690641300000,
+                1427,
+                1855,
+                "Codeforces Round 889 (Div. 2)",
+                "",
+                60,
+                2185,
+                "/contest/1855/standings/participant/160313630#p160313630",
+                "specialist",
+                "specialist",
+                "10614857",
+                "Codeforces Round 889 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Jul/29/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=29&month=7&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1691246100000,
+                1416,
+                1856,
+                "Codeforces Round 890 (Div. 2) supported by Constructor Institute",
+                "Codeforces Round 890 (Div. 2) при поддержке Constructor Institute",
+                -11,
+                4378,
+                "/contest/1856/standings/participant/160798019#p160798019",
+                "specialist",
+                "specialist",
+                "10634104",
+                "Codeforces Round 890 (Div. 2) supported by Constructor Institute",
+                "<span class=\"format-time\" data-locale=\"en\">Aug/05/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=5&month=8&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1691850900000,
+                1416,
+                1859,
+                "Codeforces Round 892 (Div. 2)",
+                "",
+                0,
+                4420,
+                "/contest/1859/standings/participant/161325572#p161325572",
+                "specialist",
+                "specialist",
+                "10875683",
+                "Codeforces Round 892 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Aug/12/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=12&month=8&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1692110100000,
+                1413,
+                1858,
+                "Codeforces Round 893 (Div. 2)",
+                "",
+                -3,
+                4636,
+                "/contest/1858/standings/participant/161410043#p161410043",
+                "specialist",
+                "specialist",
+                "10893383",
+                "Codeforces Round 893 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Aug/15/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=15&month=8&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1692282900000,
+                1442,
+                1860,
+                "Educational Codeforces Round 153 (Rated for Div. 2)",
+                "",
+                29,
+                3210,
+                "/contest/1860/standings/participant/161447006#p161447006",
+                "specialist",
+                "specialist",
+                "10911231",
+                "Educational Codeforces Round 153 (Rated for Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Aug/17/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=17&month=8&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1693060500000,
+                1447,
+                1864,
+                "Harbour.Space Scholarship Contest 2023-2024 (Div. 1 + Div. 2)",
+                "",
+                5,
+                3898,
+                "/contest/1864/standings/participant/162292359#p162292359",
+                "specialist",
+                "specialist",
+                "10948180",
+                "Harbour.Space Scholarship Contest 2023-2024 (Div. 1 + Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Aug/26/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=26&month=8&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            ,
+            [
+                1694354700000,
+                1489,
+                1869,
+                "Codeforces Round 896 (Div. 2)",
+                "",
+                42,
+                1664,
+                "/contest/1869/standings/participant/163351295#p163351295",
+                "specialist",
+                "specialist",
+                "11106095",
+                "Codeforces Round 896 (Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Sep/10/2023 17:05<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=10&month=9&year=2023&hour=17&min=5&sec=0&p1=166"
+            ]
+            ,
+            [
+                1695566100000,
+                1544,
+                1879,
+                "Educational Codeforces Round 155 (Rated for Div. 2)",
+                "",
+                55,
+                1715,
+                "/contest/1879/standings/participant/164345667#p164345667",
+                "specialist",
+                "specialist",
+                "11510782",
+                "Educational Codeforces Round 155 (Rated for Div. 2)",
+                "<span class=\"format-time\" data-locale=\"en\">Sep/24/2023 17:35<\/span>",
+                "https://www.timeanddate.com/worldclock/fixedtime.html?day=24&month=9&year=2023&hour=17&min=35&sec=0&p1=166"
+            ]
+            
+    ]);
+    data.push([
+        [
+            1695566100000, 1544
+        ]
+    ]);
+    {
+        var unrated = [];
+            unrated.push([1670772900000, 353,  8638]);
+            unrated.push([1670855700000, 696,  4989]);
+            unrated.push([1671114900000, 818,  10400]);
+            unrated.push([1671201300000, 997,  5630]);
+            unrated.push([1671287700000, 1201,  2786]);
+            unrated.push([1671374100000, 1207,  6052]);
+            unrated.push([1672151700000, 1166,  7623]);
+            unrated.push([1672410900000, 1145,  10050]);
+            unrated.push([1672756500000, 1150,  8128]);
+            unrated.push([1672929300000, 1110,  10034]);
+            unrated.push([1673188500000, 1027,  12726]);
+            unrated.push([1673349300000, 1032,  6198]);
+            unrated.push([1674570900000, 1135,  3675]);
+            unrated.push([1674830100000, 1193,  3609]);
+            unrated.push([1675262100000, 1119,  10876]);
+            unrated.push([1675434900000, 1151,  4785]);
+            unrated.push([1675598700000, 1153,  3731]);
+            unrated.push([1677767700000, 1196,  3852]);
+            unrated.push([1679141100000, 1185,  5241]);
+            unrated.push([1679582100000, 1249,  3296]);
+            unrated.push([1680273300000, 1302,  3485]);
+            unrated.push([1681549500000, 1267,  3633]);
+            unrated.push([1682346900000, 1270,  3300]);
+            unrated.push([1683297300000, 1154,  6275]);
+            unrated.push([1683547500000, 1208,  2794]);
+            unrated.push([1686062100000, 1208,  5413]);
+            unrated.push([1688654100000, 1108,  12032]);
+            unrated.push([1688740500000, 1224,  2068]);
+            unrated.push([1689086100000, 1201,  8061]);
+            unrated.push([1689518100000, 1216,  4429]);
+            unrated.push([1690122900000, 1283,  3062]);
+            unrated.push([1690468500000, 1367,  2314]);
+            unrated.push([1690641300000, 1427,  2185]);
+            unrated.push([1691246100000, 1416,  4378]);
+            unrated.push([1691850900000, 1416,  4420]);
+            unrated.push([1692110100000, 1413,  4636]);
+            unrated.push([1692282900000, 1442,  3210]);
+            unrated.push([1693060500000, 1447,  3898]);
+            unrated.push([1694354700000, 1489,  1664]);
+            unrated.push([1695566100000, 1544,  1715]);
+        unrated = unrated.filter(x => x[2] < 0);
+        data.push(unrated);
+    }
+
+    var datas = [
+        {label: "JianZJ", data: data[0]},
+        {clickable: false, hoverable: false, color: "red", data: data[1]},
+        {clickable: false, hoverable: false, color: "gray", data: data[2], lines: {show: false}}
+        
+    ];
+
+    var markings = [
+        { color: '#a00', lineWidth: 1, yaxis: { from: 3000 } },
+        { color: '#f33', lineWidth: 1, yaxis: { from: 2600, to: 2999 } },
+        { color: '#f77', lineWidth: 1, yaxis: { from: 2400, to: 2599 } },
+        { color: '#ffbb55', lineWidth: 1, yaxis: { from: 2300, to: 2399 } },
+        { color: '#ffcc88', lineWidth: 1, yaxis: { from: 2100, to: 2299 } },
+        { color: '#f8f', lineWidth: 1, yaxis: { from: 1900, to: 2099 } },
+        { color: '#aaf', lineWidth: 1, yaxis: { from: 1600, to: 1899 } },
+        { color: '#77ddbb', lineWidth: 1, yaxis: { from: 1400, to: 1599 } },
+        { color: '#7f7', lineWidth: 1, yaxis: { from: 1200, to: 1399 } },
+        { color: '#ccc', lineWidth: 1, yaxis: { from: 0, to: 1199 } },
+    ];
+
+    var options = {
+        lines: { show: true },
+        points: { show: true },
+        xaxis: {
+            mode: "time",
+            zoomRange: [172800000, null],
+            panRange: [1670772900000, 1695566100000],
+            timeformat: function () {
+                let minTimestamp = 1e18;
+                let maxTimestamp = -1e18;
+                for (let i = 0; i < data[0].length; i++) {
+                    minTimestamp = Math.min(minTimestamp, data[0][i][0]);
+                    maxTimestamp = Math.max(maxTimestamp, data[0][i][0]);
+                }
+                if (minTimestamp > maxTimestamp) {
+                    return null;
+                }
+
+                const deltaMillis = maxTimestamp - minTimestamp;
+                const days = deltaMillis / (1000 * 60 * 60 * 24);
+                const months = days / 30;
+                const years = deltaMillis / (1000 * 60 * 60 * 24 * 365);
+
+                if (years >= 7) {
+                    return "%Y";
+                } else if (years < 1 && months <= 7) {
+                    return "%d %b %Y"
+                } else {
+                    return "%b %Y";
+                }
+            }()
+        },
+        yaxis: {
+            min: 253,
+            max: 2000,
+            ticks: [1200, 1400, 1600, 1900, 2100, 2300, 2400, 2600, 3000],
+            zoomRange: [500, null],
+            panRange: [253, 2000]
+        },
+        grid: {
+            hoverable: true,
+            markings: markings
+        },
+        zoom: {
+            interactive: false
+        },
+        pan: {
+            interactive: false
+        }
+    };
+
+    var plot = $.plot($("#usersRatingGraphPlaceholder"), datas, options);
+    $(window).resize(function () {
+        plot.resize();
+        plot.setupGrid();
+        plot.draw();
+    });
+
+    function showTooltip(x, y, contents) {
+        $('<div id="tooltip">' + contents + '</div>').css( {
+            position: 'absolute',
+            display: 'none',
+            top: y - 20,
+            left: x + 10,
+            border: '1px solid #fdd',
+            padding: '2px',
+            'font-size' : '11px',
+            'background-color': '#fee',
+            opacity: 0.80
+        }).appendTo("body").fadeIn(200);
+    }
+
+    var ctx = plot.getCanvas().getContext("2d");
+
+    var prev = -1;
+    $("#usersRatingGraphPlaceholder").bind("plothover", function (event, pos, item) {
+        if (item) {
+            if (prev !== item.dataIndex) {
+                $("#tooltip").remove();
+                var params = data[item.seriesIndex][item.dataIndex];
+
+                var total = params[1];
+                var change = params[5] > 0 ? "+" + params[5] : params[5];
+                var contestName = params[11];
+                var contestStartTimeFormatted = "<a href='" + params[13] + "'>" + params[12] + "</a>";
+                var contestId = params[2];
+                var contestUrl = params[7];
+                var rank = params[6];
+                var title = params[8];
+
+                if (rank < 0) {
+                    change = "unrated";
+                }
+
+                var html = "= " + total + " (" + change + "), " + title + "<br/>"
+                    + (rank >= 0 ? "Rank: " + rank + "<br/>" : "")
+                    + "<a href='" + contestUrl + "'>" + contestName + "</a><br>" + contestStartTimeFormatted;
+                if (change > 0)
+                    html += "<br/><a style='font-weight: bold;' href=\"/bestRatingChanges/" + params[10] + "\">Share it!</a>";
+                showTooltip(item.pageX, item.pageY, html);
+                setTimeout(function () {
+                    $("#tooltip").fadeOut(200);
+                    prev = -1;
+                }, 4000);
+                prev = item.dataIndex;
+            }
+        }
+    });
+
+    $("#usersRatingGraphPlaceholder").click(function () {
+        options.zoom = {interactive:true};
+        options.pan = {interactive:true};
+
+        plot = $.plot($("#usersRatingGraphPlaceholder"), datas, options);
+        addScroll();
+
+        $("#usersRatingGraphPlaceholder").unbind("click");
+        $(".zoomTip").fadeOut();
+    });
+
+    var wheelEventsCount = 0;
+    $("#usersRatingGraphPlaceholder").mousewheel(function () {
+        wheelEventsCount += 1
+        if (wheelEventsCount > 3) {
+            $(".zoomTip").fadeIn();
+            $("#usersRatingGraphPlaceholder").off("mousewheel");
+        }
+    });
+
+    function addScroll(){
+        $("#usersRatingGraphPlaceholder").bind("plotpan plotzoom", function (event, plot) {
+            var axes = plot.getAxes();
+            plot.getOptions().xaxes[0].min = axes.xaxis.min;
+            plot.getOptions().xaxes[0].max = axes.xaxis.max;
+            plot.getOptions().yaxes[0].min = axes.yaxis.min;
+            plot.getOptions().yaxes[0].max = axes.yaxis.max;
+            plot.setupGrid();
+            plot.draw();
+        });
+    }
+}); </script>
+
+
+
+
+<style data-nocturne="true" type="text/css">
+.weeks52 {
+  right: calc(calc(3.606102635228849%) - 3px);
+}
+.weeks53 {
+  right: calc(calc(1.8030513176144245%) - 3px);
+}
+._UserActivityFrame_frame {
+  margin: 1em 0;
+}
+._UserActivityFrame_frame .userActivityRoundBox {
+  padding: 1em 1em 1em 1.5em;
+}
+._UserActivityFrame_frame .userActivityRoundBox ._UserActivityFrame_header {
+  margin: 0 0 0.7em 3.3%;
+  font-size: 0.8em;
+  color: #888;
+}
+._UserActivityFrame_frame .userActivityRoundBox ._UserActivityFrame_header ._UserActivityFrame_caption {
+  color: #888;
+}
+._UserActivityFrame_frame .userActivityRoundBox ._UserActivityFrame_header ._UserActivityFrame_selector {
+  float: right;
+  position: relative;
+  bottom: 2px;
+  text-align: right;
+  margin-left: 1em;
+}
+._UserActivityFrame_frame .userActivityRoundBox ._UserActivityFrame_footer {
+  margin: 0.7em 0 0 3.3%;
+  font-size: 2rem;
+}
+._UserActivityFrame_frame .userActivityRoundBox ._UserActivityFrame_footer ._UserActivityFrame_countersRow:first-child {
+  margin-bottom: 1em;
+}
+._UserActivityFrame_frame .userActivityRoundBox ._UserActivityFrame_footer ._UserActivityFrame_counter {
+  display: inline-block;
+  width: 30%;
+}
+._UserActivityFrame_frame .userActivityRoundBox ._UserActivityFrame_footer ._UserActivityFrame_counterDescription {
+  margin-top: 1px;
+  font-size: 0.55em;
+  color: #888;
+}
+._UserActivityFrame_frame .userActivityRoundBox #userActivityGraph {
+  font-size: 0.7em;
+}
+._UserActivityFrame_frame .userActivityRoundBox #userActivityGraph svg {
+  width: 100%;
+}
+._UserActivityFrame_frame .userActivityRoundBox #userActivityGraph svg text {
+  fill: #888;
+}
+</style>
+
+        <div class="_UserActivityFrame_frame">
+
+    <div class="roundbox userActivityRoundBox borderTopRound borderBottomRound" style="">
+
+                <div class="_UserActivityFrame_header">
+                    <span class="_UserActivityFrame_caption">
+                    </span>
+
+                        <div class="_UserActivityFrame_selector weeks52">
+                            <label>
+                                <select name="yearSelect" style="font-size: 1em !important">
+                                    <option value="" selected>Choose year</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                </select>
+                            </label>
+                        </div>
+
+                </div>
+
+                <div id="userActivityGraph"></div>
+
+                <div class="_UserActivityFrame_footer">
+                    <div class="_UserActivityFrame_countersRow">
+                        <div class="_UserActivityFrame_counter">
+                            <div class="_UserActivityFrame_counterValue">344 problems</div>
+                            <div class="_UserActivityFrame_counterDescription">
+                                solved for all time
+                            </div>
+                        </div>
+
+                        <div class="_UserActivityFrame_counter">
+                            <div class="_UserActivityFrame_counterValue">200 problems</div>
+                            <div class="_UserActivityFrame_counterDescription">
+                                solved for the last year
+                            </div>
+                        </div>
+
+                        <div class="_UserActivityFrame_counter">
+                            <div class="_UserActivityFrame_counterValue">8 problems</div>
+                            <div class="_UserActivityFrame_counterDescription">
+                                solved for the last month
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="_UserActivityFrame_countersRow">
+                        <div class="_UserActivityFrame_counter">
+                            <div class="_UserActivityFrame_counterValue">14 days</div>
+                            <div class="_UserActivityFrame_counterDescription">
+                                in a row max.
+                            </div>
+                        </div>
+
+                        <div class="_UserActivityFrame_counter">
+                            <div class="_UserActivityFrame_counterValue">6 days</div>
+                            <div class="_UserActivityFrame_counterDescription">
+                                in a row for the last year
+                            </div>
+                        </div>
+
+                        <div class="_UserActivityFrame_counter">
+                            <div class="_UserActivityFrame_counterValue">3 days</div>
+                            <div class="_UserActivityFrame_counterDescription">
+                                in a row for the last month
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+        </div>
+
+<script data-nocturne="true"> $(function () {
+        function renderCalendar(fromDate, toDate, strictRange) {
+            if (toDate === undefined || fromDate === undefined) {
+                fromDate = new Date();
+                fromDate.setMonth(fromDate.getMonth() - 12);
+                toDate = new Date();
+            }
+
+            $('#userActivityGraph').empty().calendar_yearview_blocks({
+                data: {
+                    "2023-02-14": {
+                        items: [
+                            1
+                        ]
+                    }, 
+                    "2022-12-13": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2022-12-12": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-05-08": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-12-11": {
+                        items: [
+                            1
+                        ]
+                    }, 
+                    "2023-05-09": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2024-04-06": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-05-14": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-12-05": {
+                        items: [
+                            1
+                        ]
+                    }, 
+                    "2023-08-05": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2024-04-04": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-08-06": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2024-01-14": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2022-12-03": {
+                        items: [
+                            1
+                        ]
+                    }, 
+                    "2024-04-05": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-08-03": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-05-10": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-08-01": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-08-02": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-11-04": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-07-31": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-11-03": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-11-22": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-02-28": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-11-30": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2022-12-02": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-12-01": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-08-09": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-08-18": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-11-26": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2022-11-27": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-05-26": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-08-17": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-03-03": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-08-15": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-03-02": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-08-12": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-03-01": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-08-13": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-11-18": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-12-30": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-12-28": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-08-29": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2022-12-27": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2022-12-26": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-06-06": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-06-05": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-08-28": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-08-25": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-03-14": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-08-26": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-03-13": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-08-23": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2024-03-18": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2022-12-29": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-08-21": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-08-22": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-11-29": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-12-20": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-03-18": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-03-15": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2024-03-12": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-06-08": {
+                        items: [
+                            1
+                        ]
+                    }, 
+                    "2022-12-24": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2024-03-13": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-12-23": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2022-12-22": {
+                        items: [
+                            1
+                        ]
+                    }, 
+                    "2024-03-11": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-12-21": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2022-12-17": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2022-12-16": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-03-20": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2022-12-15": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-12-14": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-01-01": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2022-12-19": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-03-23": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2022-12-18": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-12-03": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-12-05": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-01-05": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-01-03": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-01-08": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2024-03-02": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-01-06": {
+                        items: [
+                            1
+                        ]
+                    }, 
+                    "2023-03-31": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-01-10": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-09-10": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-12-19": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2024-02-21": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-04-06": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-04-12": {
+                        items: [
+                            1
+                        ]
+                    }, 
+                    "2024-02-14": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-07-07": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-04-15": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-07-06": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-09-26": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-01-23": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2024-02-17": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-04-10": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-09-24": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-09-25": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-09-21": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-12-29": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-10-07": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-01-27": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-01-24": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-01-25": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-07-09": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-04-18": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2024-02-12": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-04-19": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-07-16": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-04-24": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-07-17": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-07-12": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-04-20": {
+                        items: [
+                            1
+                        ]
+                    }, 
+                    "2023-07-11": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-02-01": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-07-14": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-04-21": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-07-13": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-07-10": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-10-13": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-02-05": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-02-03": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2024-01-31": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2024-01-30": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-07-19": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-02-09": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2024-02-01": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-07-27": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-07-26": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2024-01-23": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-07-29": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-05-05": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-07-23": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2024-01-28": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-07-22": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-07-25": {
+                        items: [
+                            4
+                        ]
+                    }, 
+                    "2023-02-10": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-07-21": {
+                        items: [
+                            1
+                        ]
+                    }, 
+                    "2023-10-25": {
+                        items: [
+                            2
+                        ]
+                    }, 
+                    "2023-07-20": {
+                        items: [
+                            3
+                        ]
+                    }, 
+                    "2023-10-28": {
+                        items: [
+                            4
+                        ]
+                    }
+                },
+                start_monday: false,
+                always_show_tooltip: false,
+                month_names: ['Jan', 'Feb', 'Mar',
+                    'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep',
+                    'Oct', 'Nov', 'Dec'],
+                day_names: ['Mon', "Wed", "Fri", "Sun"],
+                colors: {
+                    'default': '#EBEDF0',
+                    1: '#91DA9E',
+                    2: '#40C463',
+                    3: '#30A14E',
+                    4: '#216E39'
+                },
+                prettify_date: function (date) {
+                    const tokens = date.split("-");
+                    return tokens[1] + '/' + tokens[2] + '/' + tokens[0];
+                },
+                format_tip: function (date, items) {
+                    return "{0} <br />".formatString(date);
+                },
+                from_date: fromDate,
+                to_date: toDate,
+                strict_range: strictRange
+            });
+        }
+
+        renderCalendar();
+
+        $("._UserActivityFrame_selector select[name=showPrivateActivity]").change(function () {
+            $.post("/data/user/JianZJ/activity", {
+                action: "changeSettings",
+                showPrivateActivity: $(this).val()
+            }, function (response) {
+                if (response.success === "true") {
+                    Codeforces.showMessage("Settings have been saved")
+                }
+            });
+
+            return false;
+        });
+
+        function yearChangeHandle(yearStr) {
+            if (yearStr) {
+                const year = parseInt(yearStr, 10);
+                const toDate = new Date();
+                toDate.setFullYear(year);
+                toDate.setMonth(11); // 0 - Jan, so 11 - Dec
+                toDate.setDate(31);
+
+                const fromDate = new Date();
+                fromDate.setFullYear(year);
+                fromDate.setMonth(0);
+                fromDate.setDate(1);
+
+                renderCalendar(fromDate, toDate, true);
+            } else {
+                renderCalendar();
+            }
+        }
+
+        $("._UserActivityFrame_selector select[name=yearSelect]").change(function () {
+            yearChangeHandle($(this).val());
+        });
+}); </script>
+
+
+                </div>
+        </div>
+            <br style="clear: both;"/>
+            <div id="footer">
+                <div><a href="https://codeforces.com/">Codeforces</a> (c) Copyright 2010-2024 Mike Mirzayanov</div>
+                <div>The only programming contests Web 2.0 platform</div>
+                    <div>Server time: <span class="format-timewithseconds" data-locale="en">Apr/22/2024 07:17:00</span> (j2).</div>
+                    <div>Desktop version, switch to <a rel="nofollow" class="switchToMobile" href="?mobile=true">mobile version</a>.</div>
+                <div class="smaller"><a href="/privacy">Privacy Policy</a></div>
+
+                    <div style="margin-top: 25px;">
+                        Supported by
+                    </div>
+                    <div style="margin-top: 8px; padding-bottom: 20px; position: relative; left: 10px;">
+                        <a href="https://ton.org/"><img style="margin-right: 2em; width: 60px;" src="//codeforces.org/s/14218/images/ton-100x100.png" alt="TON" title="TON"/></a>
+                        <a href="http://ifmo.ru/en/"><img style="width: 120px;" src="//codeforces.org/s/14218/images/itmo_small_en-logo.png" alt="ИТМО" title="ИТМО"/></a>
+                    </div>
+            </div>
+        <script type="text/javascript">
+            $(function() {
+                $(".switchToMobile").click(function() {
+                    Codeforces.redirect(Codeforces.updateUrlParameter(document.location.href, "mobile", "true"));
+                    return false;
+                });
+                $(".switchToDesktop").click(function() {
+                    Codeforces.redirect(Codeforces.updateUrlParameter(document.location.href, "mobile", "false"));
+                    return false;
+                });
+            });
+        </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($(window).width() < 1600) {
+                $('.button-up').css('width', '30px').css('line-height', '30px').css('font-size', '20px');
+            }
+
+            if ($(window).width() >= 1200) {
+                $ (window).scroll (function () {
+                    if ($ (this).scrollTop () > 100) {
+                        $ ('.button-up').fadeIn();
+                    } else {
+                        $ ('.button-up').fadeOut();
+                    }
+                });
+
+                $('.button-up').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 500);
+                    return false;
+                });
+
+                $('.button-up').hover(function () {
+                    $(this).animate({
+                        'opacity':'1'
+                    }).css({'background-color':'#e7ebf0','color':'#6a86a4'});
+                }, function () {
+                    $(this).animate({
+                        'opacity':'0.7'
+                    }).css({'background':'none','color':'#d3dbe4'});;
+                });
+            }
+            Codeforces.focusOnError();
+        });
+    </script>
+    <div class="userListsFacebox" style="display:none;">
+        <div style="padding: 0.5em; width: 600px; max-height: 200px; overflow-y: auto">
+<div class="datatable"
+     
+     style="background-color: #E1E1E1; padding-bottom: 3px;">
+            <div class="lt">&nbsp;</div>
+            <div class="rt">&nbsp;</div>
+            <div class="lb">&nbsp;</div>
+            <div class="rb">&nbsp;</div>
+
+            <div style="padding: 4px 0 0 6px;font-size:1.4rem;position:relative;">
+                User lists
+
+                <div style="position:absolute;right:0.25em;top:0.35em;">
+                    <span style="padding:0;position:relative;bottom:2px;" class="rowCount"></span>
+
+                    <img class="closed" src="//codeforces.org/s/14218/images/icons/control.png"/>
+
+                    <span class="filter" style="display:none;">
+                        <img class="opened" src="//codeforces.org/s/14218/images/icons/control-270.png"/>
+                        <input style="padding:0 0 0 20px;position:relative;bottom:2px;border:1px solid #aaa;height:17px;font-size:1.3rem;"/>
+                    </span>
+                </div>
+            </div>
+            <div style="background-color: white;margin:0.3em 3px 0 3px;position:relative;">
+            <div class="ilt">&nbsp;</div>
+            <div class="irt">&nbsp;</div>
+            <table class="">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+                // Create new ':containsIgnoreCase' selector for search
+                jQuery.expr[':'].containsIgnoreCase = function(a, i, m) {
+                    return jQuery(a).text().toUpperCase()
+                            .indexOf(m[3].toUpperCase()) >= 0;
+                };
+
+                if (window.updateDatatableFilter == undefined) {
+                    window.updateDatatableFilter = function(i) {
+                        var parent = $(i).parent().parent().parent().parent();
+                        $("tr.no-items", parent).remove();
+                        $("tr", parent).hide().removeClass('visible');
+                        var text = $(i).val();
+                        if (text) {
+                            $("tr" + ":containsIgnoreCase('" + text + "')", parent).show().addClass('visible');
+                        } else {
+                            parent.find(".rowCount").text("");
+                            $("tr", parent).show().addClass('visible');
+                        }
+
+                        var found = false;
+                        var visibleRowCount = 0;
+                        $("tr", parent).each(function () {
+                            if (!found) {
+                                if ($(this).find("th").size() > 0) {
+                                    $(this).show().addClass('visible');
+                                    found = true;
+                                }
+                            }
+                            if ($(this).hasClass('visible')) {
+                                visibleRowCount++;
+                            }
+                        });
+                        if (text) {
+                            parent.find(".rowCount").text("Matches: " + (visibleRowCount - (found ? 1 : 0)));
+                        }
+                        if (visibleRowCount == (found ? 1 : 0)) {
+                            $("<tr class='no-items visible'><td style=\"text-align:left;\"colspan=\"32\">No items<\/td><\/tr>").appendTo($(parent).find('table'));
+                        }
+                        $(parent).find("tr td").removeClass("dark");
+                        $(parent).find("tr.visible:odd td").addClass("dark");
+                    }
+
+                    $(".datatable .closed").click(function () {
+                        var parent = $(this).parent();
+                        $(this).hide();
+                        $(".filter", parent).fadeIn(function () {
+                            $("input", parent).val("").focus().css("border", "1px solid #aaa");
+                        });
+                    });
+
+                    $(".datatable .opened").click(function () {
+                        var parent = $(this).parent().parent();
+                        $(".filter", parent).fadeOut(function () {
+                            $(".closed", parent).show();
+                            $("input", parent).val("").each(function () {
+                                window.updateDatatableFilter(this);
+                            });
+                        });
+                    });
+
+                    $(".datatable .filter input").keyup(function(e) {
+                        window.updateDatatableFilter(this);
+                        e.preventDefault();
+                        e.stopPropagation();
+                    });
+
+                    $(".datatable table").each(function () {
+                        var found = false;
+                        $("tr", this).each(function () {
+                            if (!found && $(this).find("th").size() == 0) {
+                                found = true;
+                            }
+                        });
+                        if (!found) {
+                            $("<tr class='no-items visible'><td style=\"text-align:left;\"colspan=\"32\">No items<\/td><\/tr>").appendTo(this);
+                        }
+                    });
+
+                    // Applies styles to datatables.
+                    $(".datatable").each(function () {
+                        $(this).find("tr:first th").addClass("top");
+                        $(this).find("tr:last td").addClass("bottom");
+                        $(this).find("tr:odd td").addClass("dark");
+                        $(this).find("tr td:first-child, tr th:first-child").addClass("left");
+                        $(this).find("tr td:last-child, tr th:last-child").addClass("right");
+                    });
+
+                    $(".datatable table.tablesorter").each(function () {
+                        $(this).bind("sortEnd", function () {
+                            $(".datatable").each(function () {
+                                $(this).find("th, td")
+                                    .removeClass("top").removeClass("bottom")
+                                    .removeClass("left").removeClass("right")
+                                    .removeClass("dark");
+                                $(this).find("tr:first th").addClass("top");
+                                $(this).find("tr:last td").addClass("bottom");
+                                $(this).find("tr:odd td").addClass("dark");
+                                $(this).find("tr td:first-child, tr th:first-child").addClass("left");
+                                $(this).find("tr td:last-child, tr th:last-child").addClass("right");
+                            });
+                        });
+                    });
+                }
+        });
+    </script>
+        </div>
+    </div>
+    <script type="application/javascript">
+        $(function() {
+            $(".userListMarker").click(function() {
+                $.post("/data/lists", {action: "findTouched"}, function(json) {
+                    Codeforces.facebox(".userListsFacebox");
+                    var tbody = $("#facebox tbody");
+                    tbody.empty();
+                    for (var i in json) {
+                        tbody.append(
+                            $("<tr></tr>").append(
+                                $("<td></td>").attr("data-readKey", json[i].readKey).text(json[i].name)
+                            )
+                        );
+                    }
+                    Codeforces.updateDatatables();
+                    tbody.find("td").css("cursor", "pointer").click(function() {
+                        document.location = Codeforces.updateUrlParameter(document.location.href, "list", $(this).attr("data-readKey"));
+                    });
+                }, "json");
+            });
+        });
+    </script>
+</div>
+    <script type="application/javascript">
+        if ('serviceWorker' in navigator && 'fetch' in window && 'caches' in window) {
+            navigator.serviceWorker.register('/service-worker-14218.js')
+                .then(function (registration) {
+                    console.log('Service worker registered: ', registration);
+                })
+                .catch(function (error) {
+                    console.log('Registration failed: ', error);
+                });
+        }
+    </script>
+<script>(function(){if (!document.body) return;var js = "window['__CF$cv$params']={r:'8782cd36dc9981e2',t:'MTcxMzc1OTQyMC4yOTgwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v55bfa2fee65d44688e90c00735ed189a1713218998793" integrity="sha512-FIKRFRxgD20moAo96hkZQy/5QojZDAbyx0mQ17jEGHCJc/vi0G2HXLtofwD7Q3NmivvP9at5EVgbRqOaOQb+Rg==" data-cf-beacon='{"rayId":"8782cd36dc9981e2","b":1,"version":"2024.3.0","token":"316c29dfa3804effb5a91c52a59b5bd0"}' crossorigin="anonymous"></script>
+</body>
+</html>
