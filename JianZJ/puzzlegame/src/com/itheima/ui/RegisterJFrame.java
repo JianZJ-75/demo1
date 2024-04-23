@@ -1,10 +1,16 @@
 package com.itheima.ui;
 
+import cn.hutool.core.io.FileUtil;
+import com.itheima.domain.User;
+
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class RegisterJFrame extends JFrame implements MouseListener {
+
+    ArrayList<User> allUsers;
 
     //提升三个输入框的变量的作用范围，让这三个变量可以在本类中所有方法里面可以使用。
     JTextField username = new JTextField();
@@ -16,7 +22,8 @@ public class RegisterJFrame extends JFrame implements MouseListener {
     JButton reset = new JButton();
 
 
-    public RegisterJFrame() {
+    public RegisterJFrame(ArrayList<User> allUsers) {
+        this.allUsers = allUsers;
         initFrame();
         initView();
         setVisible(true);
@@ -24,7 +31,74 @@ public class RegisterJFrame extends JFrame implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        if (e.getSource() == submit) {
+            // 点击了注册按钮
+            // 1. 用户名, 密码不能为空
+            if (username.getText().length() == 0 || password.getText().length() == 0 || rePassword.getText().length() == 0) {
+                showDialog("用户名和密码不能为空!");
+                return;
+            }
 
+            // 2. 判断两次密码输入是否一致
+            if (!password.getText().equals(rePassword.getText())) {
+                showDialog("两次密码输入不一致");
+                return;
+            }
+
+            // 3. 判断用户名和密码格式是否正确
+            if (!username.getText().matches("[a-zA-Z0-9]{4,16}")) {
+                showDialog("用户名不符合规则");
+                return;
+            }
+            if (!password.getText().matches("\\S*(?=\\S{6,})(?=\\S*\\d)(?=\\S*[a-z])\\S*")) {
+                showDialog("密码不符合规则, 至少包含1个小写字母, 1个数字, 长度至少6位");
+                return;
+            }
+
+            // 4. 判断用户名是否已经重复
+            if (containsUsername(username.getText())) {
+                showDialog("用户名已经存在, 请重新输入");
+                return;
+            }
+
+            // 5. 添加用户
+            allUsers.add(new User(username.getText(), password.getText(), 0));
+
+            // 6. 写入文件
+            FileUtil.writeLines(allUsers, "E:\\Git\\demo1\\JianZJ\\puzzlegame\\userinfo.txt", "UTF-8");
+
+            // 7. 提示注册成功
+            showDialog("注册成功");
+
+            // 关闭注册界面, 打开登陆界面
+            this.setVisible(false);
+            new LoginJFrame();
+
+        } else if (e.getSource() == reset) {
+            // 点击了重置按钮
+            // 清空三个输入框
+            username.setText("");
+            password.setText("");
+            rePassword.setText("");
+        }
+    }
+
+    /*
+    * 作用:
+    *       判断username在集合中是否存在
+    * 参数:
+    *       用户名
+    * 返回值:
+    *       true: 存在
+    *       false: 不存在
+    * */
+    public boolean containsUsername(String username) {
+        for (User u : allUsers) {
+            if (u.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

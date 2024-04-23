@@ -46,7 +46,7 @@ public class LoginJFrame extends JFrame implements MouseListener {
         // 2. 遍历集合获取用户信息并创建User对象
         for (String str : userInfoStrList) {
             List<String> all = ReUtil.findAll("=([0-9|a-z|A-Z]+)(&|)", str, 1);
-            allUsers.add(new User(all.get(0), all.get(1)));
+            allUsers.add(new User(all.get(0), all.get(1), Integer.parseInt(all.get(2))));
         }
     }
 
@@ -143,9 +143,10 @@ public class LoginJFrame extends JFrame implements MouseListener {
             String codeInput = code.getText();
 
             //创建一个User对象
-            User userInfo = new User(usernameInput, passwordInput);
+            User userInfo = new User(usernameInput, passwordInput, getCount(usernameInput));
             System.out.println("用户输入的用户名为" + usernameInput);
             System.out.println("用户输入的密码为" + passwordInput);
+            User temp = contains(userInfo);
 
             if (codeInput.length() == 0) {
                 showJDialog("验证码不能为空");
@@ -159,19 +160,32 @@ public class LoginJFrame extends JFrame implements MouseListener {
 
             } else if (!codeInput.equalsIgnoreCase(rightCode.getText())) {
                 showJDialog("验证码输入错误");
-            } else if (contains(userInfo)) {
+            } else if (userInfo.getUsername().equals(temp.getUsername()) && userInfo.getPassword().equals(temp.getPassword())) {
                 System.out.println("用户名和密码正确可以开始玩游戏了");
+                temp.setCount(0);
+                FileUtil.writeLines(allUsers, "E:\\Git\\demo1\\JianZJ\\puzzlegame\\userinfo.txt", "UTF-8");
                 //关闭当前登录界面
                 this.setVisible(false);
                 //打开游戏的主界面
                 //需要把当前登录的用户名传递给游戏界面
                 new GameJFrame();
             } else {
-                System.out.println("用户名或密码错误");
-                showJDialog("用户名或密码错误");
+                if (temp.getCount() < 3) {
+                    temp.setCount(temp.getCount() + 1);
+                    System.out.println("用户名或密码错误");
+                    showJDialog("用户名或密码错误");
+                    FileUtil.writeLines(allUsers, "E:\\Git\\demo1\\JianZJ\\puzzlegame\\userinfo.txt", "UTF-8");
+                } else {
+                    System.out.println("该账号已被锁定");
+                    showJDialog("该账号已被锁定");
+                }
             }
         } else if (e.getSource() == register) {
             System.out.println("点击了注册按钮");
+            // 关闭当前的登陆页面
+            this.setVisible(false);
+            // 打开注册界面
+            new RegisterJFrame(allUsers);
         } else if (e.getSource() == rightCode) {
             System.out.println("更换验证码");
             //获取一个新的验证码
@@ -180,6 +194,14 @@ public class LoginJFrame extends JFrame implements MouseListener {
         }
     }
 
+    public int getCount(String username) {
+        for (User u : allUsers) {
+            if (u.getUsername() == username) {
+                return u.getCount();
+            }
+        }
+        return 0;
+    }
 
     public void showJDialog(String content) {
         //创建一个弹框对象
@@ -236,16 +258,16 @@ public class LoginJFrame extends JFrame implements MouseListener {
     }
 
     //判断用户在集合中是否存在
-    public boolean contains(User userInput){
+    public User contains(User userInput){
         for (int i = 0; i < allUsers.size(); i++) {
             User rightUser = allUsers.get(i);
-            if(userInput.getUsername().equals(rightUser.getUsername()) && userInput.getPassword().equals(rightUser.getPassword())){
+            if(userInput.getUsername().equals(rightUser.getUsername())){
                 //有相同的代表存在，返回true，后面的不需要再比了
-                return true;
+                return rightUser;
             }
         }
         //循环结束之后还没有找到就表示不存在
-        return false;
+        return new User();
     }
 
 

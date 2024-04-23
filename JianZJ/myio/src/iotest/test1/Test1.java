@@ -36,6 +36,7 @@ public class Test1 {
         List<String> familyNameTempList = getData(familyNameStr, "([\\u4E00-\\u9FA5]{4})(，|。)", 1);
         List<String> boyNameTempList = getData(boyNameStr, "([\\u4E00-\\u9FA5]{2})(、|。)", 1);
         List<String> girlNameTempList = getData(girlNameStr, "(.. ){4}..", 0);
+        System.out.println(familyNameTempList);
 
         // 4. 处理数据
         // familyNameTempList(姓氏)
