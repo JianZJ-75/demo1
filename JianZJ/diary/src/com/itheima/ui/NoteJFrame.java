@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NoteJFrame extends JFrame implements ActionListener {
 
@@ -19,6 +21,12 @@ public class NoteJFrame extends JFrame implements ActionListener {
     //创建菜单的导入和导出
     JMenuItem exportItem = new JMenuItem("导出");
     JMenuItem importItem = new JMenuItem("导入");
+
+    // 定义表格标题
+    Object[] tableTitles = {"编号", "标题", "正文"};
+    //定义表格的内容
+    //二维数组中的每一个一维数组，是表格里面的一行数据
+    List<Object[]> tabledatas = new ArrayList<>();
 
     public NoteJFrame() {
         //初始化界面
@@ -56,7 +64,8 @@ public class NoteJFrame extends JFrame implements ActionListener {
             //i大于等于0：通过这个行数就可以获取二维数组中对应的数据
             int i = table.getSelectedRow();
             System.out.println(i);
-
+            this.setVisible(false);
+            new UpdateJFrame();
 
 
 
@@ -101,46 +110,9 @@ public class NoteJFrame extends JFrame implements ActionListener {
         title.setFont(new Font("宋体", Font.BOLD, 32));
         this.getContentPane().add(title);
 
-        //定义表格的标题
-        Object[] tableTitles = {"编号", "标题", "正文"};
-        //定义表格的内容
-        //二维数组中的每一个一维数组，是表格里面的一行数据
-        Object[][] tabledatas = {
-                {"编号1", "标题1", "正文1"},
-                {"编号2", "标题2", "正文2"},
-                {"编号3", "标题3", "正文3"},
-                {"编号4", "标题4", "正文4"},
-                {"编号5", "标题5", "正文5"},
-                {"编号6", "标题6", "正文6"},
-                {"编号7", "标题7", "正文7"},
-                {"编号8", "标题8", "正文8"},
-                {"编号9", "标题9", "正文9"},
-                {"编号10", "标题10", "正文10"},
-                {"编号11", "标题11", "正文11"},
-                {"编号12", "标题12", "正文12"},
-                {"编号13", "标题13", "正文13"},
-                {"编号14", "标题14", "正文14"},
-                {"编号15", "标题15", "正文15"},
-                {"编号16", "标题16", "正文16"},
-                {"编号17", "标题17", "正文17"},
-                {"编号18", "标题18", "正文18"},
-                {"编号19", "标题19", "正文19"},
-                {"编号20", "标题20", "正文20"},
-                {"编号21", "标题21", "正文21"},
-                {"编号22", "标题22", "正文22"},
-                {"编号23", "标题23", "正文23"},
-                {"编号24", "标题24", "正文24"},
-                {"编号25", "标题25", "正文25"},
-                {"编号26", "标题26", "正文26"},
-                {"编号27", "标题27", "正文27"},
-                {"编号28", "标题28", "正文28"},
-                {"编号29", "标题29", "正文29"},
-                {"编号30", "标题30", "正文30"},
-        };
-
         //定义表格组件
         //并给表格设置标题和内容
-        table = new JTable(tabledatas, tableTitles);
+        table = new JTable(tabledatas.stream().toArray(value -> new Object[value][]), tableTitles);
         table.setBounds(40, 70, 504, 380);
 
         //创建可滚动的组件，并把表格组件放在滚动组件中间

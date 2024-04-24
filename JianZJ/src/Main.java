@@ -18,11 +18,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String s = "dadas";
-        String t = s;
-        s += "das";
-        System.out.println(s);
-        System.out.println(t);
+        List<Object[]> tabledatas = new ArrayList<>();
+        tabledatas.add(new Object[]{"编号1", "标题1", "正文1"});
 
+        //定义表格组件
+        //并给表格设置标题和内容
+        Object[][] o = tabledatas.stream().toArray(value -> new Object[value][]);
+        for (Object[] objects : o) {
+            System.out.println(Arrays.toString(objects));
+        }
     }
 }

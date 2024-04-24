@@ -35,8 +35,13 @@ public class AddJFrame extends JFrame implements ActionListener {
         Object obj = e.getSource();
         if(obj == save){
             System.out.println("保存按钮被点击了");
+            
+            this.setVisible(false);
+            new NoteJFrame();
         }else if(obj == cancel){
             System.out.println("取消按钮被点击了");
+            this.setVisible(false);
+            new NoteJFrame();
         }
     }
 
