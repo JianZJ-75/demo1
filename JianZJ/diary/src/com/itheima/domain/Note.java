@@ -1,10 +1,16 @@
 package com.itheima.domain;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
  * @Author JianZJ
  * @Date 2024/4/24 22:07
  */
-public class Note {
+public class Note implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -6885312468748523500L;
+
     private int id;
     private String title;
     private String content;

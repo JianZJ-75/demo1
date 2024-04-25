@@ -1,9 +1,12 @@
 package com.itheima.ui;
 
+import com.itheima.domain.Note;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +28,7 @@ public class NoteJFrame extends JFrame implements ActionListener {
     // 定义表格标题
     Object[] tableTitles = {"编号", "标题", "正文"};
     //定义表格的内容
-    //二维数组中的每一个一维数组，是表格里面的一行数据
-    List<Object[]> tabledatas = new ArrayList<>();
+    List<Note> noteList = new ArrayList<>();
 
     public NoteJFrame() {
         //初始化界面
@@ -55,7 +57,6 @@ public class NoteJFrame extends JFrame implements ActionListener {
             //2.如果没有选择，弹框提示：未选择。此时提示的弹框用showJDialog方法即可
             //3.如果选择了，跳转添加界面
 
-
             //获取用户选择了表格中的哪一行
             //i = 0: 表示用户选择了第一行
             //i = 1: 表示用户选择了第一行
@@ -64,13 +65,12 @@ public class NoteJFrame extends JFrame implements ActionListener {
             //i大于等于0：通过这个行数就可以获取二维数组中对应的数据
             int i = table.getSelectedRow();
             System.out.println(i);
+            if (i < 0) {
+                showJDialog("未选择数据!");
+                return;
+            }
             this.setVisible(false);
-            new UpdateJFrame();
-
-
-
-
-
+            new UpdateJFrame(i);
 
         }else if(obj == delete){
             System.out.println("删除按钮被点击");
@@ -79,26 +79,60 @@ public class NoteJFrame extends JFrame implements ActionListener {
             //2.如果没有选择，弹框提示：未选择。此时提示的弹框用showJDialog方法即可
             //3.如果选择了，弹框提示：是否确定删除。此时提示的弹框用showChooseJDialog方法
 
-
-
             //作用：展示一个带有确定和取消按钮的弹框
             //方法的返回值：0 表示用户点击了确定
             //             1 表示用户点击了取消
             //该弹框用于用户删除时候，询问用户是否确定删除
-            int i = showChooseJDialog();
+            int i = table.getSelectedRow();
             System.out.println(i);
-
-
-
-
-
+            if (i < 0) {
+                showJDialog("未选择数据!");
+                return;
+            }
+            int ok = showChooseJDialog();
+            if (ok == 0) {
+                noteList.remove(i);
+                // 更新数据
+                updateNote();
+                // 写入temp
+                writeNote();
+                // 重新加载界面
+                new NoteJFrame();
+                // 释放资源
+                this.dispose();
+            }
 
         }else if(obj == exportItem){
             System.out.println("菜单的导出功能");
+            
+            showJDialog("导出成功");
 
         }else if(obj == importItem){
             System.out.println("菜单的导入功能");
 
+            showJDialog("导入成功");
+            new NoteJFrame();
+            this.dispose();
+
+        }
+    }
+
+    // 更新数据
+    private void updateNote() {
+        for (int i = 0; i < noteList.size(); i++) {
+            Note now = noteList.get(i);
+            now.setId(i + 1);
+        }
+    }
+
+    // 序列化对象
+    private void writeNote() {
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("diary\\temp.txt"));
+            oos.writeObject(noteList);
+            oos.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -110,9 +144,13 @@ public class NoteJFrame extends JFrame implements ActionListener {
         title.setFont(new Font("宋体", Font.BOLD, 32));
         this.getContentPane().add(title);
 
+        // 获取表格数据
+        getData();
+        Object[][] tabledatas = getTable();
+
         //定义表格组件
         //并给表格设置标题和内容
-        table = new JTable(tabledatas.stream().toArray(value -> new Object[value][]), tableTitles);
+        table = new JTable(tabledatas, tableTitles);
         table.setBounds(40, 70, 504, 380);
 
         //创建可滚动的组件，并把表格组件放在滚动组件中间
@@ -138,6 +176,28 @@ public class NoteJFrame extends JFrame implements ActionListener {
         this.getContentPane().add(add);
         this.getContentPane().add(update);
         this.getContentPane().add(delete);
+    }
+
+    // 将数据转为Object[][]
+    private Object[][] getTable() {
+        List<Object[]> temp = new ArrayList<>();
+        for (Note note : noteList) {
+            temp.add(new Object[]{note.getId() + "", note.getTitle(), note.getContent()});
+        }
+        return temp.stream().toArray(value -> new Object[value][]);
+    }
+
+    // 将数据反序列化获取
+    private void getData() {
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("diary\\temp.txt"));
+            noteList = (List<Note>) ois.readObject();
+            ois.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     //初始化菜单

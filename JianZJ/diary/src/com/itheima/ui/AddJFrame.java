@@ -1,9 +1,14 @@
 package com.itheima.ui;
 
+import com.itheima.domain.Note;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddJFrame extends JFrame implements ActionListener {
 
@@ -18,6 +23,9 @@ public class AddJFrame extends JFrame implements ActionListener {
 
     //定义取消按钮
     JButton cancel = new JButton("取消");
+
+    // 表格数据
+    List<Note> noteList = new ArrayList<>();
 
     public AddJFrame(){
         //初始化界面
@@ -35,13 +43,42 @@ public class AddJFrame extends JFrame implements ActionListener {
         Object obj = e.getSource();
         if(obj == save){
             System.out.println("保存按钮被点击了");
-            
-            this.setVisible(false);
+            // 获取数据
+            getData();
+            // 添加数据
+            noteList.add(new Note(noteList.size() + 1, titleText.getText(), contentText.getText()));
+            // 写入temp
+            writeNote();
             new NoteJFrame();
+            this.dispose();
         }else if(obj == cancel){
             System.out.println("取消按钮被点击了");
-            this.setVisible(false);
             new NoteJFrame();
+            this.dispose();
+        }
+    }
+
+    // 序列化对象
+    private void writeNote() {
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("diary\\temp.txt"));
+            oos.writeObject(noteList);
+            oos.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // 将数据反序列化获取
+    private void getData() {
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("diary\\temp.txt"));
+            noteList = (List<Note>) ois.readObject();
+            ois.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,9 +1,14 @@
 package com.itheima.ui;
 
+import com.itheima.domain.Note;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UpdateJFrame extends JFrame implements ActionListener {
     //定义标题输入框
@@ -18,15 +23,48 @@ public class UpdateJFrame extends JFrame implements ActionListener {
     //定义取消按钮
     JButton cancel = new JButton("取消");
 
-    public UpdateJFrame(){
+    // 表格数据
+    List<Note> noteList = new ArrayList<>();
+
+    // 所修改的数据索引
+    int index;
+
+    public UpdateJFrame(int index){
+        this.index = index;
+
         //初始化界面
         initFrame();
 
         //初始化组件
         initView();
 
+        // 初始化显示信息
+        initText();
+
         //让界面展示出来
         this.setVisible(true);
+    }
+
+    private void initText() {
+        // 获取数据
+        getData();
+        // 修改文本框
+        Note now = noteList.get(index);
+        titleText.setText(now.getTitle());
+        contentText.setText(now.getContent());
+    }
+
+    // 将数据反序列化获取
+    private void getData() {
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("diary\\temp.txt"));
+            noteList = (List<Note>) ois.readObject();
+            ois.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -34,9 +72,35 @@ public class UpdateJFrame extends JFrame implements ActionListener {
         Object obj = e.getSource();
         if(obj == update){
             System.out.println("修改按钮被点击了");
+            // 修改数据
+            changeNote();
+            // 写入temp
+            writeNote();
+            new NoteJFrame();
+            this.dispose();
         }else if(obj == cancel){
             System.out.println("取消按钮被点击了");
+            new NoteJFrame();
+            this.dispose();
         }
+    }
+
+    // 序列化对象
+    private void writeNote() {
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("diary\\temp.txt"));
+            oos.writeObject(noteList);
+            oos.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // 修改数据
+    private void changeNote() {
+        Note now = noteList.get(index);
+        now.setTitle(titleText.getText());
+        now.setContent(contentText.getText());
     }
 
     private void initView() {
