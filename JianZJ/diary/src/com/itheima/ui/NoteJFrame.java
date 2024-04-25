@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
 public class NoteJFrame extends JFrame implements ActionListener {
 
@@ -104,16 +107,61 @@ public class NoteJFrame extends JFrame implements ActionListener {
 
         }else if(obj == exportItem){
             System.out.println("菜单的导出功能");
-            
+            toZip();
             showJDialog("导出成功");
 
         }else if(obj == importItem){
             System.out.println("菜单的导入功能");
-
+            unZip();
             showJDialog("导入成功");
             new NoteJFrame();
             this.dispose();
 
+        }
+    }
+
+    // 导入数据
+    private void unZip() {
+        File src = new File("diary\\temp.txt");
+        File dest = new File("diary\\save\\data.zip");
+        try {
+            ZipInputStream zis = new ZipInputStream(new FileInputStream(dest));
+            ZipEntry ze;
+            while ((ze = zis.getNextEntry()) != null) {
+                BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(src));
+                byte[] bytes = new byte[1024];
+                int len;
+                while ((len = zis.read(bytes)) != -1) {
+                    bos.write(bytes, 0, len);
+                }
+                bos.close();
+                zis.closeEntry();
+            }
+            zis.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // 导出数据
+    private void toZip() {
+        File src = new File("diary\\temp.txt");
+        File dest = new File("diary\\save");
+        try {
+            ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(new File(dest, "data.zip")));
+            ZipEntry ze = new ZipEntry("data.txt");
+            zos.putNextEntry(ze);
+            BufferedInputStream bis = new BufferedInputStream(new FileInputStream(src));
+            byte[] bytes = new byte[1024];
+            int len;
+            while ((len = bis.read(bytes)) != -1) {
+                zos.write(bytes, 0, len);
+            }
+            bis.close();
+            zos.closeEntry();
+            zos.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
