@@ -18,28 +18,16 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        List<User[]> list = new ArrayList<>();
-        list.add(new User[]{new User("zj", "zj"), new User("hcc", "hcc"), new User("zyd", "zyd")});
-        Object[][] o= list.stream().toArray(value -> new Object[value][]);
-        for (Object[] objects : o) {
-            System.out.println(Arrays.toString(objects));
+        List<User> list = new ArrayList<>();
+        list.add(new User("zj", "123"));
+        for (User user : list) {
+            user.setName("abc");
         }
-//        List<Object[]> tabledatas = new ArrayList<>();
-//        tabledatas.add(new Object[]{"编号1", "标题1", "正文1"});
-//
-//        //定义表格组件
-//        //并给表格设置标题和内容
-//        Object[][] o = tabledatas.stream().toArray(value -> new Object[value][]);
-//        for (Object[] objects : o) {
-//            System.out.println(Arrays.toString(objects));
-//        }
+        System.out.println(list.get(0));
     }
 }
 
-class User implements Serializable{
-
-    @Serial
-    private static final long serialVersionUID = -2513747641863637392L;
+class User {
 
     private String name;
     private String password;
@@ -85,6 +73,6 @@ class User implements Serializable{
     }
 
     public String toString() {
-        return "User{serialVersionUID = " + serialVersionUID + ", name = " + name + ", password = " + password + "}";
+        return "User{name = " + name + ", password = " + password + "}";
     }
 }
