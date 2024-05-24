@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算器</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="container">
+
+            <input class="sys" type="button" value="C" onmouseover="on(this)" onmouseout="off(this)" onclick="cl()">
+            <div id="textarea"></div>
+
+            <input class="button" type="button" value="7" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="button" type="button" value="8" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="button" type="button" value="9" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="calc" type="button" value="+" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+
+            <input class="button" type="button" value="4" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="button" type="button" value="5" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="button" type="button" value="6" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="calc" type="button" value="*" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+
+            <input class="button" type="button" value="1" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="button" type="button" value="2" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="button" type="button" value="3" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="calc" type="button" value="-" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+
+            <input class="button" type="button" value="0" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="button" type="button" value="." onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="calc" type="button" value="/" onmouseover="on(this)" onmouseout="off(this)"
+                onclick="btn(this)">
+            <input class="sys" type="button" value="=" onmouseover="on(this)" onmouseout="off(this)" onclick="calc()">
+
+        </div>
+
+    </div>
+</body>
+
+<script>
+
+    var check = (x) => {
+        if (x == '.' || parseInt(x) >= 1 && parseInt(x) <= 9)
+            return true;
+        else
+            return false;
+    }
+
+    var on = (e) => {
+        e.style = 'box-shadow: none;';
+    }
+
+    var off = (e) => {
+        var color = e.style.background - color;
+        e.style = 'box-shadow: 5px 5px 30px ${color}';
+    }
+
+    var cl = () => {
+        document.getElementById("textarea").innerHTML = "";
+    }
+
+    var btn = (e) => {
+        text = document.getElementById("textarea");
+        text.innerHTML += e.value;
+    }
+
+    var calc = () => {
+        var arr = [];
+        var text = document.getElementById("textarea");
+        var str = text.innerHTML;
+        var len = str.length;
+        for (let i = 0; i < len;) {
+            let cnt = 0;
+            let j = i;
+            while (j < len && check(str.charAt(j))) {
+                j++;
+                cnt++;
+            }
+            if (cnt == 0)
+                i++;
+            else
+            {
+                arr.push(parseFloat(str.substring(i, j)));
+                i = j;
+            }
+        }
+        for (let i = 0; i < arr.length; i++)
+            console.log(arr[i]);
+        let idx = 0;
+        for (let i = 0; i < len; i++) {
+            let now = str.charAt(i);
+            if (!check(now)) {
+                if (now == '*') {
+                    
+                } else if (now == '/') {
+
+                }
+                idx++;
+            }
+        }
+        text.innerHTML = arr[0];
+    }
+
+</script>
+
+</html>
