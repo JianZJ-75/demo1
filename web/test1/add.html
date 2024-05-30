@@ -104,12 +104,8 @@
 
         <div class="right">
             <div class="little">基本信息</div>
-            <form action="" method="get">
+            <form action="" method="get" id="for">
                 <table id="form">
-                    <tr>
-                        <td>书号:</td>
-                        <td><input type="text" name="number"></td>
-                    </tr>
                     <tr>
                         <td>书号:</td>
                         <td><input type="text" name="number"></td>
@@ -149,13 +145,13 @@
                     </tr>
                     <tr>
                         <td>内容简介:</td>
-                        <td><textarea name="description" cols="100" rows="1"></textarea></td>
+                        <td><textarea name="description" cols="100" rows="5"></textarea></td>
                     </tr>
                 </table>
                 <input type="hidden" name="id" value="1">
                 <div class="s">
                     <input type="reset" value="重置">
-                    <input type="submit" value="提交">
+                    <input type="button" value="提交" onclick="on()">
                 </div>
             </form>
         </div>
@@ -163,5 +159,87 @@
     </div>
 
 </body>
+
+<script>
+
+    var flag = true;
+
+    var check = (e) => {
+        var op = e.name;
+        var str = e.value;
+        if (!str) {
+            alert(e.name + "不能为空!");
+            flag = false;
+        }
+    }
+
+    var on = () => {
+        var x = document.getElementById("for");
+        
+        // 书号
+        if (flag) {
+            var number = document.getElementsByName("number")[0];
+            check(number);
+        }
+
+        // 书名
+        if (flag) {
+            var name = document.getElementsByName("name")[0];
+            check(name);
+        }
+
+        // 作者
+        if (flag) {
+            var author = document.getElementsByName("author")[0];
+            check(author);
+        }
+
+        // 出版社
+        if (flag) {
+            var press = document.getElementsByName("press")[0];
+            check(press);
+        }
+
+        // 出版日期
+        if (flag) {
+            var datetime = document.getElementsByName("datetime")[0];
+            check(datetime);
+        }
+
+        // 价格
+        if (flag) {
+            var price = document.getElementsByName("price")[0];
+            check(price);
+        }
+
+        // 库存位置
+        if (flag) {
+            var where = document.getElementsByName("where")[0];
+            check(where);
+        }
+
+        // 类别
+        if (flag) {
+            var classes = document.getElementsByName("class");
+            var cls = "";
+            for (let i = 0; i < classes.length; i++) {
+                if (classes[i].checked) {
+                    cls = classes[i].value;
+                    break;
+                }
+            }
+            if (!cls) {
+                alert("请选择类别");
+                flag = false;
+            }
+        }
+
+        if (flag)
+            x.submit();
+
+        flag = true;
+    }
+
+</script>
 
 </html>
