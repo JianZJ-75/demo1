@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table>
+       <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+        <tbody id="text">
+            
+        </tbody>
+    </table>
+    
+
+</body>
+
+<script>
+
+    var obj = document.getElementById("text");
+    var arr = [{
+        name: "zj",
+        age: 20,
+    },
+    {
+        name: "mike",
+        age: 12,
+    }];
+    for (let i = 0; i < arr.length; i++) {
+        var str = "<tr><td>" + arr[i].name + "</td><td>" + arr[i].age + "</td></tr>";
+        obj.innerHTML += str;
+    }
+
+</script>
+\</html>
