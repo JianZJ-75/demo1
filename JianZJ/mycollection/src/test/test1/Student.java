@@ -1,4 +1,4 @@
-package test;
+package test.test1;
 
 import java.util.Objects;
 
