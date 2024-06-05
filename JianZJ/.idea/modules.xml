@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/diary/diary.iml" filepath="$PROJECT_DIR$/diary/diary.iml" />
       <module fileurl="file://$PROJECT_DIR$/mycollection/mycollection.iml" filepath="$PROJECT_DIR$/mycollection/mycollection.iml" />
       <module fileurl="file://$PROJECT_DIR$/myfile/myfile.iml" filepath="$PROJECT_DIR$/myfile/myfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myfunction/myfunction.iml" filepath="$PROJECT_DIR$/myfunction/myfunction.iml" />
       <module fileurl="file://$PROJECT_DIR$/myio/myio.iml" filepath="$PROJECT_DIR$/myio/myio.iml" />
       <module fileurl="file://$PROJECT_DIR$/myleetcode/myleetcode.iml" filepath="$PROJECT_DIR$/myleetcode/myleetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/mynetwork/mynetwork.iml" filepath="$PROJECT_DIR$/mynetwork/mynetwork.iml" />
