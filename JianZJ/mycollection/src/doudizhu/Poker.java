@@ -1,4 +1,4 @@
-package doudizhu3;
+package doudizhu;
 
 import javax.swing.*;
 import java.awt.*;

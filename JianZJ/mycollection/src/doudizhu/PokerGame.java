@@ -1,4 +1,4 @@
-package doudizhu3;
+package doudizhu;
 
 import java.util.*;
 

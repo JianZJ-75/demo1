@@ -1,4 +1,6 @@
-package doudizhu3;
+package doudizhu;
+
+import doudizhu.game.GameJFrame;
 
 /**
  * @Author JianZJ
@@ -6,6 +8,6 @@ package doudizhu3;
  */
 public class App {
     public static void main(String[] args) {
-        new PokerGame();
+        new GameJFrame();
     }
 }
