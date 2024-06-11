@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/myleetcode/myleetcode.iml" filepath="$PROJECT_DIR$/myleetcode/myleetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/mynetwork/mynetwork.iml" filepath="$PROJECT_DIR$/mynetwork/mynetwork.iml" />
       <module fileurl="file://$PROJECT_DIR$/mystream/mystream.iml" filepath="$PROJECT_DIR$/mystream/mystream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mythread/mythread.iml" filepath="$PROJECT_DIR$/mythread/mythread.iml" />
       <module fileurl="file://$PROJECT_DIR$/puzzlegame/puzzlegame.iml" filepath="$PROJECT_DIR$/puzzlegame/puzzlegame.iml" />
     </modules>
   </component>
