@@ -6,5 +6,28 @@
 </head>
 <body>
 
+    <h1>test2!!!</h1>
+
 </body>
+
+<script>
+
+    var json = {
+        name: 'zj',
+        age: 12,
+        address: '合肥'
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200)
+            alert(xhr.responseText);
+    }
+    xhr.open('post', 'http://localhost:8080/webworkspace/test2', true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send(JSON.stringify(json));
+    // xhr.send("name=zj&age=20");
+
+</script>
+
 </html>

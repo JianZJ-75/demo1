@@ -12,7 +12,7 @@ import java.io.*;
  * @Author JianZJ
  * @Date 2024/6/12 20:05
  */
-@WebServlet(name = "Servlet03", urlPatterns = "/test")
+@WebServlet(name = "Servlet03", urlPatterns = "/test1")
 public class Servlet03 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
