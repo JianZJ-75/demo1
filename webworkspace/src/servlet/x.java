@@ -1,29 +1,25 @@
 package servlet;
 
-import com.alibaba.fastjson2.JSON;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Map;
-import java.util.Objects;
 
 /**
  * @Author JianZJ
- * @Date 2024/6/12 23:06
+ * @Date 2024/6/13 8:24
  */
-@WebServlet(name = "Servlet04", urlPatterns = "/test2")
-public class Servlet04 extends HttpServlet {
+@WebServlet(name = "x", urlPatterns = "/op")
+public class x extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=utf-8");
         PrintWriter pw = response.getWriter();
-        pw.println(request.getParameter("name") + " " + request.getParameter("age"));
+        pw.println("hello");
+        pw.println(request.getParameter("y"));
     }
 
     @Override
