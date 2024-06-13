@@ -1,5 +1,8 @@
 package test.test11;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * @Author JianZJ
  * @Date 2024/6/13 19:00
@@ -7,13 +10,13 @@ package test.test11;
 public class MyThread extends Thread {
     static int ticket = 10;
 
-    static Object lock = new Object();
+    static Lock lock = new ReentrantLock();
 
     @Override
     public void run() {
         while (true) {
-            // 同步代码块
-            synchronized (lock) {
+            lock.lock();
+            try {
                 if (ticket > 0) {
                     try {
                         Thread.sleep(100);
@@ -25,6 +28,8 @@ public class MyThread extends Thread {
 
                 } else
                     break;
+            } finally {
+                lock.unlock();
             }
         }
     }
