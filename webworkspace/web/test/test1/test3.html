@@ -6,29 +6,29 @@
 </head>
 <body>
 
-<form id="myform" name="myfrom" method="post" action="http://localhost:8080/webworkspace/test2">
-  <input type="text" name="name">姓名
-  <input type="text" name="age">年龄
-  <input type="button" onclick=on() value="点击">
-  <input type="submit" value="submit"/>
+<form id="myform" name="myform" method="post" action="http://localhost:8080/webworkspace/test2">
+    <input type="text" name="name">姓名
+    <input type="text" name="age">年龄
+    <input type="button" onclick=on() value="点击">
+    <input type="submit" value="submit"/>
 </form>
 
 </body>
 
 <script>
-  var on = () => {
-    var xhr = new XMLHttpRequest();
-    var myfrom = document.getElementById("myform");
-    var tmp = new FormData(myfrom);
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState == 4 && xhr.status == 200)
-        alert(xhr.responseText);
+    var on = () => {
+        var xhr = new XMLHttpRequest();
+        var myform = document.getElementById("myform");
+        var tmp = new FormData(myform);
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200)
+                alert(xhr.responseText);
+        }
+        xhr.open('post', 'http://localhost:8080/webworkspace/test2', true);
+        var data = new URLSearchParams(tmp).toString();
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send(data);
     }
-    xhr.open('post', 'http://localhost:8080/webworkspace/test2', true);
-    var data = new URLSearchParams(tmp).toString();
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send(data);
-  }
 </script>
 
 </html>
