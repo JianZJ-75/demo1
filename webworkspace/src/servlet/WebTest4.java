@@ -1,24 +1,37 @@
-import servlet.Student;
+package servlet;
 
-import java.io.File;
-import java.io.FileWriter;
+import com.alibaba.fastjson2.JSON;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.io.PrintWriter;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
+/**
+ * @Author JianZJ
+ * @Date 2024/6/19 14:27
+ */
+@WebServlet(name = "WebTest4", urlPatterns = "/WebTest4")
+public class WebTest4 extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        PrintWriter pw = response.getWriter();
         Connection connection = null;
         Statement statement = null;
         List<Student> list = new ArrayList<>();
         String url = "jdbc:mysql://localhost:3306/web";
         try {
+            // 注册驱动类
             Class.forName("com.mysql.cj.jdbc.Driver");
+            // 建立数据库连接
             connection = DriverManager.getConnection(url, "zj", "12345");
+            // 执行sql语句并返回结果
             statement = connection.createStatement();
             String query = "select * from studentInfo";
             ResultSet res = statement.executeQuery(query);
@@ -40,6 +53,11 @@ public class Main {
                 e.printStackTrace();
             }
         }
-        System.out.println(list);
+        pw.println(JSON.toJSONString(list));
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 }

@@ -21,7 +21,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library name="servlet-api">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/servlet-api.jar!/" />
@@ -30,6 +30,10 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="fastjson2-2.0.10" level="project" />
+    <orderEntry type="library" exported="" name="fastjson2-2.0.10" level="project" />
+    <orderEntry type="library" exported="" name="mysql-connector-j-8.4.0" level="project" />
+    <orderEntry type="library" name="mysql-connector-j-8.4.0 (2)" level="project" />
+    <orderEntry type="library" name="servlet-api" level="project" />
+    <orderEntry type="library" name="fastjson2-2.0.10 (2)" level="project" />
   </component>
 </module>

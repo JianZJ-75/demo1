@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test4</title>
+</head>
+<body>
+
+    <div id="main">
+        <table>
+            
+        </table>
+    </div>
+
+</body>
+
+<script>
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var main = document.getElementById('main');
+            
+        }
+    }
+    xhr.open('get', 'http://localhost:8080/webworkspace/WebTest4', true);
+    xhr.send();
+
+</script>
+
+</html>
