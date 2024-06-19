@@ -6,9 +6,14 @@
 </head>
 <body>
 
-    <div id="main">
-        <table>
-            
+    <div>
+        <table id="main" border="1px" cellspacing="0">
+            <tr>
+                <th>num</th>
+                <th>name</th>
+                <th>sex</th>
+                <th>age</th>
+            </tr>
         </table>
     </div>
 
@@ -20,7 +25,16 @@
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var main = document.getElementById('main');
-            
+            var res = JSON.parse(xhr.responseText);
+            for (let i = 0; i < res.length; i++) {
+                var str = "<tr><td>" + res[i].num + "</td><td>" + res[i].name + "</td><td>";
+                if (res[i].sex == 1)
+                    str += "男";
+                else
+                    str += "女";
+                str += "</td><td>" + res[i].age + "</td></tr>";
+                main.innerHTML += str;
+            }
         }
     }
     xhr.open('get', 'http://localhost:8080/webworkspace/WebTest4', true);
