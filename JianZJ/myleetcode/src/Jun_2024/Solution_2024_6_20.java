@@ -14,7 +14,7 @@ public class Solution_2024_6_20 {
             for (int j = 1; j < 10; j++)
                 if (cnt[j] > 0 && gcd(j, x % 10) == 1)
                     ans += cnt[j];
-            while (x > 10)
+            while (x >= 10)
                 x /= 10;
             cnt[x]++;
         }
