@@ -3,10 +3,10 @@
   <div>
     <!-- <h1>{{ message }}</h1> -->
     <!-- <ElementView></ElementView> -->
-    
+
     <!-- 员工管理 -->
     <!-- <emp-view></emp-view> -->
-    
+
     <router-view></router-view>
 
   </div>
@@ -24,12 +24,10 @@ export default {
     }
   },
   methods: {
-    
+
   }
 }
 </script>
 
 <!-- css样式部分 -->
-<style>
-
-</style>
+<style></style>
