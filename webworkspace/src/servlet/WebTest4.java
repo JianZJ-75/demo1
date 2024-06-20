@@ -27,12 +27,15 @@ public class WebTest4 extends HttpServlet {
         List<Student> list = new ArrayList<>();
         String url = "jdbc:mysql://localhost:3306/web";
         try {
-            // 注册驱动类
             Class.forName("com.mysql.cj.jdbc.Driver");
-            // 建立数据库连接
-            connection = DriverManager.getConnection(url, "zj", "12345");
-            // 执行sql语句并返回结果
+            connection = DriverManager.getConnection(url, "root", "root");
             statement = connection.createStatement();
+//            PreparedStatement ps = connection.prepareStatement("insert into studentInfo values (?, ?, ?, ?)");
+//            ps.setString(1, "22302092020");
+//            ps.setString(2, "zz");
+//            ps.setInt(3, 0);
+//            ps.setInt(4, 20);
+//            ps.executeUpdate();
             String query = "select * from studentInfo";
             ResultSet res = statement.executeQuery(query);
             while (res.next()) {
