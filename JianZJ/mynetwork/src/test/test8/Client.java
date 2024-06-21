@@ -1,8 +1,6 @@
 package test.test8;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 
 /**
@@ -16,5 +14,12 @@ public class Client {
         String str = "hello";
         os.write(str.getBytes());
         socket.shutdownOutput();
+        BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        String line;
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
+        }
+        br.close();
+        socket.close();
     }
 }

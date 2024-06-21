@@ -13,12 +13,21 @@ public class Client {
         OutputStream os = socket.getOutputStream();
         File file = new File("mynetwork\\resources\\test\\namelist.txt");
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+        BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());
         byte[] buf = new byte[1024];
         int len;
         while ((len = bis.read(buf)) != -1) {
-            os.write(buf, 0, len);
+            bos.write(buf, 0, len);
         }
+        socket.shutdownOutput();
+        String line;
+        BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
+        }
+        br.close();
+        bos.close();
         bis.close();
-        os.close();
+        socket.close();
     }
 }
