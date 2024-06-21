@@ -210,6 +210,14 @@
         if (flag) {
             var price = document.getElementsByName("price")[0];
             check(price);
+            var str = price.value;
+            for (let i = 0; i < str.length; i++) {
+                if (!(str[i] >= '0' && str <= '9' || str[i] == '.')) {
+                    alert("价格必须为数字");
+                    flag = false;
+                    break;
+                }
+            }
         }
 
         // 库存位置
