@@ -9,9 +9,9 @@ import java.net.Socket;
  */
 public class Client {
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("127.0.0.1", 1024);
+        Socket socket = new Socket("127.0.0.1", 10000);
         OutputStream os = socket.getOutputStream();
-        File file = new File("mynetwork\\resources\\test\\namelist.txt");
+        File file = new File("mynetwork\\src\\resource\\test\\namelist.txt");
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
         BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());
         byte[] buf = new byte[1024];
@@ -19,14 +19,13 @@ public class Client {
         while ((len = bis.read(buf)) != -1) {
             bos.write(buf, 0, len);
         }
+        bos.flush();
         socket.shutdownOutput();
-        String line;
         BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        String line;
         while ((line = br.readLine()) != null) {
             System.out.println(line);
         }
-        br.close();
-        bos.close();
         bis.close();
         socket.close();
     }
