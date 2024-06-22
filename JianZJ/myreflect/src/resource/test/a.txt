@@ -1,0 +1,7 @@
+name=hcc
+age=20
+gender=女
+height=110.0
+hobby=daoguan
+name=Hcc
+salary=0
