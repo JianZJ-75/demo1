@@ -1,22 +1,22 @@
-package test.test3;
+package test.test4;
+
+import java.io.IOException;
 
 /**
  * @Author JianZJ
- * @Date 2024/6/22 16:43
+ * @Date 2024/6/22 16:54
  */
 
 public class Student {
     private String name;
     private int age;
-    public String gender;
 
     public Student() {
     }
 
-    public Student(String name, int age, String gender) {
+    public Student(String name, int age) {
         this.name = name;
         this.age = age;
-        this.gender = gender;
     }
 
     /**
@@ -51,23 +51,16 @@ public class Student {
         this.age = age;
     }
 
-    /**
-     * 获取
-     * @return gender
-     */
-    public String getGender() {
-        return gender;
+    public void sleep() {
+        System.out.println("sleeping...");
     }
 
-    /**
-     * 设置
-     * @param gender
-     */
-    public void setGender(String gender) {
-        this.gender = gender;
+    private String eat(String something) throws IOException, IllegalAccessException, NullPointerException {
+        System.out.println("is eating" + something);
+        return "over";
     }
 
     public String toString() {
-        return "Student{name = " + name + ", age = " + age + ", gender = " + gender + "}";
+        return "Student{name = " + name + ", age = " + age + "}";
     }
 }
