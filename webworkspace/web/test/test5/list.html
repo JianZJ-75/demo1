@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list</title>
+    <style>
+        body {
+            font-family: 宋体;
+        }
+
+        .outline {
+            margin: 0;
+            padding: 10px;
+            background-color: #18666a;
+            width: 1500px;
+            height: 705px;
+        }
+
+        .top {
+            background-color: #a3d2d5;
+            width: 1499px;
+            height: 120px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 1px solid black;
+        }
+
+        .left {
+            display: inline;
+            float: left;
+            background-color: white;
+            width: 374px;
+            height: 581px;
+            border: 1px solid black;
+
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        .right {
+            display: inline;
+            float: right;
+            background-color: white;
+            width: 1102px;
+            height: 561px;
+            border: 1px solid black;
+
+            font-size: 20px;
+            line-height: 30px;
+
+            padding: 10px 10px 10px 10px;
+        }
+
+        #title {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+
+        th {
+            background-color: #a3d2d5;
+        }
+    </style>
+    <script src="../../JS/vue.global.js"></script>
+</head>
+
+<body>
+
+    <div class="outline">
+
+        <div class="top">
+            <h1 id="title">网上书店后台管理系统</h1>
+        </div>
+
+        <div class="left">
+            <ul>
+                <li><a href="list.html">书籍信息管理</a></li>
+                <li><a href="">其他模块管理</a></li>
+                <li><a href="">其他模块管理</a></li>
+                <li><a href="">其他模块管理</a></li>
+                <li><a href="">其他模块管理</a></li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <a href="add.html">添加书籍</a>
+            &nbsp;
+            <a href="">查询书籍</a>
+            <br>
+            <table border="1px" cellspacing="0">
+                <tr>
+                    <th>书号</th>
+                    <th>书名</th>
+                    <th>作者</th>
+                    <th>出版社</th>
+                    <th>单价</th>
+                    <th>介绍</th>
+                    <th>操作</th>
+                </tr>
+                <div v-for="user in users">{{user.name}} : {{user.age}}</div>
+                <tr v-for="book in books">
+                    <td>{{book.num}}</td>
+                    <td>{{book.name}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.pressName}}</td>
+                    <td>{{book.price}}</td>                    
+                    <td>{{book.intro}}</td>                    
+                    <td><a href="">删除</a> <a href="">编辑</a></td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    var app = Vue.createApp({
+        data: function () {
+            return {
+                books: []
+            }
+        },
+        methods: {
+            show: function () {
+                var _this = this;
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        _this.books = JSON.parse(xhr.responseText);
+                    }
+                }
+                xhr.open('get', 'http://localhost:8080/webworkspace/update', true);
+                xhr.send();
+            }
+        },
+        mounted() {
+            this.show();
+        },
+    });
+    app.mount(".outline");
+</script>
+
+</html>

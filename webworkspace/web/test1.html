@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.global.js"></script>
+</head>
+
+<body>
+
+    <div id="main">
+        <h1>{{message}}</h1>
+        <input type="text" v-bind:value="message">
+        <input type="text" v-model="message">
+        <input type="button" v-on:click="on()" value="click!!!">
+        <div v-for="user in users">{{user.name}} : {{user.age}}</div>
+
+    </div>
+
+</body>
+
+<script>
+    var app = Vue.createApp({
+        data() {
+            return {
+                message: "hello vue",
+                users: [
+                    {name:"zj", age:20},
+                    {name:"hcc", age:20}
+                ]
+            }
+        },
+        methods: {
+            on() {
+                alert(this.message);
+            }
+        }
+    });
+    app.mount("#main");
+</script>
+
+</html>
