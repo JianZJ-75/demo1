@@ -17,24 +17,24 @@ public class Servlet03 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter pw = response.getWriter();
-        String name = request.getParameter("name");
+//        String name = request.getParameter("name");
 //        if (name != null) {
 //            FileWriter fw = new FileWriter(new File("webworkspace\\src\\resource\\servlet\\tmp.txt"));
 //            fw.write("zj");
 //            fw.close();
 //        }
-        File file = new File("a.txt");
+        File file = new File("E:\\Git\\demo1\\webworkspace\\src\\resource\\servlet\\tmp.txt");
         FileWriter fw = new FileWriter(file);
-        fw.write(name);
+        fw.write("zjzjzjzjzjzj");
         fw.close();
-        FileReader fr = new FileReader(file);
-        char[] chars = new char[2];
-        int len;
-        String res = "";
-        while ((len = fr.read(chars)) != -1) {
-            res += new String(chars, 0, len);
-        }
-        pw.println(res + " " + file.getAbsolutePath() + " " + file.getPath());
+//        FileReader fr = new FileReader(file);
+//        char[] chars = new char[2];
+//        int len;
+//        String res = "";
+//        while ((len = fr.read(chars)) != -1) {
+//            res += new String(chars, 0, len);
+//        }
+//        pw.println(res + " " + file.getAbsolutePath() + " " + file.getPath());
     }
 
     @Override
