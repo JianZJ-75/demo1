@@ -24,6 +24,8 @@ public class Servlet04 extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter pw = response.getWriter();
         pw.println(request.getParameter("name") + " " + request.getParameter("age"));
+        System.out.println(request.getParameter("name") + " " + request.getParameter("age"));
+//        response.sendRedirect("test/test1/test3.html");
     }
 
     @Override

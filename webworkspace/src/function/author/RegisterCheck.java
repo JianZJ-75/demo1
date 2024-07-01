@@ -22,38 +22,44 @@ public class RegisterCheck extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
+        response.setContentType("text/html;charset=utf-8");
         // 获取注册信息
-        String url = request.getParameter("url");
-        String username = request.getParameter("username");
+        String url = request.getParameter("hh");
+        System.out.println(url);
+        String name = request.getParameter("username");
         String password = request.getParameter("password");
-        // 查询该用户名是否已经存在
-        String sql = "select * from user where username=" + username;
-        User user = new User();
-        try {
-            Class.forName(UtilTools.className);
-            Connection connection = DriverManager.getConnection(UtilTools.url, UtilTools.user, UtilTools.password);
-            Statement statement = connection.createStatement();
-            ResultSet res = statement.executeQuery(sql);
-            while (res.next()) {
-                user.setUsername(res.getString("username"));
-            }
-            if (user.getUsername() != null) {
-                out.println("该用户名已经存在!");
-            } else {
-                PreparedStatement ps = connection.prepareStatement(UtilTools.sqlAdd);
-                ps.setString(1, username);
-                ps.setString(2, password);
-                ps.setBinaryStream(3, new FileInputStream(url));
-                ps.executeUpdate();
-                out.println("注册完成");
-            }
-            statement.close();
-            connection.close();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        System.out.println(name + " " + password);
+//        String url = request.getParameter("url");
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        // 查询该用户名是否已经存在
+//        String sql = "select * from user where username=" + username;
+//        User user = new User();
+//        try {
+//            Class.forName(UtilTools.className);
+//            Connection connection = DriverManager.getConnection(UtilTools.url, UtilTools.user, UtilTools.password);
+//            Statement statement = connection.createStatement();
+//            ResultSet res = statement.executeQuery(sql);
+//            while (res.next()) {
+//                user.setUsername(res.getString("username"));
+//            }
+//            if (user.getUsername() != null) {
+//                out.println("该用户名已经存在!");
+//            } else {
+//                PreparedStatement ps = connection.prepareStatement(UtilTools.sqlAdd);
+//                ps.setString(1, username);
+//                ps.setString(2, password);
+//                ps.setBinaryStream(3, new FileInputStream(url));
+//                ps.executeUpdate();
+//                out.println("注册完成");
+//            }
+//            statement.close();
+//            connection.close();
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @Override
