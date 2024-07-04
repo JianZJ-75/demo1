@@ -1,10 +1,10 @@
 package com.jianzj.controller;
 
 import com.jianzj.pojo.User;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -59,5 +59,30 @@ public class RequestController {
     public String listParam(@RequestParam List<String> hobby) {
         System.out.println(hobby);
         return "listParam OK!";
+    }
+
+    @RequestMapping("/dateParam")
+    public String dateParam(@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime updateTime) {
+        System.out.println(updateTime);
+        return "dateParam OK!";
+    }
+
+    @RequestMapping("/jsonParam")
+    public String jsonParam(@RequestBody User user) {
+        System.out.println(user);
+        return "jsonParam OK!";
+    }
+
+//    @RequestMapping("/path/{id}")
+//    public String pathParam(@PathVariable int id) {
+//        System.out.println(id);
+//        return "pathParam OK!";
+//    }
+
+    @RequestMapping("/path/{id}/{name}")
+    public String pathParam(@PathVariable Integer id, @PathVariable String name) {
+        System.out.println(id);
+        System.out.println(name);
+        return "pathParam OK!";
     }
 }
