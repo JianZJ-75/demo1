@@ -3,7 +3,7 @@ package com.jianzj.dao.impl;
 import com.jianzj.dao.EmpDao;
 import com.jianzj.pojo.Emp;
 import com.jianzj.util.XmlParserUtils;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -12,8 +12,10 @@ import java.util.List;
  * @Date 2024/7/5 23:43
  */
 
-@Component // 将当前类交给IOC容器管理, 成为IOC容器中的bean对象
+//@Component // 将当前类交给IOC容器管理, 成为IOC容器中的bean对象
+@Repository
 public class EmpDaoA implements EmpDao {
+
     @Override
     public List<Emp> listEmp() {
         // 加载并解析XML

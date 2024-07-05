@@ -4,6 +4,7 @@ import com.jianzj.dao.EmpDao;
 import com.jianzj.pojo.Emp;
 import com.jianzj.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @Date 2024/7/5 23:44
  */
 //@Component // 将当前类交给IOC容器管理, 成为IOC容器中的bean对象
+@Service
 public class EmpServiceA implements EmpService {
 
     @Autowired // 运行时, IOC容器会提供该类型的bean对象, 并赋值给该变量 - 依赖注入
