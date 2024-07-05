@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 // 请求处理类
 @RestController
 public class HelloController {
-    @RequestMapping("/hello")
-    public String hello() {
+    @RequestMapping("/index")
+    public String index() {
         System.out.println("hello SpringBoot~");
         return "Hello SpringBoot~";
     }
