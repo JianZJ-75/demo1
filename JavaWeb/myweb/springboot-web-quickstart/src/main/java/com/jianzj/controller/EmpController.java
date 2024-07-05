@@ -3,7 +3,7 @@ package com.jianzj.controller;
 import com.jianzj.pojo.Emp;
 import com.jianzj.pojo.Result;
 import com.jianzj.service.EmpService;
-import com.jianzj.service.impl.EmpServiceA;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +16,10 @@ import java.util.List;
 
 @RestController
 public class EmpController {
-    private EmpService empService = new EmpServiceA();
+
+    @Autowired // 运行时, IOC容器会提供该类型的bean对象, 并赋值给该变量 - 依赖注入
+    private EmpService empService;
+
     @RequestMapping("/listEmp")
     public Result list() {
         List<Emp> empList = empService.listEmp();

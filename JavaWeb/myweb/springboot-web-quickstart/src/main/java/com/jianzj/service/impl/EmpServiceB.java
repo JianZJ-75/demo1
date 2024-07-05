@@ -4,15 +4,16 @@ import com.jianzj.dao.EmpDao;
 import com.jianzj.pojo.Emp;
 import com.jianzj.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * @Author JianZJ
- * @Date 2024/7/5 23:44
+ * @Date 2024/7/6 0:10
  */
-//@Component // 将当前类交给IOC容器管理, 成为IOC容器中的bean对象
-public class EmpServiceA implements EmpService {
+@Component // 将当前类交给IOC容器管理, 成为IOC容器中的bean对象
+public class EmpServiceB implements EmpService {
 
     @Autowired // 运行时, IOC容器会提供该类型的bean对象, 并赋值给该变量 - 依赖注入
     private EmpDao empDao;
@@ -24,9 +25,9 @@ public class EmpServiceA implements EmpService {
             // 处理gender
             String gender = emp.getGender();
             if ("1".equals(gender)) {
-                emp.setGender("男");
+                emp.setGender("男士");
             } else if ("2".equals(gender)) {
-                emp.setGender("女");
+                emp.setGender("女士");
             }
 
             // 处理job
