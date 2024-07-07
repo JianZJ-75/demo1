@@ -12,6 +12,7 @@
         <module name="http-server-demo" />
         <module name="springboot-mybatis-quickstart" />
         <module name="springboot-web-quickstart" />
+        <module name="springboot-tlias" />
         <module name="maven-projectA" />
         <module name="maven-projectB" />
         <module name="maven-projectC" />
@@ -22,6 +23,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="springboot-mybatis-quickstart" options="-parameters" />
+      <module name="springboot-tlias" options="-parameters" />
       <module name="springboot-web-quickstart" options="-parameters" />
     </option>
   </component>
