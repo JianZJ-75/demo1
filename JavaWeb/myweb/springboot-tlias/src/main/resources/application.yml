@@ -17,8 +17,4 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
 
-# 阿里云OSS
-aliyun:
-  oss:
-    endpoint: https://oss-cn-hangzhou.aliyuncs.com
-    bucketName: jianzj-web-tlias
+
