@@ -3,6 +3,7 @@ package com.jianzj.mapper;
 import com.jianzj.pojo.Emp;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -49,4 +50,18 @@ public interface EmpMapper {
     @Insert("insert emp(username, name, gender, image, dept_id, entrydate, job, create_time, update_time)" +
             "values (#{username}, #{name}, #{gender}, #{image}, #{deptId}, #{entrydate}, #{job}, #{createTime}, #{updateTime})")
     void add(Emp emp);
+
+    /**
+     * 根据ID查询员工信息
+     * @param id
+     * @return
+     */
+    @Select("select * from emp where id = #{id}")
+    Emp get(Integer id);
+
+    /**
+     * 修改员工信息
+     * @param emp
+     */
+    void update(Emp emp);
 }

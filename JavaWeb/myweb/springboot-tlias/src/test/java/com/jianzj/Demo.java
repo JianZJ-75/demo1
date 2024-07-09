@@ -2,11 +2,9 @@ package com.jianzj;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;
-import com.aliyun.oss.common.auth.*;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.OSSException;
-import com.aliyun.oss.model.PutObjectRequest;
-import com.aliyun.oss.model.PutObjectResult;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
 
@@ -15,25 +13,24 @@ public class Demo {
     public static void main(String[] args) throws Exception {
         // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。
         String endpoint = "https://oss-cn-hangzhou.aliyuncs.com";
-        // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
-        EnvironmentVariableCredentialsProvider credentialsProvider = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();
+        // 阿里云账号AccessKey拥有所有API的访问权限, 风险很高, 强烈建议你创建并使用RAM用户进行API访问或日常运维, 请登录RAM控制台创建
+        String accessKeyId = "LTAI5tRA8L2P7VmHPRirLXHC";
+        String accessKeySecret = "fr5pbZeOSKJi80ipER3N06LOqiEanM";
         // 填写Bucket名称，例如examplebucket。
-        String bucketName = "examplebucket";
+        String bucketName = "jianzj-web-tlias";
         // 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
-        String objectName = "exampledir/exampleobject.txt";
+        String objectName = "1.jpg";
         // 填写本地文件的完整路径，例如D:\\localpath\\examplefile.txt。
         // 如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件流。
-        String filePath= "D:\\localpath\\examplefile.txt";
+        String filePath= "E:\\Git\\demo1\\JavaWeb\\myweb\\springboot-tlias\\src\\main\\resources\\img\\709e617d-1448-4723-abf6-6798870ded80.jpg";
 
         // 创建OSSClient实例。
-        OSS ossClient = new OSSClientBuilder().build(endpoint, credentialsProvider);
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
 
         try {
             InputStream inputStream = new FileInputStream(filePath);
-            // 创建PutObjectRequest对象。
-            PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, objectName, inputStream);
             // 创建PutObject请求。
-            PutObjectResult result = ossClient.putObject(putObjectRequest);
+            ossClient.putObject(bucketName, objectName, inputStream);
         } catch (OSSException oe) {
             System.out.println("Caught an OSSException, which means your request made it to OSS, "
                     + "but was rejected with an error response for some reason.");
