@@ -9,6 +9,8 @@ import com.jianzj.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -37,12 +39,12 @@ public class EmpServiceImpl implements EmpService {
 //    }
 
     @Override
-    public PageBean page(Integer page, Integer pageSize) {
+    public PageBean page(Integer page, Integer pageSize, String name, Short gender, LocalDate begin, LocalDate end) {
         // 设置分页参数
         PageHelper.startPage(page, pageSize);
         // 执行查询
         // empList其实是分页查询结果的一个封装类, 将其转成List<Page>
-        List<Emp> empList = empMapper.list();
+        List<Emp> empList = empMapper.list(name, gender, begin, end);
         Page<Emp> p = (Page<Emp>) empList;
         // 封装对象
         PageBean pageBean = new PageBean(p.getTotal(), p.getResult());
@@ -50,4 +52,16 @@ public class EmpServiceImpl implements EmpService {
         return pageBean;
     }
 
+    @Override
+    public void deleteByIds(Integer[] ids) {
+        empMapper.deleteByIds(ids);
+    }
+
+    @Override
+    public void add(Emp emp) {
+        emp.setCreateTime(LocalDateTime.now());
+        emp.setUpdateTime(LocalDateTime.now());
+
+        empMapper.add(emp);
+    }
 }
