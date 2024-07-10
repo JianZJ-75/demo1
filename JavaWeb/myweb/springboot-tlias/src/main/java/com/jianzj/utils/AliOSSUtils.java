@@ -2,6 +2,9 @@ package com.jianzj.utils;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.common.auth.CredentialsProviderFactory;
+import com.aliyun.oss.common.auth.EnvironmentVariableCredentialsProvider;
+import com.aliyuncs.exceptions.ClientException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -37,10 +40,8 @@ public class AliOSSUtils {
      * @return
      * @throws IOException
      */
-    public String upload(MultipartFile file) throws IOException {
+    public String upload(MultipartFile file) throws IOException, ClientException, ClientException {
         String endpoint = aliOSSProperties.getEndpoint();
-        String accessKeyId = aliOSSProperties.getAccessKeyId();
-        String accessKeySecret = aliOSSProperties.getAccessKeySecret();
         String bucketName = aliOSSProperties.getBucketName();
         // 获取文件的输入流
         InputStream inputStream = file.getInputStream();
@@ -48,7 +49,8 @@ public class AliOSSUtils {
         String originName = file.getOriginalFilename();
         // 获取OSS中存储的文件名
         String objectName = UUID.randomUUID().toString() + originName.substring(originName.lastIndexOf("."));
-        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+        EnvironmentVariableCredentialsProvider credentialsProvider = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();
+        OSS ossClient = new OSSClientBuilder().build(endpoint, credentialsProvider);
         // 创建PutObject请求。
         ossClient.putObject(bucketName, objectName, inputStream);
         // 获取OSS中文件的地址

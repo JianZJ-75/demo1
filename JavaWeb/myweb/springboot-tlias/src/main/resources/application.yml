@@ -21,6 +21,4 @@ mybatis:
 aliyun:
   oss:
     endpoint: https://oss-cn-hangzhou.aliyuncs.com
-    accessKeyId: LTAI5tRA8L2P7VmHPRirLXHC
-    accessKeySecret: fr5pbZeOSKJi80ipER3N06LOqiEanM
     bucketName: jianzj-web-tlias
