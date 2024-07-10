@@ -47,4 +47,11 @@ public interface EmpService {
      * @param emp
      */
     void update(Emp emp);
+
+    /**
+     * 登陆验证
+     * @param emp
+     * @return
+     */
+    String login(Emp emp);
 }

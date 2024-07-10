@@ -64,4 +64,11 @@ public interface EmpMapper {
      * @param emp
      */
     void update(Emp emp);
+
+    /**
+     * 登陆验证
+     * @return
+     */
+    @Select("select * from emp where username = #{username} and password = #{password}")
+    Emp getByUsernameAndPassword(Emp emp);
 }

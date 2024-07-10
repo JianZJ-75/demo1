@@ -6,12 +6,15 @@ import com.jianzj.mapper.EmpMapper;
 import com.jianzj.pojo.Emp;
 import com.jianzj.pojo.PageBean;
 import com.jianzj.service.EmpService;
+import com.jianzj.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author JianZJ
@@ -75,5 +78,18 @@ public class EmpServiceImpl implements EmpService {
         emp.setUpdateTime(LocalDateTime.now());
 
         empMapper.update(emp);
+    }
+
+    @Override
+    public String login(Emp emp) {
+        Emp tmp = empMapper.getByUsernameAndPassword(emp);
+        if (tmp != null) {
+            Map<String, Object> claims = new HashMap<>();
+            claims.put("id", tmp.getId());
+            claims.put("name", tmp.getName());
+            claims.put("username", tmp.getUsername());
+            return JwtUtils.generateToken(claims);
+        }
+        return null;
     }
 }
