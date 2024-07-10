@@ -8,16 +8,6 @@
   ],
   "properties": [
     {
-      "name": "aliyun.oss.access-key-id",
-      "type": "java.lang.String",
-      "sourceType": "com.jianzj.utils.AliOSSProperties"
-    },
-    {
-      "name": "aliyun.oss.access-key-secret",
-      "type": "java.lang.String",
-      "sourceType": "com.jianzj.utils.AliOSSProperties"
-    },
-    {
       "name": "aliyun.oss.bucket-name",
       "type": "java.lang.String",
       "sourceType": "com.jianzj.utils.AliOSSProperties"

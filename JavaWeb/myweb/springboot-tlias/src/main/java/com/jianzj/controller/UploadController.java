@@ -1,5 +1,6 @@
 package com.jianzj.controller;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.jianzj.pojo.Result;
 import com.jianzj.utils.AliOSSUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +37,7 @@ public class UploadController {
 //    }
 
     @PostMapping("/upload")
-    public Result upload(MultipartFile image) throws IOException {
+    public Result upload(MultipartFile image) throws IOException, ClientException {
         log.info("文件上传: {}" + image.getOriginalFilename());
         // 调用阿里云OSS工具类进行文件上传
         String url = ossUtils.upload(image);
