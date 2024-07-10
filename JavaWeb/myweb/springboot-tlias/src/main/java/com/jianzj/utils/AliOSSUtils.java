@@ -1,10 +1,8 @@
 package com.jianzj.utils;
 
+import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
-import com.aliyun.oss.common.auth.CredentialsProviderFactory;
-import com.aliyun.oss.common.auth.EnvironmentVariableCredentialsProvider;
-import com.aliyuncs.exceptions.ClientException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -40,7 +38,7 @@ public class AliOSSUtils {
      * @return
      * @throws IOException
      */
-    public String upload(MultipartFile file) throws IOException, ClientException, ClientException {
+    public String upload(MultipartFile file) throws IOException {
         String endpoint = aliOSSProperties.getEndpoint();
         String bucketName = aliOSSProperties.getBucketName();
         // 获取文件的输入流
