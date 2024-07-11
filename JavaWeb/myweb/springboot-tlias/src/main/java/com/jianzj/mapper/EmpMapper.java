@@ -1,6 +1,7 @@
 package com.jianzj.mapper;
 
 import com.jianzj.pojo.Emp;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -71,4 +72,11 @@ public interface EmpMapper {
      */
     @Select("select * from emp where username = #{username} and password = #{password}")
     Emp getByUsernameAndPassword(Emp emp);
+
+    /**
+     * 根据部门ID删除员工
+     * @param id
+     */
+    @Delete("delete from emp where dept_id = #{id}")
+    void deleteByDeptId(Integer id);
 }
