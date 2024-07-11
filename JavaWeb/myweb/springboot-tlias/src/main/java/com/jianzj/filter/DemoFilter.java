@@ -10,7 +10,7 @@ import java.io.IOException;
  * @Date 2024/7/11 3:35
  */
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class DemoFilter implements Filter {
 
     @Override // 初始化方法, 只调用一次
