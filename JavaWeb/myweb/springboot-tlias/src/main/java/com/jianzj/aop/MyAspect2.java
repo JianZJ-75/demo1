@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 @Slf4j
 @Component
-@Aspect
+//@Aspect
 public class MyAspect2 {
 
     @Pointcut("execution(* com.jianzj.service.DeptService.*(..))")

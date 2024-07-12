@@ -1,5 +1,6 @@
 package com.jianzj.mapper;
 
+import com.jianzj.annotation.Log;
 import com.jianzj.pojo.Emp;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -42,12 +43,14 @@ public interface EmpMapper {
      * 批量删除员工
      * @param ids
      */
+    @Log
     void deleteByIds(Integer[] ids);
 
     /**
      * 添加员工
      * @param emp
      */
+    @Log
     @Insert("insert emp(username, name, gender, image, dept_id, entrydate, job, create_time, update_time)" +
             "values (#{username}, #{name}, #{gender}, #{image}, #{deptId}, #{entrydate}, #{job}, #{createTime}, #{updateTime})")
     void add(Emp emp);
@@ -64,6 +67,7 @@ public interface EmpMapper {
      * 修改员工信息
      * @param emp
      */
+    @Log
     void update(Emp emp);
 
     /**
@@ -77,6 +81,7 @@ public interface EmpMapper {
      * 根据部门ID删除员工
      * @param id
      */
+    @Log
     @Delete("delete from emp where dept_id = #{id}")
     void deleteByDeptId(Integer id);
 }
