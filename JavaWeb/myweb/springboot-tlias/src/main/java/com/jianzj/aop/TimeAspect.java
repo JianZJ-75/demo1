@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-@Aspect // AOP类
+//@Aspect // AOP类
 public class TimeAspect {
 
     @Around("execution(* com.jianzj.service.*.*(..))") // 切入点表达式
