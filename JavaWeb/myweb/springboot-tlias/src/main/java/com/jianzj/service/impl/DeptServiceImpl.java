@@ -3,6 +3,7 @@ package com.jianzj.service.impl;
 import com.jianzj.mapper.DeptMapper;
 import com.jianzj.mapper.EmpMapper;
 import com.jianzj.pojo.Dept;
+import com.jianzj.pojo.DeptLog;
 import com.jianzj.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,8 @@ public class DeptServiceImpl implements DeptService {
     private DeptMapper deptMapper;
     @Autowired
     private EmpMapper empMapper;
+    @Autowired
+    private DeptLogServiceImpl deptLogServiceImpl;
 
     @Override
     public List<Dept> list() {
@@ -32,8 +35,16 @@ public class DeptServiceImpl implements DeptService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void delete(Integer id) {
-        deptMapper.deleteById(id);
-        empMapper.deleteByDeptId(id);
+        try {
+            deptMapper.deleteById(id);
+            int i = 1 / 0;
+            empMapper.deleteByDeptId(id);
+        } finally {
+            DeptLog deptLog = new DeptLog();
+            deptLog.setCreateTime(LocalDateTime.now());
+            deptLog.setDescription("执行了解散部门的操作, 此次解散的是" + id + "号部门");
+            deptLogServiceImpl.insert(deptLog);
+        }
     }
 
     @Override
