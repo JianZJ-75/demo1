@@ -29,7 +29,7 @@ public class DeptServiceImpl implements DeptService {
         return deptMapper.list();
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void delete(Integer id) {
         deptMapper.deleteById(id);
