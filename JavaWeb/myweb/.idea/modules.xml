@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/itheima-utils/itheima-utils.iml" filepath="$PROJECT_DIR$/itheima-utils/itheima-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/myweb.iml" filepath="$PROJECT_DIR$/myweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-autoconfiguration-test/springboot-autoconfiguration-test.iml" filepath="$PROJECT_DIR$/springboot-autoconfiguration-test/springboot-autoconfiguration-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-web-config2/springboot-web-config2.iml" filepath="$PROJECT_DIR$/springboot-web-config2/springboot-web-config2.iml" />
     </modules>
   </component>
 </project>
