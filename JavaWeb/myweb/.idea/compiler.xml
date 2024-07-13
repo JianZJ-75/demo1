@@ -12,20 +12,24 @@
         <module name="http-server-demo" />
         <module name="springboot-mybatis-quickstart" />
         <module name="springboot-web-quickstart" />
+        <module name="itheima-utils" />
         <module name="springboot-tlias" />
         <module name="maven-projectA" />
         <module name="maven-projectB" />
         <module name="maven-projectC" />
-        <module name="springboot-learn" />
+        <module name="springboot-web-config2" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="17" />
+    <bytecodeTargetLevel target="17">
+      <module name="springboot-learn" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="springboot-learn" options="-parameters" />
       <module name="springboot-mybatis-quickstart" options="-parameters" />
       <module name="springboot-tlias" options="-parameters" />
+      <module name="springboot-web-config2" options="-parameters" />
       <module name="springboot-web-quickstart" options="-parameters" />
     </option>
   </component>
