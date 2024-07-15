@@ -7,13 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="springboot-tlias-pojo" />
         <module name="springboot-autoconfiguration-test" />
         <module name="springboot-mybatis-quickstart" />
         <module name="itheima-utils" />
-        <module name="springboot-tlias" />
+        <module name="springboot-tlias-manager" />
         <module name="maven-projectA" />
         <module name="maven-projectB" />
         <module name="maven-projectC" />
+        <module name="springboot-tlias-utils" />
         <module name="maven-project01" />
         <module name="maven-project02" />
         <module name="aliyun-oss-spring-boot-starter" />
@@ -25,6 +27,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="17">
       <module name="springboot-learn" target="17" />
+      <module name="untitled" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -34,7 +37,9 @@
       <module name="springboot-autoconfiguration-test" options="-parameters" />
       <module name="springboot-learn" options="-parameters" />
       <module name="springboot-mybatis-quickstart" options="-parameters" />
-      <module name="springboot-tlias" options="-parameters" />
+      <module name="springboot-tlias-manager" options="-parameters" />
+      <module name="springboot-tlias-pojo" options="-parameters" />
+      <module name="springboot-tlias-utils" options="-parameters" />
       <module name="springboot-web-config2" options="-parameters" />
       <module name="springboot-web-quickstart" options="-parameters" />
     </option>
