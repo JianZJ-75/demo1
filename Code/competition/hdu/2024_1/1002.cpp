@@ -33,9 +33,34 @@ ll gcd(ll a, ll b)
     return b ? gcd(b, a % b) : a;
 }
 
+ll a[1003][5];
+ll f[1003][4004];
+ll n, k;
+
+ll dfs(ll i, ll j) {
+    if (j < 0)
+        return 1e13;
+    if (f[i][j] != -1)
+        return f[i][j];
+    if (i > n)
+        return 1e13;
+    f[i][j] = min(dfs(i + 1, j), min(min(min(dfs(i + 1, j - 4) + a[i][4], dfs(i + 1, j - 3) + a[i][3]), dfs(i + 1, j - 2) + a[i][2]), dfs(i + 1, j - 1) + a[i][1]));
+    return f[i][j];
+}
+
 void Jian()
 {
-    
+    rep(i, 1, 1002)
+        memset(f[i], -1, sizeof(f[i]));
+    cin >> n >> k;
+    rep(i, 1, n)
+    {
+        a[i][0] = 0;
+        rep(j, 1, 4)
+            cin >> a[i][j];
+    }
+    f[n + 1][0] = 0;
+    cout << dfs(1, k) << endl;
 }
 
 signed main()

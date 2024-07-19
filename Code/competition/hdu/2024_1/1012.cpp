@@ -10,6 +10,7 @@
 #define INF 0x3f3f3f3f
 #define LINF 0x3f3f3f3f3f3f3f3f
 const ll M = 1e9 + 7;
+const ll MOD = 998244353;
 
 using namespace std;
 
@@ -19,9 +20,9 @@ ll qmi(ll a, ll b)
     while (b)
     {
         if (b & 1)
-            ret = ret * a;
+            ret = ret * a % MOD;
         b /= 2;
-        a = a * a;
+        a = a * a % MOD;
     }
     return ret;
 }
@@ -35,7 +36,7 @@ ll gcd(ll a, ll b)
 
 void Jian()
 {
-    
+    cout << 20 * qmi(3, MOD - 2) % MOD << endl;
 }
 
 signed main()
@@ -45,7 +46,7 @@ signed main()
     cin.tie(0);
     cout.tie(0);
     int _ = 1;
-    cin >> _;
+    // cin >> _;
     while (_--)
         Jian();
     return 0;
