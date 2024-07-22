@@ -35,7 +35,7 @@ ll gcd(ll a, ll b)
 
 void Jian()
 {
-    
+
 }
 
 signed main()
