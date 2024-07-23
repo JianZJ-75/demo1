@@ -35,6 +35,8 @@ string a[9];
 
 map<pair<int, int>, pair<pair<int, int>, pair<int, int>>> mp;
 
+vector<pair<int, int>> dp;
+
 void copy1(char tt[9][12], char b[9][12]) {
     rep(i, 0, 8) {
         rep(j, 0, 11) {
@@ -45,34 +47,58 @@ void copy1(char tt[9][12], char b[9][12]) {
 
 void in() {
     // 1
+    dp.push_back({0, 3});
+    dp.push_back({3, 11});
+    dp.push_back({3, 0});
     mp[{0, 3}] = {{3, 0}, {3, 11}};
     mp[{3, 0}] = {{0, 3}, {3, 11}};
     mp[{3, 11}] = {{3, 0}, {0, 3}};
     // 2
+    dp.push_back({0, 5});
+    dp.push_back({3, 8});
+    dp.push_back({3, 9});
     mp[{0, 5}] = {{3, 8}, {3, 9}};
     mp[{3, 8}] = {{0, 5}, {3, 9}};
     mp[{3, 9}] = {{3, 8}, {0, 5}};
     // 3
+    dp.push_back({2, 3});
+    dp.push_back({3, 3});
+    dp.push_back({3, 2});
     mp[{2, 3}] = {{3, 3}, {3, 2}};
     mp[{3, 3}] = {{2, 3}, {3, 2}};
     mp[{3, 2}] = {{3, 3}, {2, 3}};
     // 4
+    dp.push_back({2, 5});
+    dp.push_back({3, 5});
+    dp.push_back({3, 6});
     mp[{2, 5}] = {{3, 5}, {3, 6}};
     mp[{3, 5}] = {{2, 5}, {3, 6}};
     mp[{3, 6}] = {{3, 5}, {2, 5}};
     // 5
+    dp.push_back({5, 3});
+    dp.push_back({5, 2});
+    dp.push_back({6, 3});
     mp[{5, 3}] = {{5, 2}, {6, 3}};
     mp[{5, 2}] = {{5, 3}, {6, 3}};
     mp[{6, 3}] = {{5, 2}, {5, 3}};
     // 6
+    dp.push_back({5, 5});
+    dp.push_back({5, 6});
+    dp.push_back({6, 5});
     mp[{5, 5}] = {{5, 6}, {6, 5}};
     mp[{5, 6}] = {{5, 5}, {6, 5}};
     mp[{6, 5}] = {{5, 6}, {5, 5}};
     // 7
+    dp.push_back({8, 3});
+    dp.push_back({5, 0});
+    dp.push_back({5, 11});
     mp[{8, 3}] = {{5, 0}, {5, 11}};
     mp[{5, 0}] = {{8, 3}, {5, 11}};
     mp[{5, 11}] = {{5, 0}, {8, 3}};
     // 8
+    dp.push_back({8, 5});
+    dp.push_back({5, 8});
+    dp.push_back({5, 9});
     mp[{8, 5}] = {{5, 8}, {5, 9}};
     mp[{5, 8}] = {{8, 5}, {5, 9}};
     mp[{5, 9}] = {{5, 8}, {8, 5}};
@@ -351,16 +377,6 @@ void dfs(int now) {
     f6(1);
 }
 
-void print(char init[9][12]) {
-    rep(i, 0, 8) {
-        rep(j, 0, 11) {
-            cout << init[i][j];
-        }
-        cout << endl;
-    }
-    cout << "-----------------\n";
-}
-
 vector<char> c(int i, int j) {
     vector<char> res;
     auto p = mp[{i, j}];
@@ -372,14 +388,29 @@ vector<char> c(int i, int j) {
 
 void Jian()
 {
-    f1(1);
-    print(init);
-    f6(1);
-    print(init);
-    f5(0);
-    print(init);
-    f3(0);
-    print(init);
+    rep(i, 0, 8) {
+        cin >> a[i];
+    }
+    bool ok = 0;
+    vector<char> ans;
+    // bool fl = 0;
+    for (auto ttt : fa) {
+        vector<pair<int, int>> tmp;
+        auto k = ttt.t;
+        for (auto i : dp) {
+            if (k[i.x][i.y] != a[i.x][i.y])
+                tmp.push_back({i.x, i.y});
+        }
+        if (tmp.size() == 0) {
+            cout << "No problem\n";
+            return;
+        }
+        if (tmp.size() == 2) {
+            ans = c(tmp[0].x, tmp[0].y);
+        }
+    }
+    sort(ans.begin(), ans.end());
+    cout << ans[0] << " " << ans[1] << " " << ans[2] << endl;
 }
 
 signed main()
