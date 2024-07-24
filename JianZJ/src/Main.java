@@ -1,11 +1,4 @@
-import java.io.*;
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.IntFunction;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @Author: JianZJ
@@ -13,66 +6,47 @@ import java.util.stream.Stream;
  */
 
 public class Main {
-
-    static final int K = 828;
-
-    public static void main(String[] args) throws IOException {
-
-        List<User> list = new ArrayList<>();
-        list.add(new User("zj", "123"));
-        for (User user : list) {
-            user.setName("abc");
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(), L = sc.nextInt(), R = sc.nextInt();
+        int[] h = new int[n];
+        for (int i = 0; i < n; i++)
+            h[i] = sc.nextInt();
+        Arrays.sort(h);
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        int r = n - 1;
+        int t = R - L;
+        boolean ok = true;
+        List<Integer> tmp = new ArrayList<>();
+        for (int i = 0; i < L; i++) {
+            tmp.add(h[r]);
+            r--;
         }
-        System.out.println(list.get(0));
-    }
-}
-
-class User {
-
-    private String name;
-    private String password;
-
-    public User() {
-    }
-
-    public User(String name, String password) {
-        this.name = name;
-        this.password = password;
-    }
-
-    /**
-     * 获取
-     * @return name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 设置
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 获取
-     * @return password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * 设置
-     * @param password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String toString() {
-        return "User{name = " + name + ", password = " + password + "}";
+        while (true) {
+            // 过
+            for (int i = 0; i < t && r >= 0; i++) {
+                tmp.add(h[r]);
+                r--;
+            }
+            if (r < 0)
+                break;
+            for (Integer i : tmp) {
+                if (i - 1 > 1)
+                    pq.add(i - 1);
+            }
+            // 回
+            if (pq.size() < L) {
+                ok = false;
+                break;
+            }
+            tmp = new ArrayList<>();
+            for (int i = 0; i < L; i++) {
+                tmp.add(pq.poll() - 1);
+            }
+        }
+        if (ok)
+            System.out.println("Yes");
+        else
+            System.out.println("No");
     }
 }
