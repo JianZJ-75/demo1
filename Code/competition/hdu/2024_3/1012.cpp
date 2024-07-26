@@ -35,41 +35,29 @@ ll gcd(ll a, ll b)
 
 void Jian()
 {
-    int n, l, d;
+    ll n, l, d;
     cin >> n >> l >> d;
-    int mx = 0;
-    int mn = 1000000000;
-    int num = 0;
-    int x;
-    int ki = 0;
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> x;
-        if (i == 1)
-            ki = x;
-        else if (x < l)
-            num++;
-        mn = min(mn, x);
-        mx = max(mx, x);
-    }
-
-    if (ki >= l)
-    {
-        if (num < 3 || ki - mn <= d)
-        {
-            cout << "No\n";
-            return;
+    ll a[n + 1];
+    rep(i, 1, n)
+        cin >> a[i];
+    ll now = a[1];
+    sort(a + 1, a + 1 + n);
+    ll st = n + 1;
+    rep(i, 1, n)
+        if (a[i] >= l) {
+            st = i;
+            break;
         }
+    st--;
+    bool ok = 1;
+    if (now >= l) {
+        if (st < 3 || now - a[1] <= d)
+            ok = 0;
+    } else {
+        if (st < 3 || a[n] - a[1] <= d)
+            ok = 0;
     }
-    else
-    {
-        if (num < 2 || mx - mn <= d)
-        {
-            cout << "No\n";
-            return;
-        }
-    }
-    cout << "Yes\n";
+    cout << (ok ? "Yes\n" : "No\n");
 }
 
 signed main()

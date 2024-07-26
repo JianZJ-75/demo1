@@ -9,7 +9,7 @@
 #define rrep(i, a, b) for (ll i = a; i >= b; i--)
 #define INF 0x3f3f3f3f
 #define LINF 0x3f3f3f3f3f3f3f3f
-const ll M = 1e9 + 7;
+const ll mod = 998244353;
 
 using namespace std;
 
@@ -33,43 +33,33 @@ ll gcd(ll a, ll b)
     return b ? gcd(b, a % b) : a;
 }
 
+// 1 1
+// 2 1+1
+// 3 1+1+1
+// 4 1+2+1+1
+// 5 1+2+2+1+1
+
+const ll N = 1e6 + 10;
+ll f[N];
+ll ans[N];
+
 void Jian()
 {
-    int n, l, d;
-    cin >> n >> l >> d;
-    int mx = 0;
-    int mn = 1000000000;
-    int num = 0;
-    int x;
-    int ki = 0;
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> x;
-        if (i == 1)
-            ki = x;
-        else if (x < l)
-            num++;
-        mn = min(mn, x);
-        mx = max(mx, x);
+    ll n;
+    cin >> n;
+    f[1] = 1;
+    rep(i, 2, n) {
+        f[i] = f[i - 1] + f[i - 2];
+        f[i] %= mod;
     }
-
-    if (ki >= l)
-    {
-        if (num < 3 || ki - mn <= d)
-        {
-            cout << "No\n";
-            return;
-        }
+    rep(i, 1, n) {
+        rep(j, 1, n / i)
+            ans[i * j] += f[i],
+            ans[i * j] %= mod;
     }
-    else
-    {
-        if (num < 2 || mx - mn <= d)
-        {
-            cout << "No\n";
-            return;
-        }
-    }
-    cout << "Yes\n";
+    rep(i, 1, n)
+        cout << ans[i] << " ";
+    cout << endl;
 }
 
 signed main()
@@ -79,7 +69,7 @@ signed main()
     cin.tie(0);
     cout.tie(0);
     int _ = 1;
-    cin >> _;
+    // cin >> _;
     while (_--)
         Jian();
     return 0;
