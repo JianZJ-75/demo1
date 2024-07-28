@@ -9,29 +9,47 @@
 #define rrep(i, a, b) for (ll i = a; i >= b; i--)
 #define INF 0x3f3f3f3f
 #define LINF 0x3f3f3f3f3f3f3f3f
-const ll mod = 998244353;
+const ll M = 1e9 + 7;
 
 using namespace std;
 
-const ll N = 1e6 + 10;
-ll f[N];
-ll ans[N];
-ll n;
+ll qmi(ll a, ll b)
+{
+    ll ret = 1;
+    while (b)
+    {
+        if (b & 1)
+            ret = ret * a;
+        b /= 2;
+        a = a * a;
+    }
+    return ret;
+}
+
+ll gcd(ll a, ll b)
+{
+    if (a < b)
+        swap(a, b);
+    return b ? gcd(b, a % b) : a;
+}
 
 void Jian()
 {
+    ll n;
     cin >> n;
-    f[1] = 1;
+    ll a[n + 1];
     rep(i, 1, n)
+        cin >> a[i];
+    if (n == 1)
     {
-        for (ll j = i; j < n; j += i)
-            f[j + 1] += f[i],
-            f[j + 1] %= mod;
-        for (ll j = i; j <= n; j += i)
-            ans[j] += f[i],
-            ans[i] %= mod;
-        cout << ans[i] << " ";
+        cout << 0 << endl;
+        return;
     }
+    sort(a + 1, a + 1 + n);
+    ll g = 0;
+    rep(i, 2, n)
+        g = gcd(g, a[i] - a[i - 1]);
+    cout << g << endl;
 }
 
 signed main()
@@ -41,7 +59,7 @@ signed main()
     cin.tie(0);
     cout.tie(0);
     int _ = 1;
-    // cin >> _;
+    cin >> _;
     while (_--)
         Jian();
     return 0;

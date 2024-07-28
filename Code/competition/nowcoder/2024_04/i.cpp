@@ -33,43 +33,43 @@ ll gcd(ll a, ll b)
     return b ? gcd(b, a % b) : a;
 }
 
+bool cmp(ll a, ll b) {
+    return a > b;
+}
+
 void Jian()
 {
-    int n, l, d;
-    cin >> n >> l >> d;
-    int mx = 0;
-    int mn = 1000000000;
-    int num = 0;
-    int x;
-    int ki = 0;
-    for (int i = 1; i <= n; i++)
+    ll n, m;
+    cin >> n >> m;
+    vector<ll> g[n + 1];
+    rep(i, 1, m)
     {
-        cin >> x;
-        if (i == 1)
-            ki = x;
-        else if (x < l)
-            num++;
-        mn = min(mn, x);
-        mx = max(mx, x);
+        ll u, v;
+        cin >> u >> v;
+        g[v].push_back(u);
     }
-
-    if (ki >= l)
+    ll l[n + 1];
+    rep(i, 1, n)
     {
-        if (num < 3 || ki - mn <= d)
+        sort(g[i].begin(), g[i].end(), cmp);
+        ll now = i - 1;
+        for (auto x : g[i])
         {
-            cout << "No\n";
-            return;
+            if (x != now)
+                break;
+            now--;
         }
+        l[i] = now + 1;
     }
-    else
+    ll p = 1;
+    ll ans = 0;
+    rep(i, 1, n)
     {
-        if (num < 2 || mx - mn <= d)
-        {
-            cout << "No\n";
-            return;
-        }
+        while (p < n && l[p + 1] <= i)
+            p++;
+        ans += p - i + 1;
     }
-    cout << "Yes\n";
+    cout << ans << endl;
 }
 
 signed main()
@@ -79,7 +79,7 @@ signed main()
     cin.tie(0);
     cout.tie(0);
     int _ = 1;
-    cin >> _;
+    // cin >> _;
     while (_--)
         Jian();
     return 0;
