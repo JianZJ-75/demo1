@@ -1,1 +1,1 @@
-{"name":"Local: 1","url":"e:\\Git\\demo1\\Code\\1.cpp","tests":[{"id":1712653005763,"input":"1\n1 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Git\\demo1\\Code\\1.cpp","group":"local","local":true}
+{"name":"Local: 1","url":"e:\\Git\\demo1\\Code\\1.cpp","tests":[{"id":1712653005763,"input":"7 2\nabababa\nab","output":""},{"id":1723021325372,"input":"5 2\nabcdd\nab","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Git\\demo1\\Code\\1.cpp","group":"local","local":true}
