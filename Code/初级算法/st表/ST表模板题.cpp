@@ -1,3 +1,4 @@
+// https://www.luogu.com.cn/problem/P3865
 #include <bits/stdc++.h>
 #define ll long long
 #define dd double
@@ -9,6 +10,10 @@
 #define rrep(i, a, b) for (ll i = a; i >= b; i--)
 #define INF 0x3f3f3f3f
 #define LINF 0x3f3f3f3f3f3f3f3f
+const ll maxn = 1e5;
+const ll logn = 20;
+ll n, m;
+ll Log[maxn + 1], f[maxn + 1][logn + 1];
 
 using namespace std;
 
@@ -20,28 +25,28 @@ ll read()
     return x * f;
 }
 
-ll qmi(ll a, ll b)
+void init()
 {
-    ll ret = 1;
-    while (b)
-    {
-        if (b & 1)
-            ret = ret * a;
-        b /= 2;
-        a = a * a;
-    }
-    return ret;
-}
-
-ll gcd(ll a, ll b)
-{
-    if (a < b)
-        swap(a, b);
-    return b ? gcd(b, a % b) : a;
+    rep(i, 2, maxn)
+        Log[i] = Log[i / 2] + 1;
+    rep(j, 1, logn)
+        rep(i, 1, maxn + 1 - (1 << j))
+            f[i][j] = max(f[i][j - 1], f[i + (1 << j - 1)][j - 1]);
 }
 
 void Jian()
 {
+    n = read();
+    m = read();
+    rep(i, 1, n)
+        f[i][0] = read();
+    init();
+    rep(i, 1, m)
+    {
+        ll x = read(), y = read();
+        ll s = Log[y - x + 1];
+        cout << max(f[x][s], f[y - (1 << s) + 1][s]) << endl;
+    }
 }
 
 signed main()
@@ -51,7 +56,7 @@ signed main()
     cin.tie(0);
     cout.tie(0);
     int _ = 1;
-    _ = read();
+    // _ = read();
     while (_--)
         Jian();
     return 0;
