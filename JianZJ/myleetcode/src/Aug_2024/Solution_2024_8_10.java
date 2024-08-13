@@ -10,6 +10,7 @@ import java.util.PriorityQueue;
  * @Date 2024/8/10 11:15
  */
 public class Solution_2024_8_10 {
+    // TODO leetcode
     public int[] leftmostBuildingQueries(int[] heights, int[][] queries) {
         int[] ans = new int[queries.length];
         Arrays.fill(ans, -1);
