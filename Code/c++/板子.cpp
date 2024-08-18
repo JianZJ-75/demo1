@@ -9,6 +9,8 @@
 #define rrep(i, a, b) for (ll i = a; i >= b; i--)
 #define INF 0x3f3f3f3f
 #define LINF 0x3f3f3f3f3f3f3f3f
+#define mmax(a, b) (a) >= (b) ? (a) : (b)
+#define mmin(a, b) (a) <= (b) ? (a) : (b)
 
 using namespace std;
 
@@ -51,7 +53,7 @@ signed main()
     cin.tie(0);
     cout.tie(0);
     int _ = 1;
-    _ = read();
+    cin >> _;
     while (_--)
         Jian();
     return 0;
