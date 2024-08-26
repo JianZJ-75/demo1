@@ -15,20 +15,24 @@ public class Solution_2024_8_26 {
 
     private int ans;
     private List<Employee> employees;
+    private int[] pos;
 
     public int getImportance(List<Employee> employees, int id) {
         ans = 0;
+        pos = new int[2001];
         this.employees = employees;
-        dfs(id);
+        for (int i = 0; i < employees.size(); i++) {
+            pos[employees.get(i).id] = i;
+        }
+        dfs(pos[id]);
         return ans;
     }
 
     private void dfs(int x) {
         Employee employee = employees.get(x);
-        System.out.println(x);
         ans += employee.importance;
         for (Integer i : employee.subordinates) {
-            dfs(i);
+            dfs(pos[i]);
         }
     }
 }
