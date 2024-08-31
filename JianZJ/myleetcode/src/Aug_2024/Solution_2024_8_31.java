@@ -5,6 +5,7 @@ package Aug_2024;
  * @Date 2024/8/31 22:25
  */
 public class Solution_2024_8_31 {
+    // TODO
     public boolean canMakeSquare(char[][] grid) {
         return check(grid, 0, 0) || check(grid, 0, 1) || check(grid, 1, 0) || check(grid, 1, 1);
     }
