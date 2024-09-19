@@ -22,7 +22,7 @@ public class MyPreDateTest {
     public static Collection<?> data() {
         return Arrays.asList(new Object[][] {
                 // 日
-                {2004, 8, 29, "2004:8:28"},
+                {2004, 2, 30, "2004:8:28"},
                 // 月
                 {2004, 12, 1, "2004:11:30"},
                 {2004, 11, 1, "2004:10:31"},
@@ -36,7 +36,9 @@ public class MyPreDateTest {
                 {2004, 8, 32, "Not Valid Date"},
                 {2004, 9, 31, "Not Valid Date"},
                 {2003, 2, 29, "Not Valid Date"},
-                {2004, 2, 30, "Not Valid Date"}
+                {2004, 2, 30, "Not Valid Date"},
+                {2004, 0, 30, "Not Valid Date"},
+                {2004, 13, 30, "Not Valid Date"}
         });
     }
 
