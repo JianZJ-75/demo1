@@ -4,7 +4,7 @@ package Oct_2024;
  * @Author JianZJ
  * @Date 2024/10/2 19:59
  */
-public class Solution_2024_10_2 {
+public class Solution_10_2 {
     // TODO
     public int minSpeedOnTime(int[] dist, double hour) {
         int n = dist.length;
