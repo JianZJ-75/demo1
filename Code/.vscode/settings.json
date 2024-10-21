@@ -1,6 +1,6 @@
 {
     "vscode_custom_css.imports": [
-        "file:///E:/vscode/拓展/synthwave84.css"
+        "file:///E:/vscode/plugins/synthwave84.css"
     ],
     "vscode_custom_css.policy": true,
     "workbench.colorTheme": "SynthWave '84", //安装第一个插件后，若是启用了主题，这一行应该存在了

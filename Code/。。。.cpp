@@ -1,57 +1,64 @@
 #include <bits/stdc++.h>
-using namespace std;
-const int N = 50;
 #define ll long long
-int read()
+#define dd double
+#define endl '\n'
+#define pii pair<ll, ll>
+#define x first
+#define y second
+#define rep(i, a, b) for (ll i = a; i <= b; i++)
+#define rrep(i, a, b) for (ll i = a; i >= b; i--)
+#define INF 0x3f3f3f3f
+#define LINF 0x3f3f3f3f3f3f3f3f
+#define mmax(a, b) (a) >= (b) ? (a) : (b)
+#define mmin(a, b) (a) <= (b) ? (a) : (b)
+
+using namespace std;
+
+ll read()
 {
-    int num = 0;
-    bool flag = 1;
-    char c = getchar();
-    for (; c < '0' || c > '9'; c = getchar())
-        if (c == '-')
-            flag = 0;
-    for (; c >= '0' && c <= '9'; c = getchar())
-        num = (num << 1) + (num << 3) + c - '0';
-    return flag ? num : -num;
+    ll x = 0, f = 1; char c = getchar();
+    while (c < '0' || c > '9') { if (c == '-') f = -1; c = getchar(); }
+    while (c >= '0' && c <= '9') { x = x * 10 + c - '0'; c = getchar(); }
+    return x * f;
 }
-int n, m, Max, dep[N];
-vector<int> e[N];
-ll p[N];
-void dfs(int x, int fa, ll state)
+
+ll qmi(ll a, ll b)
 {
-    dep[x] = dep[fa] + 1;
-    Max = max(Max, dep[x]);
-    for (auto y : e[x])
+    ll ret = 1;
+    while (b)
     {
-        if ((1ll << y) & state)
-            continue;
-        dfs(y, x, state | p[x]);
+        if (b & 1)
+            ret = ret * a;
+        b /= 2;
+        a = a * a;
     }
+    return ret;
 }
+
+ll gcd(ll a, ll b)
+{
+    if (a < b)
+        swap(a, b);
+    return b ? gcd(b, a % b) : a;
+}
+
+void Jian()
+{
+    dd n = 1868.01673963089;
+    dd d1 = (63.56 + 3.592 * n * n / 80) * (80 - 0.04267 * n);
+    dd d2 = 0.0821 * 298.15 * n;
+    cout << d1 << " " << d2 << endl;
+}
+
 signed main()
 {
-    n = read();
-    m = read();
-    for (int i = 1; i <= m; i++)
-    {
-        int u = read(), v = read();
-        if (u == v)
-            continue;
-        e[u].push_back(v);
-        e[v].push_back(u);
-    }
-    for (int i = 1; i <= n; i++)
-    {
-        for (auto j : e[i])
-            p[i] |= (1ll << j);
-    }
-    Max = 1;
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= n; j++)
-            dep[i] = 0;
-        dfs(i, 0, (1ll << i));
-    }
-    printf("%d", Max);
+    srand(time(0));
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int _ = 1;
+    cin >> _;
+    while (_--)
+        Jian();
     return 0;
 }
