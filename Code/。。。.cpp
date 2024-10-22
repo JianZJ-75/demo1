@@ -1,64 +1,46 @@
 #include <bits/stdc++.h>
-#define ll long long
-#define dd double
-#define endl '\n'
-#define pii pair<ll, ll>
-#define x first
-#define y second
-#define rep(i, a, b) for (ll i = a; i <= b; i++)
-#define rrep(i, a, b) for (ll i = a; i >= b; i--)
-#define INF 0x3f3f3f3f
-#define LINF 0x3f3f3f3f3f3f3f3f
-#define mmax(a, b) (a) >= (b) ? (a) : (b)
-#define mmin(a, b) (a) <= (b) ? (a) : (b)
-
+#define MAXN ((int) 1e4)
+#define MAXM ((int) 2e4)
+#define INF ((long long) 1e18)
 using namespace std;
+typedef pair<int, int> pii;
 
-ll read()
-{
-    ll x = 0, f = 1; char c = getchar();
-    while (c < '0' || c > '9') { if (c == '-') f = -1; c = getchar(); }
-    while (c >= '0' && c <= '9') { x = x * 10 + c - '0'; c = getchar(); }
-    return x * f;
-}
+int n, m, K;
+pii A[MAXN + 10];
+long long ans;
 
-ll qmi(ll a, ll b)
-{
-    ll ret = 1;
-    while (b)
-    {
-        if (b & 1)
-            ret = ret * a;
-        b /= 2;
-        a = a * a;
+// f[i]：计算背包问题的滚动数组
+// g[i]：从第 i 个物品开始的后缀免费选出 K 个物品的最大价值之和
+long long f[MAXM + 10], g[MAXN + 10];
+
+int main() {
+    scanf("%d%d%d", &n, &m, &K);
+    for (int i = 1; i <= n; i++) scanf("%d%d", &A[i].first, &A[i].second);
+    sort(A + 1, A + n + 1);
+
+    long long sm = 0;
+    g[n + 1] = 0;
+    // 利用堆算出每个后缀选出免费物品的最大价值之和
+    priority_queue<int, vector<int>, greater<int>> pq;
+    for (int i = n; i > 0; i--) {
+        pq.push(A[i].second);
+        sm += A[i].second;
+        if (pq.size() > K) {
+            sm -= pq.top();
+            pq.pop();
+        }
+        g[i] = sm;
     }
-    return ret;
-}
-
-ll gcd(ll a, ll b)
-{
-    if (a < b)
-        swap(a, b);
-    return b ? gcd(b, a % b) : a;
-}
-
-void Jian()
-{
-    dd n = 1868.01673963089;
-    dd d1 = (63.56 + 3.592 * n * n / 80) * (80 - 0.04267 * n);
-    dd d2 = 0.0821 * 298.15 * n;
-    cout << d1 << " " << d2 << endl;
-}
-
-signed main()
-{
-    srand(time(0));
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    int _ = 1;
-    cin >> _;
-    while (_--)
-        Jian();
+    for (int i = 0; i <= m; i++) f[i] = -INF;
+    f[0] = 0;
+    // 答案的初始值：只买免费物品
+    ans = g[1];
+    // 用滚动数组计算背包问题
+    for (int i = 1; i <= n; i++) for (int j = m; j >= A[i].first; j--) {
+        f[j] = max(f[j], f[j - A[i].first] + A[i].second);
+        // 计算分界点在 i 的情况下的答案
+        ans = max(ans, f[j] + g[i + 1]);
+    }
+    printf("%lld\n", ans);
     return 0;
 }
