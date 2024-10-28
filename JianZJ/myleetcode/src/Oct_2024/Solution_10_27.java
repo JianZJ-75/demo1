@@ -1,46 +1,33 @@
 package Oct_2024;
 
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * @Author JianZJ
- * @Date 2024/10/26 19:31
+ * @Date 2024/10/27 15:40
  */
 public class Solution_10_27 {
     // TODO
-    public int maxTotalReward(int[] rewardValues) {
-        int m = 0;
-        for (int v : rewardValues) {
-            m = Math.max(m, v);
-        }
-        Set<Integer> set = new HashSet<>();
-        for (int v : rewardValues) {
-            if (v == m - 1) {
-                return m * 2 - 1;
-            }
-            if (set.contains(v)) {
-                continue;
-            }
-            if (set.contains(m - 1 - v)) {
-                return m * 2 - 1;
-            }
-            set.add(v);
-        }
+    private int[] p;
 
-        Arrays.sort(rewardValues);
-        int pre = 0;
-        BigInteger f = BigInteger.ONE;
-        for (int v : rewardValues) {
-            if (v == pre) {
-                continue;
-            }
-            BigInteger mask = BigInteger.ONE.shiftLeft(v).subtract(BigInteger.ONE);
-            f = f.or(f.and(mask).shiftLeft(v));
-            pre = v;
+    public int[] findRedundantConnection(int[][] edges) {
+        int n = edges.length;
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
         }
-        return f.bitLength() - 1;
+        for (int i = 0;; ++i) {
+            int pa = find(edges[i][0] - 1);
+            int pb = find(edges[i][1] - 1);
+            if (pa == pb) {
+                return edges[i];
+            }
+            p[pa] = pb;
+        }
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
     }
 }

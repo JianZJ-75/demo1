@@ -1,26 +1,51 @@
 package Oct_2024;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author JianZJ
- * @Date 2024/10/27 15:40
+ * @Date 2024/10/28 22:58
  */
 public class Solution_10_28 {
     // TODO
     private int[] p;
 
-    public int[] findRedundantConnection(int[][] edges) {
+    public int[] findRedundantDirectedConnection(int[][] edges) {
         int n = edges.length;
+        int[] ind = new int[n];
+        for (var e : edges) {
+            ++ind[e[1] - 1];
+        }
+        List<Integer> dup = new ArrayList<>();
         p = new int[n];
         for (int i = 0; i < n; ++i) {
+            if (ind[edges[i][1] - 1] == 2) {
+                dup.add(i);
+            }
             p[i] = i;
         }
+        if (!dup.isEmpty()) {
+            for (int i = 0; i < n; ++i) {
+                if (i == dup.get(1)) {
+                    continue;
+                }
+                int pu = find(edges[i][0] - 1);
+                int pv = find(edges[i][1] - 1);
+                if (pu == pv) {
+                    return edges[dup.get(0)];
+                }
+                p[pu] = pv;
+            }
+            return edges[dup.get(1)];
+        }
         for (int i = 0;; ++i) {
-            int pa = find(edges[i][0] - 1);
-            int pb = find(edges[i][1] - 1);
-            if (pa == pb) {
+            int pu = find(edges[i][0] - 1);
+            int pv = find(edges[i][1] - 1);
+            if (pu == pv) {
                 return edges[i];
             }
-            p[pa] = pb;
+            p[pu] = pv;
         }
     }
 
