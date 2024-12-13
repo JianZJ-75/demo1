@@ -1,85 +1,112 @@
-#include <algorithm>
-#include <cmath>
-#include <cstring>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
-
-#define pb push_back
-#define all0(a) a.begin(), a.end()
-#define all1(a) a.begin() + 1, a.end()
-#define int long long
+#include <bits/stdc++.h>
 using namespace std;
-typedef long long LL;
-typedef pair<int, int> PII;
-typedef pair<double, int> PDI;
-const int N = 1e6 + 10, INF = 0x3f3f3f3f, MOD = 1e9 + 7,P = 1e9 + 7,P_ = 101;
-
-string s,t;  
-int n, m, l, r, ans; 
-int dp[N], lst[27];  
-
-// 计算以T为前缀的子序列数
-void work1() {
-    cout << l << " " << r << endl;
-    for (int i = l + 1; i < r; i++) {
-        if (lst[s[i] - 'a'])    dp[i] = (dp[i - 1] * 2 - dp[lst[s[i] - 'a'] - 1]) % P;
-        else    dp[i] = (dp[i - 1] * 2 + 1) % P;
-        lst[s[i] - 'a'] = i;
+int read()
+{
+    int num = 0;
+    bool flag = 1;
+    char c = getchar();
+    for (; c < '0' || c > '9'; c = getchar())
+    {
+        if (c == '-')
+            flag = 0;
     }
-    ans = dp[r - 1] % P + 1; 
+    for (; c >= '0' && c <= '9'; c = getchar())
+    {
+        num = (num << 1) + (num << 3) + c - '0';
+    }
+    return flag ? num : -num;
 }
-
-// 计算哈希值，检查T是否为子序列的前缀
-void work2(int x) {
-    int p = 0, q = 0, p_ = 0, q_ = 0, k = 1, k_ = 1;
-    for (int i = 0; i < m; i++) {
-        // 计算正向和逆向的哈希值
-        p = p * P + t[m - i - 1] - 'a';
-        q = (t[m - i - 1] - 'a') * k + q;
-        k = k * P;
-        p_ = p_ * P_ + t[m - i - 1] - 'a';
-        q_ = (t[m - i - 1] - 'a') * k_ + q_;
-        k_ = k_ * P_;
-        // 如果两个哈希值相等，说明匹配，增加答案
-        if (i >= x - 1 && p == q && p_ == q_)   ans++;
-    }
-}
-void solve() {
-    cin >> n >> m >> s >> t;
-    int k = 0;
-
-    for (l = 0; l < n; l++) {
-        if (s[l] == t[k]) k++;
-        if (k == m) break;
-    }
-    if (k < m) {
-        cout << 0;
-        return;
-    }
-
-    k = 0;
-    for (r = n - 1; r > l; r--) {
-        if (s[r] == t[k]) k++;
-        if (k == m) break;
-    }
-    cout << l << " " << r << endl;
-    if (l < r) work1();
-    work2(m - k);
-
-    cout << (ans % P + P) % P;
-}
-signed main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr), cout.tie(nullptr);
-    int T = 1;
-    // cin >> T;
-    while (T--) {
-        solve();
+#define ll long long
+const int N = 1e5 + 10;
+const int inf = 1e9 + 10;
+int n, m, a[N];
+queue<int> q[N];
+array<int, 2> c[N];
+priority_queue<array<int, 3>> Q;
+signed main()
+{
+    int T = read();
+    while (T--)
+    {
+        n = read();
+        m = read();
+        for (int i = 1; i <= n; i++)
+        {
+            a[i] = read();
+            while (!q[i].empty())
+            {
+                q[i].pop();
+            }
+        }
+        for (int i = 1; i <= m; i++)
+        {
+            c[i][0] = read(); // xj
+            c[i][1] = read(); // tj
+        }
+        sort(c + 1, c + m + 1);
+        ll ans = 0;
+        for (int i = 1; i <= m; i++)
+        {
+            q[c[i][1]].push(c[i][0]);
+        }
+        for (int i = 1; i <= n; i++)
+        {
+            if (q[i].empty())
+            {
+                Q.push({-inf, a[i], i});
+                continue;
+            }
+            int p = q[i].front();
+            q[i].pop();
+            Q.push({-p, a[i], i});
+        }
+        int nowid = 1;
+        while (!Q.empty())
+        {
+            auto it = Q.top();
+            // 距离 电量 id
+            Q.pop();
+            int x = -it[0], pw = it[1], id = it[2];
+            if (x < ans && x != inf)
+            {
+                // 无后续, 直接加INF
+                if (q[id].empty())
+                {
+                    Q.push({-inf, pw, id});
+                    continue;
+                }
+                // 有后续, 加后续第一个
+                int nw = q[id].front();
+                q[id].pop();
+                Q.push({-nw, pw, id});
+                continue;
+            }
+            if (nowid > m || ans + pw < c[nowid][0])
+            {
+                ans += pw;
+                continue;
+            }
+            pw -= c[nowid][0] - ans;
+            if (pw != 0 && c[nowid][1] != id)
+            {
+                Q.push({-x, pw, id});
+            }
+            ans = c[nowid][0];
+            id = c[nowid][1];
+            nowid++;
+            if (q[id].empty())
+            {
+                x = inf;
+            }
+            else
+            {
+                x = q[id].front();
+                q[id].pop();
+            }
+            pw = a[id];
+            Q.push({-x, pw, id});
+        }
+        printf("%lld\n", ans);
     }
     return 0;
 }

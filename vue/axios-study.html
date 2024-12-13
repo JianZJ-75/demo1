@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 引入axios的js文件 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        let json = {
+            username: 'JianZJ',
+            password: '123456',
+            phone: '15956397579'
+        }
+        /* 发送请求 */
+        // axios({
+        //     method: 'POST',
+        //     url: 'http://localhost:8080/MCBBS/user/user/register',
+        //     data: json
+        // }).then((result) => {
+        //     // 成功的回调
+        //     // result代表服务器相应的所有数据 包含了响应头 响应体 result.data代表的是接口相应的核心数据
+        //     console.log(result.data);
+        // }).catch((err) => {
+        //     // 失败的回调
+        //     console.log(result.data);
+        // });
+        axios.post('http://localhost:8080/MCBBS/user/user/register', json)
+            .then((result) => {
+                console.log(result.data);
+            }).catch((err) => {
+                console.log(result.data);
+            });
+    </script>
+
+</body>
+
+</html>
