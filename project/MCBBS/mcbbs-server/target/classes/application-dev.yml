@@ -1,0 +1,19 @@
+mcbbs:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    host: localhost
+    host: 121.40.20.113
+    port: 3306
+    database: mcbbs
+    username: root
+    password: sun13713978134
+
+  alioss:
+    endpoint: https://oss-cn-hangzhou.aliyuncs.com
+    bucketName: jianzj-web-tlias
+
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB

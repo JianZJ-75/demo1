@@ -1,0 +1,42 @@
+{
+  "groups": [
+    {
+      "name": "mcbbs.alioss",
+      "type": "com.mcbbs.properties.AliOssProperties",
+      "sourceType": "com.mcbbs.properties.AliOssProperties"
+    },
+    {
+      "name": "mcbbs.jwt",
+      "type": "com.mcbbs.properties.JwtProperties",
+      "sourceType": "com.mcbbs.properties.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "mcbbs.alioss.bucket-name",
+      "type": "java.lang.String",
+      "sourceType": "com.mcbbs.properties.AliOssProperties"
+    },
+    {
+      "name": "mcbbs.alioss.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.mcbbs.properties.AliOssProperties"
+    },
+    {
+      "name": "mcbbs.jwt.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.mcbbs.properties.JwtProperties"
+    },
+    {
+      "name": "mcbbs.jwt.token-name",
+      "type": "java.lang.String",
+      "sourceType": "com.mcbbs.properties.JwtProperties"
+    },
+    {
+      "name": "mcbbs.jwt.ttl",
+      "type": "java.lang.Long",
+      "sourceType": "com.mcbbs.properties.JwtProperties"
+    }
+  ],
+  "hints": []
+}

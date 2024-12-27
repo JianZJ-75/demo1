@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    druid:
+      driver-class-name: ${mcbbs.datasource.driver-class-name}
+      url: jdbc:mysql://${mcbbs.datasource.host}:${mcbbs.datasource.port}/${mcbbs.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${mcbbs.datasource.username}
+      password: ${mcbbs.datasource.password}
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: ${mcbbs.servlet.multipart.max-file-size}
+      max-request-size: ${mcbbs.servlet.multipart.max-request-size}
+
+mybatis-plus:
+  # 别名扫描包
+  type-aliases-package: com.mcbbs.entity
+  # Mapper.xml文件地址
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    # 是否开启下划线和驼峰的映射
+    map-underscore-to-camel-case: true
+    # 二级缓存
+    cache-enabled: true
+  global-config:
+    db-config:
+      # id为雪花算法生成
+      id-type: assign_id
+      # 更新策略: 只更新非空字段
+      update-strategy: not_null
+
+#mybatis:
+#  #mapper配置文件
+#  mapper-locations: classpath:/com/mcbbs/mapper/*.xml
+#  type-aliases-package: com.mcbbs.entity
+#  configuration:
+#    #开启驼峰命名
+#    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl

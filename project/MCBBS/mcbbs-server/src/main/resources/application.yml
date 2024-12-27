@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /MCBBS
+
+spring:
+  profiles:
+    active: mybatis, dev
+  # 设置bean实例间允许循环使用
+  main:
+    allow-circular-references: true
+
+logging:
+  level:
+    com:
+      mcbbs:
+        mapper: debug
+        service: info
+        controller: info
+
+mcbbs:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    secret-key: jianzj
+    # 设置jwt过期时间
+    ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    token-name: token
+  alioss:
+    endpoint: ${mcbbs.alioss.endpoint}
+    bucketName: ${mcbbs.alioss.bucketName}
