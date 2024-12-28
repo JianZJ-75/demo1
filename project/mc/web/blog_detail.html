@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.global.js"></script>
+    <link rel="stylesheet" href="./css/mc.css">
+</head>
+<style>
+    * {
+        font-family: 'mc';
+        font-size: 30px;
+        user-select: none;
+    }
+
+    body {
+        background-image: url("image/2d7beae5b0287fa901c938940b1e2495.png");
+        background-size: cover;
+    }
+
+    .title {
+        font-size: 40px;
+        position: relative;
+        top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        /*border: red solid 2px;*/
+    }
+
+    table {
+        position: relative;
+        /*margin: 0px auto auto;*/
+        top: 65px;
+        /*border: white solid 2px;*/
+        width: 100%;
+    }
+
+    td {
+        font-size: 60px;
+        text-align: center;
+        position: relative;
+        margin: 0px auto auto;
+        /*border: red solid 2px;*/
+    }
+
+    input {
+        background-color: black;
+        /*border: 10px;*/
+        border-color: rgb(160, 160, 160);
+        outline: none;
+        width: 750px;
+        height: 65px;
+    }
+
+    input:focus {
+        border-color: white;
+    }
+
+    .main {
+        position: relative;
+        float: left;
+        left: 80px;
+        top: 100px;
+        /*background-color: rgba(0, 0, 0, 0.5);*/
+        /*border: white solid 2px;*/
+        width: 700px;
+        height: 800px;
+    }
+
+    .btn {
+        background-image: url("image/button.png");
+        background-size: cover;
+        text-align: center;
+        line-height: 40px;
+        position: relative;
+        top: 300px;
+        left: 100px;
+        margin-top: 20px;
+        width: 400px;
+        height: 40px;
+        /*border: blue solid 2px;*/
+    }
+
+    .btn:hover {
+        border: white solid 3px;
+    }
+
+    .left {
+        position: relative;
+        float: left;
+        width: 27%;
+        left: 150px;
+        height: 1000px;
+        /*border: red solid 2px;*/
+        border-collapse: collapse;
+    }
+
+    .right {
+        float: left;
+        position: relative;
+        top: 75px;
+        left: 300px;
+        background-image: url("image/book.png");
+        background-size: cover;
+        width: 876px;
+        height: 1074px;
+        /*border: blue solid 2px;*/
+        border-collapse: collapse;
+    }
+    .content{
+        display: flex;
+        width: 700px;
+        height: 700px;
+        word-break: break-all;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .content pre {
+        margin: 0;    /* 去除 <pre> 元素的外边距 */
+        padding: 0;   /* 去除 <pre> 元素的内边距 */
+        white-space: pre-wrap;  /* 保留空格和换行 */
+    }
+</style>
+<body id="app">
+<div class="left">
+    <div class="user-item">
+        <div style="font-size: 50px;width: 300px;height: 300px;position: relative;top:250px; left: 150px">
+            <img :src="'data:image/jpeg;base64,'+ user.photo" alt="User Image" style="width: 300px;height: 300px;border-collapse: collapse">
+        </div>
+        <div style="width: 300px;height: 100px;position: relative; top: 250px;display: inline-block;left: 150px ">
+            <img src="image/birch.png" style="width: 300px;height: 100px;">
+            <div style="position: absolute; top: 41%;left: 5%;font-size: 2vh;">
+                {{user.username}}
+            </div>
+        </div>
+    </div>
+    <div class="btn" v-on:click="crt()">创建博客</div>
+    <div class="btn" v-on:click="rtn()">返回首页</div>
+    <div class="btn" v-on:click="dlt()">删除博客</div>
+</div>
+<div class="right">
+    <div class="main">
+        <div>Title:</div>
+        <div>{{blog.title}}</div>
+        <div>Content:</div>
+        <div class="content">
+            <pre>{{blog.content}}</pre>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+    var myApp = Vue.createApp({
+        data: function () {
+            return {
+                blogId: "",
+                username: "",
+                user: {},
+                blog: {}
+            }
+        },
+        methods: {
+            create: function () {
+                var _this = this;
+                var xhr = new XMLHttpRequest();
+                var myform = document.getElementById("form");
+                var tmp = new FormData(myform);
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var idx = xhr.responseText;
+                        // alert(typeof idx);
+                        if (idx[0] == '0') {
+                            alert("账号或密码错误!");
+                            document.getElementById("password").focus();
+                        } else {
+                            alert("登陆成功!");
+                            location.href = "blog.html?username=" + _this.username;
+                        }
+                    }
+                }
+                xhr.open('post', 'http://localhost:8080/LoginCheck', true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                var data = new URLSearchParams(tmp).toString();
+                xhr.send(data);
+            },
+            load: function () {
+                // 从当前 URL 中提取查询字符串，但不包括开头的问号 (?)
+                var queryString = window.location.search.substring(1);
+                var queries = queryString.split('&');
+                var value1 = queries[0].split('=')[1];
+                var value2 = queries[1].split('=')[1]
+                this.username = value1;
+                this.blogId = value2;
+            },
+            loadUser: function (e) {
+                var _this = this;
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        _this.user = JSON.parse(this.responseText);
+                    }
+                };
+                xhr.open('get', 'http://localhost:8080/LoadUserInfo?username=' + e, true);
+                xhr.send();
+            },
+            loadBlog: function (e) {
+                var _this = this;
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        _this.blog = JSON.parse(xhr.responseText);
+                    }
+                }
+                xhr.open('get', 'http://localhost:8080/LoadDetail?blogId=' + e, true);
+                xhr.send();
+            },
+            dlt: function () {
+                var _this = this;
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var res = JSON.parse(this.responseText);
+                        alert(res.message);
+                        if (res.message == "删除成功！") {
+                            location.href = "blog.html?username=" + _this.username;
+                        }
+                        // var idx = this.responseText;
+                        // if (idx[0] == '1') {
+                        //     alert("删除成功！");
+                        //     location.href = "blog.html?username=" + _this.username;
+                        // } else {
+                        //     alert("您没有删除该博客的权限!");
+                        // }
+                    }
+                }
+                xhr.open('get', 'http://localhost:8080/DeleteBlog?username=' + this.username + "&blogId=" + this.blogId, true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send();
+            },
+            rtn:function () {
+                location.href = "blog.html?username=" + this.username;
+            },
+            crt:function (){
+                location.href="addBlog.html?username=" + this.username;
+            }
+        },
+        mounted() {
+            this.load();
+            this.loadUser(this.username);
+            this.loadBlog(this.blogId);
+        }
+    });
+    myApp.mount("#app");
+</script>
+</html>

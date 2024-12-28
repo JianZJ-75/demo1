@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.global.js"></script>
+    <link rel="stylesheet" href="./css/mc.css">
+</head>
+<style>
+    * {
+        font-family: 'mc';
+    }
+
+    html, body {
+        background-image: url("image/light_dirt_background.png");
+        background-size: 85px;
+    }
+
+    .title {
+        position: relative;
+        top: 30px;
+        margin-bottom: 50px;
+        font-size: 40px;
+        color: white;
+        text-align: center;
+        /*border: red solid 2px;*/
+    }
+
+    * {
+        color: white;
+        user-select: none;
+    }
+
+    .main {
+        /*position: relative;*/
+        background-color: rgba(0, 0, 0, 0.5);
+        /*margin-top: 0%;*/
+        /*width: 100%;*/
+        height: 500px;
+    }
+
+    .btn {
+        background-image: url("image/button.png");
+        background-size: cover;
+        font-size: 30px;
+        text-align: center;
+        line-height: 80px;
+        position: relative;
+        top: 20px;
+        margin: 20px auto auto;
+        width: 800px;
+        height: 80px;
+        /*border: blue solid 2px;*/
+    }
+
+    .btn:hover {
+        border: white solid 3px;
+    }
+
+    .user-item {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .user-item:hover {
+        border: rgb(160, 160, 160) solid 3px;
+    }
+</style>
+<body>
+<div class="title">
+    选择用户
+</div>
+<div>
+    <div class="main" id="app">
+        <div class="user-item" v-for="user in users" :key="user.id" :id="user.username" ondblclick="a(this)">
+            <div style="display: inline;width: 100px;height: 100px;position: relative;">
+                <img :src="'data:image/jpeg;base64,'+user.photo" alt="User Image"
+                     style="width: 95px;height: 95px;border-collapse: collapse">
+            </div>
+            <div style="display:inline;font-size: 30px;width: 100px;height: 100px;position: relative;top: -70px;">
+                {{ user.username }}
+            </div>
+        </div>
+    </div>
+    <div class="btn" id="rtn">返回</div>
+</div>
+</body>
+</html>
+
+<script>
+
+    function a(e) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var idx = this.responseText;
+                if (idx[0] == '1') {
+                    alert("删除成功！");
+                    location.href = "deleteUser.html";
+                } else
+                    alert("删除失败！");
+            }
+        }
+        xhr.open('get', 'http://localhost:8080/DeleteUser?username=' + e.id, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send();
+    }
+
+    var flag = 0;
+    const myApp = Vue.createApp({
+        data() {
+            return {
+                users: []
+            };
+        },
+        methods: {
+            fetchUsers: function () {
+                var _this = this;
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        _this.users = JSON.parse(this.responseText);
+                    }
+                }
+                xhr.open('get', 'http://localhost:8080/LoadAuthor', true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send();
+                flag = 1;
+            }
+        },
+        mounted() {
+            this.fetchUsers();
+        }
+    });
+
+    myApp.mount('#app');
+
+
+    document.getElementById('rtn').addEventListener('click', function () {
+        location.href = 'index.html';
+    });
+
+</script>

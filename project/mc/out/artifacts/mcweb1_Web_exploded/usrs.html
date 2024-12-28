@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.global.js"></script>
+    <link rel="stylesheet" href="./css/mc.css">
+</head>
+<style>
+    * {
+        font-family: 'mc';
+    }
+
+    html, body {
+        background-image: url("image/light_dirt_background.png");
+        background-size: 85px;
+    }
+
+    .title {
+        position: relative;
+        top: 30px;
+        margin-bottom: 50px;
+        font-size: 40px;
+        color: white;
+        text-align: center;
+        /*border: red solid 2px;*/
+    }
+
+    * {
+        color: white;
+        user-select: none;
+    }
+
+    .main {
+        /*position: relative;*/
+        background-color: rgba(0, 0, 0, 0.5);
+        /*margin-top: 0%;*/
+        /*width: 100%;*/
+        height: 500px;
+    }
+
+    .btn {
+        background-image: url("image/button.png");
+        background-size: cover;
+        font-size: 30px;
+        text-align: center;
+        line-height: 80px;
+        position: relative;
+        top: 20px;
+        margin: 20px auto auto;
+        width: 800px;
+        height: 80px;
+        /*border: blue solid 2px;*/
+    }
+
+    .btn:hover {
+        border: white solid 3px;
+    }
+    .user-item{
+
+    }
+    .user-item:hover{
+        border: white solid 1px;
+    }
+    img:hover{
+        border: white solid 1px;
+    }
+</style>
+<body>
+<div class="title">
+    选择用户
+</div>
+<div>
+    <div class="main" id="app">
+        <div class="user-item" v-for="user in users" :key="user.id" style="border: 1px solid blue;padding: 0;border-collapse: collapse">
+
+            <div style="border: 1px solid red;display: inline;width: 100px;height: 100px;position: relative;left: 700px">
+                <img :src="'data:image/jpeg;base64,'+user.photo" alt="User Image" style="width: 95px;height: 95px;border-collapse: collapse">
+            </div>
+
+            <div style="border: 1px solid yellow;display:inline;font-size: 30px;width: 100px;height: 100px;position: relative;top: -70px;border-collapse: collapse;left: 700px">
+                {{ user.username }}
+            </div>
+
+        </div>
+    </div>
+    <div class="btn" id="signup">创建新用户</div>
+    <div class="btn" id="rtn">返回</div>
+</div>
+</body>
+</html>
+
+<script>
+    const myApp = Vue.createApp({
+        data() {
+            return {
+                users: []
+            };
+        },
+        methods: {
+            fetchUsers() {
+                fetch('http://localhost:8080/LoadAuthor')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.users = data;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching users:', error);
+                    });
+            }
+        },
+        mounted() {
+            this.fetchUsers();
+        }
+    });
+
+    myApp.mount('#app');
+
+    document.getElementById('rtn').addEventListener('click', function () {
+        location.href = 'index.html';
+    });
+    document.getElementById('signup').addEventListener('click', function () {
+        location.href = 'signup.html';
+    });
+
+</script>
