@@ -30,9 +30,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "563c85730854e371",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "板子/比赛板子.pdf"
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "网络编程.md",
+                "file": "板子/比赛板子.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "网络编程.md",
+                "file": "板子/比赛板子.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "网络编程.md"
+                "file": "板子/比赛板子.pdf"
               }
             }
           }
@@ -159,8 +169,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "bd200b0ad125fcd9",
+  "active": "563c85730854e371",
   "lastOpenFiles": [
+    "程序与算法综合设计/22软工2班-8组-题2.6-城堡问题/J4-22软工2班-8组-题2.6-城堡问题-演示视频.mkv",
     "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_28.java~",
     "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_28.java",
     "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_20.java~",
@@ -171,7 +182,6 @@
     "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_27.java",
     "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_26.java",
     "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_25.java",
-    "JianZJ/src/leetcode/Jan_2024/Solution_2024_1_24.java",
     "学习报告.md",
     "短链接项目.md",
     "安装Linux (2).md",
