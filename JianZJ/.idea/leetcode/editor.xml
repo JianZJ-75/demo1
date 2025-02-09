@@ -36,6 +36,17 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../IDEA/leetcode/editor/cn/[80]删除有序数组中的重复项 II.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../../IDEA/leetcode/editor/cn/doc/content/[80]删除有序数组中的重复项 II.md" />
+              <option name="frontendQuestionId" value="leetcode.cn80" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../../IDEA/leetcode/editor/cn/[80]删除有序数组中的重复项 II.java" />
+              <option name="titleSlug" value="remove-duplicates-from-sorted-array-ii" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
