@@ -1,0 +1,1 @@
+{"name":"Local: 11","url":"e:\\Git\\demo1\\Code\\leetcode-hot100\\11.cpp","tests":[{"id":1739542259181,"input":"9\n1 8 6 2 5 4 8 3 7","output":"49"},{"id":1739542264133,"input":"2\n1 1","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Git\\demo1\\Code\\leetcode-hot100\\11.cpp","group":"local","local":true}

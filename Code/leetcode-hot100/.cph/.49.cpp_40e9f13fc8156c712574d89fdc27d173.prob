@@ -1,0 +1,1 @@
+{"name":"Local: 49","url":"e:\\Git\\demo1\\Code\\leetcode-hot100\\49.cpp","tests":[{"id":1739462212370,"input":"6\neat tea tan ate nat bat","output":"bat \neat tea ate \ntan nat "},{"id":1739462242732,"input":"1\na","output":"a "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Git\\demo1\\Code\\leetcode-hot100\\49.cpp","group":"local","local":true}
