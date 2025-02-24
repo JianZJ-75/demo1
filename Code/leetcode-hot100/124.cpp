@@ -11,20 +11,19 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-void dfs(TreeNode *root, vector<int> &ans) {
-    if (root->left) dfs(root->left, ans);
-    ans.push_back(root->val);
-    if (root->right) dfs(root->right, ans);
+int dfs(TreeNode* root, int &ans) {
+    if (root == nullptr)
+        return 0;
+    int l = dfs(root->left, ans);
+    int r = dfs(root->right, ans);
+    ans = max(ans, l + r + root->val);
+    return max(0, max(l, r) + root->val);
 }
 
-bool isValidBST(TreeNode* root) {
-    vector<int> ans;
+int maxPathSum(TreeNode* root) {
+    int ans = -0x3f3f3f3f;
     dfs(root, ans);
-    for (int i = 1; i < ans.size(); i++) {
-        if (ans[i] <= ans[i - 1])
-            return false;
-    }
-    return true;
+    return ans;
 }
 
 void solve() {

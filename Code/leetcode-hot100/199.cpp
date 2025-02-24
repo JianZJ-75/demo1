@@ -11,20 +11,27 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-void dfs(TreeNode *root, vector<int> &ans) {
-    if (root->left) dfs(root->left, ans);
-    ans.push_back(root->val);
-    if (root->right) dfs(root->right, ans);
-}
-
-bool isValidBST(TreeNode* root) {
+vector<int> rightSideView(TreeNode* root) {
     vector<int> ans;
-    dfs(root, ans);
-    for (int i = 1; i < ans.size(); i++) {
-        if (ans[i] <= ans[i - 1])
-            return false;
+    if (root == nullptr)
+        return ans;
+    queue<TreeNode*> q;
+    q.push(root);
+    while (!q.empty()) {
+        int n = q.size();
+        int t;
+        while (n--) {
+            TreeNode *tmp = q.front();
+            q.pop();
+            t = tmp->val;
+            if (tmp->left)
+                q.push(tmp->left);
+            if (tmp->right)
+                q.push(tmp->right);
+        }
+        ans.push_back(t);
     }
-    return true;
+    return ans;
 }
 
 void solve() {

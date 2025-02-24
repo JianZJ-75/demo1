@@ -11,20 +11,14 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-void dfs(TreeNode *root, vector<int> &ans) {
-    if (root->left) dfs(root->left, ans);
-    ans.push_back(root->val);
-    if (root->right) dfs(root->right, ans);
-}
-
-bool isValidBST(TreeNode* root) {
-    vector<int> ans;
-    dfs(root, ans);
-    for (int i = 1; i < ans.size(); i++) {
-        if (ans[i] <= ans[i - 1])
-            return false;
-    }
-    return true;
+TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    if (!root || root == p || root == q)
+        return root;
+    TreeNode* l = lowestCommonAncestor(root->left, p, q);
+    TreeNode* r = lowestCommonAncestor(root->right, p, q);
+    if (l && r)
+        return root;
+    return l ? l : r;
 }
 
 void solve() {

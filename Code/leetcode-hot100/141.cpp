@@ -18,11 +18,7 @@ bool hasCycle(ListNode *head) {
         a = a->next;
         b = b->next->next;
         if (a == b) {
-            while (head != a) {
-                a = a->next;
-                head = head->next;
-            }
-            return a;
+            return true;
         }
     }
     return NULL;

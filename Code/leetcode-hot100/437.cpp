@@ -11,20 +11,24 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-void dfs(TreeNode *root, vector<int> &ans) {
-    if (root->left) dfs(root->left, ans);
-    ans.push_back(root->val);
-    if (root->right) dfs(root->right, ans);
+unordered_map<long long, int> mp;
+
+void dfs(TreeNode* root, long long now, int targetSum, int &ans) {
+    if (!root)
+        return;
+    now += root->val;
+    ans += mp.contains(now - targetSum) ? mp[now - targetSum] : 0;
+    mp[now]++;
+    dfs(root->left, now, targetSum, ans);
+    dfs(root->right, now, targetSum, ans);
+    mp[now]--;
 }
 
-bool isValidBST(TreeNode* root) {
-    vector<int> ans;
-    dfs(root, ans);
-    for (int i = 1; i < ans.size(); i++) {
-        if (ans[i] <= ans[i - 1])
-            return false;
-    }
-    return true;
+int pathSum(TreeNode* root, int targetSum) {
+    int ans = 0;
+    mp[0]++;
+    dfs(root, 0, targetSum, ans);
+    return ans;
 }
 
 void solve() {
