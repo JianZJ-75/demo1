@@ -1,8 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"jianzj.com/firststudy"
+	"jianzj.com/study/firststudy"
 )
 
 /* 
@@ -10,10 +9,5 @@ import (
 	开头字母小写 = java的protected
 */
 func main() {
-	var tmp string
-	fmt.Println(tmp)
-	firststudy.Test1()
-	firststudy.Test2()
-	firststudy.Test3()
-	firststudy.Test4()
+	firststudy.Test15()
 }
