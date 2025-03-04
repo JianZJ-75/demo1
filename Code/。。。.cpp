@@ -14,158 +14,93 @@
 
 using namespace std;
 
-ll read()
-{
-    ll x = 0, f = 1;
-    char c = getchar();
-    while (c < '0' || c > '9')
-    {
-        if (c == '-')
-            f = -1;
-        c = getchar();
+// 快速排序
+void qs(int l, int r, int *a) {
+    if (l >= r)
+        return;
+    srand(time(0));
+    swap(a[l], a[l + rand() % (r - l + 1)]);
+    int x = a[l];
+    int i = l, j = r;
+    while (i < j) {
+        while (i < j && a[j] > x)
+            j--;
+        if (i < j) a[i++] = a[j];
+        while (i < j && a[i] < x)
+            i++;
+        if (i < j) a[j--] = a[i];
     }
-    while (c >= '0' && c <= '9')
-    {
-        x = x * 10 + c - '0';
-        c = getchar();
-    }
-    return x * f;
+    a[i] = x;
+    qs(l, i - 1, a);
+    qs(i + 1, r, a);
 }
 
-ll qmi(ll a, ll b)
-{
-    ll ret = 1;
-    while (b)
-    {
-        if (b & 1)
-            ret = ret * a;
-        b /= 2;
-        a = a * a;
+// 归并排序
+void ms(int l, int r, int *a) {
+    if (l >= r) return;
+    int m = (l + r) / 2;
+    ms(l, m, a);
+    ms(m + 1, r, a);
+    int p1 = l, p2 = m + 1, idx = 0;
+    int c[r - l + 1];
+    while (p1 <= m && p2 <= r) {
+        if (a[p1] <= a[p2])
+            c[idx++] = a[p1++];
+        else
+            c[idx++] = a[p2++];
     }
-    return ret;
+    while (p1 <= m)
+        c[idx++] = a[p1++];
+    while (p2 <= r)
+        c[idx++] = a[p2++];
+    for (int i = l; i <= r; i++)
+        a[i] = c[i - l];
 }
 
-ll gcd(ll a, ll b)
-{
-    if (a < b)
-        swap(a, b);
-    return b ? gcd(b, a % b) : a;
-}
-
-const ll N = 1e5 + 100;
-ll n, m;
-ll a[N], b[N], x[N], t[N];
-map<ll, bool> mp;
-map<pii, ll> mmp;
-
-struct P
-{
-    ll d;
-    ll now;
-    bool operator<(const P &p) const
-    {
-        return d < p.d;
-    }
-    bool operator>(const P &p) const
-    {
-        return d > p.d;
-    }
-} p[N];
-
-void init()
-{
-    mmp.clear();
-    mp.clear();
-    rep(i, 0, n + 10)
-        a[i] = b[i] = 0;
-    rep(i, 0, m + 10)
-        x[i] = t[i] = 0;
-}
-
-void Jian()
-{
-    cin >> n >> m;
-    init();
-    rep(i, 1, n)
-    {    
-        cin >> a[i];
-        b[i] = a[i];
-    }
-    rep(i, 1, m)
-    {
-        cin >> x[i] >> t[i];
-        mp[t[i]] = 1;
-    }
-    priority_queue<P, vector<P>, greater<P>> q;
-    ll sum = 0;
-    rep(i, 1, n)
-    {
-        if (!mp[i])
-        {
-            sum += a[i];
-        }       
-    }
-    ll tt[n + 1] = {0};
-    rrep(i, m, 1)
-    {
-        if (tt[t[i]] != 0)
-        {
-            mmp[{t[i], x[i]}] = tt[t[i]];
+// 堆排序
+void down(int l, int r, int *a) {
+    int fa = l;
+    int s = 2 * l + 1;
+    while (s <= r) {
+        if (s + 1 <= r && a[s + 1] > a[s])
+            s++;
+        if (a[s] < a[fa])
+            return;
+        else {
+            swap(a[s], a[fa]);
+            fa = s;
+            s = fa * 2 + 1;
         }
-        tt[t[i]] = x[i];
     }
-    a[n + 1] = sum;
-    q.push(P{LINF, n + 1});
-    rep(i, 1, m)
-    {
-        q.push(P{x[i], t[i]});
+}
+
+void hs(int l, int r, int *a) {
+    int n = r - l + 1;
+    for (int i = n / 2 - 1; i >= 0; i--)
+        down(i, r, a);
+    for (int i = n - 1; i >= 0; i++) {
+        swap(a[0], a[r]);
+        down(0, i - 1, a);
     }
-    ll ans = 0;
-    ll idx = 1;
-    // cout << q.size() << endl;
-    // rep(i, 1, n + 1)
-    //     cout << a[i] << " ";
-    // cout << endl;
-    while (!q.empty())
-    {
-        P tmp = q.top();
-        if (idx <= m && ans + a[tmp.now] >= x[idx])
-        {
-            // cout << tmp.now << " " << x[idx] - ans << endl;
-            a[tmp.now] -= x[idx] - ans;
-            ans = x[idx];
-            q.pop();
-            if (tmp.now != n + 1)
-                a[n + 1] += a[tmp.now];
-            else
-                q.push(P{LINF, n + 1});
-            // cout << "--------------\n";
-            // rep(i, 1, n + 1)
-            //     cout << a[i] << " ";
-            // cout << endl;
-            // cout << "--------------\n";
-            if (mmp[{t[idx], x[idx]}] != 0)
-            {
-                q.push(P{mmp[{t[idx], x[idx]}], t[idx]});
-                a[n + 1] -= a[t[idx]];
-                a[t[idx]] = b[t[idx]];
-            } else {
-                a[n + 1] -= a[t[idx]];
-                a[t[idx]] = 0;
-                a[n + 1] += b[t[idx]];
-            }
-            idx++;
-        } else {
-            ans += a[tmp.now];
-            a[tmp.now] = 0;
-            q.pop();
-        }
-        // cout << "ans = " << ans << " " << q.size() << endl;
-        // rep(i, 1, n + 1)
-        //     cout << a[i] << " ";
-        // cout << endl;
-    }
-    cout << ans << endl;
+}
+
+int fa[1000];
+
+int dsu_find(int x) {
+    if (fa[x] == x)
+        return x;
+    fa[x] = dsu_find(fa[x]);
+    return fa[x];
+}
+
+void dsu_union(int x, int y) {
+    int fx = dsu_find(x), fy = dsu_find(y);
+    if (fx == fy)
+        return;
+    fa[fx] = fy;
+}
+
+void Jian() {
 }
 
 signed main()
