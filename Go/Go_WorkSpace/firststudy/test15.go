@@ -70,7 +70,7 @@ func Test15() {
     }
 
 	// 创建一个 StringWriter 实例并赋值给 Writer 接口变量
-    var w Writer = &StringWriter{}
+    var w Write = &StringWriter{}
    
     // 将 Writer 接口类型转换为 StringWriter 类型
     sw := w.(*StringWriter)
@@ -83,7 +83,7 @@ func Test15() {
 }
 
 // 定义一个接口 Writer
-type Writer interface {
+type Write interface {
     Write([]byte) (int, error)
 }
 
