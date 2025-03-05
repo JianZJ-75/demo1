@@ -1,6 +1,11 @@
 package firststudy
 
-/* 
+import (
+	"fmt"
+	"time"
+)
+
+/*
 	并发
 		并发是指程序同时执行多个任务的能力。
 		Go 语言支持并发，通过 goroutines 和 channels 提供了一种简洁且高效的方式来实现并发。
@@ -10,6 +15,7 @@ package firststudy
 			Goroutine 的调度由 Go 运行时管理，用户无需手动分配线程。
 			使用 go 关键字启动 Goroutine。
 			Goroutine 是非阻塞的，可以高效地运行成千上万个 Goroutine。
+			同一个程序中的所有 goroutine 共享同一个地址空间。
 
 		Channel：
 			Go 中用于在 Goroutine 之间通信的机制。
@@ -21,7 +27,22 @@ package firststudy
 			G：Goroutine。
 			M：系统线程（Machine）。
 			P：逻辑处理器（Processor）。
+
+		Goroutine 语法
+			go 函数名( 参数列表 )
+
 */
 func Test19() {
+	go sayHello()
+	for i := 0; i < 5; i++ {
+		fmt.Println("Main")
+		time.Sleep(100 * time.Millisecond)
+	}
+}
 
+func sayHello() {
+	for i := 0; i < 5; i++ {
+		fmt.Println("Hello")
+		time.Sleep(100 * time.Millisecond)
+	}
 }

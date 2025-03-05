@@ -105,6 +105,7 @@ func getError() error {
 }
 
 func safeFunction() {
+	// defer 用于在函数返回之前执行
 	defer func() {
 		if r := recover(); r != nil {
 			fmt.Println("Recovered from panic:", r)

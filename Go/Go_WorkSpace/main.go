@@ -9,5 +9,5 @@ import (
 	开头字母小写 = java的protected
 */
 func main() {
-	firststudy.Test15()
+	firststudy.Test20()
 }
