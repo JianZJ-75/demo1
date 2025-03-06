@@ -10,21 +10,21 @@ type Books struct {
 }
 
 /*
-结构体
-格式
+	结构体
+	格式
 
-	type struct_variable_type struct {
-		member definition
-		member definition
-		...
-		member definition
-	}
+		type struct_variable_type struct {
+			member definition
+			member definition
+			...
+			member definition
+		}
 
-一旦定义了结构体类型，它就能用于变量的声明，语法格式如下：
+	一旦定义了结构体类型，它就能用于变量的声明，语法格式如下：
 
-	variable_name := structure_variable_type {value1, value2...valuen}
-	或
-	variable_name := structure_variable_type {key1: value1, key2: value2..., keyn: valuen}
+		variable_name := structure_variable_type {value1, value2...valuen}
+		或
+		variable_name := structure_variable_type {key1: value1, key2: value2..., keyn: valuen}
 */
 func Test11() {
 	var Book1 Books /* 声明 Book1 为 Books 类型 */
