@@ -1,4 +1,4 @@
-package firststudy
+package concurrency
 
 import (
 	"fmt"
@@ -57,7 +57,8 @@ func worker(id int, wg *sync.WaitGroup) {
 	fmt.Printf("Worker %d done\n", id)
 }
 
-func Test20() {
+func Test2() {
+
 	s := []int{7, 2, 8, -9, 4, 0}
 
 	ch := make(chan int)

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"jianzj.com/study/json"
+	"jianzj.com/study/concurrency"
 )
 
 /*
@@ -9,5 +9,5 @@ import (
 开头字母小写 = java的protected
 */
 func main() {
-	json.Test1()
+	concurrency.Test5()
 }

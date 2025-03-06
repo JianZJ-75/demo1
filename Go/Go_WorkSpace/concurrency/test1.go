@@ -1,4 +1,4 @@
-package firststudy
+package concurrency
 
 import (
 	"fmt"
@@ -32,17 +32,18 @@ import (
 			go 函数名( 参数列表 )
 
 */
-func Test19() {
-	go sayHello()
-	for i := 0; i < 5; i++ {
-		fmt.Println("Main")
-		time.Sleep(100 * time.Millisecond)
-	}
-}
 
 func sayHello() {
 	for i := 0; i < 5; i++ {
 		fmt.Println("Hello")
+		time.Sleep(100 * time.Millisecond)
+	}
+}
+
+func Test1() {
+	go sayHello()
+	for i := 0; i < 5; i++ {
+		fmt.Println("Main")
 		time.Sleep(100 * time.Millisecond)
 	}
 }

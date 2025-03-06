@@ -1,4 +1,4 @@
-package firststudy
+package concurrency
 
 import (
 	"fmt"
@@ -19,7 +19,7 @@ func increment(wg *sync.WaitGroup) {
 	mu.Unlock()
 }
 
-func Test22() {
+func Test4() {
 	var wg sync.WaitGroup
 	wg.Add(100000)
 	for i := 0; i < 100000; i++ {

@@ -1,4 +1,4 @@
-package firststudy
+package concurrency
 
 import (
 	"context"
@@ -36,7 +36,7 @@ func doWork(ctx context.Context) {
     }
 }
 
-func Test21() {
+func Test3() {
 	// 创建一个带取消功能的上下文
 	// 使用 context.WithCancel 从根上下文 context.Background() 派生出一个带取消功能的上下文 ctx，并返回一个取消函数 cancel。
     ctx, cancel := context.WithCancel(context.Background())
