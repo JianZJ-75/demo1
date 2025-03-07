@@ -3,10 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <ImageView
-        android:layout_margin="30dp"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
+        android:layout_margin="50dp"
         android:src="@drawable/zfb" />
 
     <LinearLayout
@@ -17,59 +18,64 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginBottom="0dp"
                 android:text="账号"
-                android:textStyle="bold"
                 android:textSize="20dp"
-                android:layout_margin="15dp"
-                android:layout_marginTop="20dp">
-            </TextView>
+                android:textStyle="bold" />
+
             <EditText
-                android:id="@+id/edit_user"
+                android:id="@+id/account_input"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="0dp"
+                android:hint="手机号/邮箱/淘宝会员名"
                 android:enabled="true"
-                android:inputType="text"
-                android:hint="手机号/邮箱/淘宝会员名">
-            </EditText>
+                android:inputType="text" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:layout_margin="20dp"
                 android:text="密码"
                 android:textSize="20dp"
-                android:layout_margin="15dp"
-                android:layout_marginTop="10dp">
-            </TextView>
+                android:textStyle="bold" />
+
             <EditText
-                android:id="@+id/edit_password"
+                android:id="@+id/password_input"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:hint="请输入登录密码"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:hint="请输入登陆密码"
                 android:enabled="true"
-                android:inputType="textPassword"
-                android:layout_marginTop="10dp">
-            </EditText>
+                android:inputType="text" />
+
         </LinearLayout>
+
         <Button
-            android:id="@+id/get_content_button"
+            android:id="@+id/login_button"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="#00BFFF"
+            android:textColor="#FAFAFA"
             android:text="登录"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            >
-        </Button>
+            android:textSize="20dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
     </LinearLayout>
 
     <RelativeLayout
@@ -79,22 +85,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
             android:text="忘记密码？"
-            android:textColor="#00BFFF"
-            android:textSize="18dp"></TextView>
+            android:textColor="#1282C6"
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_margin="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
             android:text="短信验证码注册"
-            android:textColor="#00BFFF"
-            android:textSize="18dp"></TextView>
+            android:textColor="#1282C6"
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -104,7 +109,8 @@
             android:layout_margin="20dp"
             android:layout_marginTop="10dp"
             android:text="更多"
-            android:textColor="#00BFFF"
-            android:textSize="18dp"></TextView>
+            android:textColor="#1282C6"
+            android:textSize="15dp" />
+
     </RelativeLayout>
 </LinearLayout>

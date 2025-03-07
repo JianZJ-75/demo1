@@ -39,16 +39,6 @@
             以上的两种节点规则可 能一开始不太好理解，读者只需记住默认主页必须同时配置这两种过滤规则即可
         -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
