@@ -1,7 +1,7 @@
 package main
 
 import (
-	"jianzj.com/study/concurrency"
+	"jianzj.com/study/network"
 )
 
 /*
@@ -9,5 +9,5 @@ import (
 开头字母小写 = java的protected
 */
 func main() {
-	concurrency.Test5()
+	network.Test1()
 }
