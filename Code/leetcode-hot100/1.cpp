@@ -8,6 +8,22 @@ int gcd(int a, int b) {
     return b ? gcd(b, a % b) : a;
 }
 
+class A {
+    string name;
+};
+
+class B:public A {
+
+};
+
+class C:public A {
+
+};
+
+class D:public A, B {
+
+};
+
 void solve() {
     int n;
     cin >> n;
