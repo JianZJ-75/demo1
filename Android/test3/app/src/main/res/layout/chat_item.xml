@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="horizontal">
+
+    <!-- 左侧头像 -->
+    <ImageView
+        android:id="@+id/chat_photo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="10dp"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_vertical" />
+
+    <!-- 右侧内容 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- 第一行：名字 -->
+        <TextView
+            android:id="@+id/chat_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="用户名"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <!-- 第二行：简介 -->
+        <TextView
+            android:id="@+id/chat_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:text="用户简介信息"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+    </LinearLayout>
+</LinearLayout>
