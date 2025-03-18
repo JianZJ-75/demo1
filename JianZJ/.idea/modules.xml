@@ -21,6 +21,7 @@
       <module fileurl="file://$PROJECT_DIR$/mytest/mytest.iml" filepath="$PROJECT_DIR$/mytest/mytest.iml" />
       <module fileurl="file://$PROJECT_DIR$/mythread/mythread.iml" filepath="$PROJECT_DIR$/mythread/mythread.iml" />
       <module fileurl="file://$PROJECT_DIR$/puzzlegame/puzzlegame.iml" filepath="$PROJECT_DIR$/puzzlegame/puzzlegame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/software-construct/software-construct.iml" filepath="$PROJECT_DIR$/software-construct/software-construct.iml" />
     </modules>
   </component>
 </project>
