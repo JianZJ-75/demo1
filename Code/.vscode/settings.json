@@ -3,7 +3,7 @@
         "file:///E:/vscode/plugins/synthwave84.css"
     ],
     "vscode_custom_css.policy": true,
-    "workbench.colorTheme": "Monokai", //安装第一个插件后，若是启用了主题，这一行应该存在了
+    "workbench.colorTheme": "SynthWave '84", //安装第一个插件后，若是启用了主题，这一行应该存在了
     "powermode.enabled": true, //打字效果
     "powermode.shake.enabled": false, //字体抖动
     "files.associations": {

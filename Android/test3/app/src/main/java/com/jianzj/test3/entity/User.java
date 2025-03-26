@@ -1,8 +1,8 @@
 package com.jianzj.test3.entity;
 
-import androidx.annotation.NonNull;
+import java.io.Serializable;
 
-public class User {
+public class User implements Serializable {
 
     private static final String DEFAULT_PHOTO = "@mipmap/default_photo";
 
@@ -17,6 +17,12 @@ public class User {
     private String photo;
 
     private String phone;
+
+    public User() {
+        this.username = "JianZJ";
+        this.description = "hello!";
+        this.photo = DEFAULT_PHOTO;
+    }
 
     public User(String username, String description) {
         this.username = username;

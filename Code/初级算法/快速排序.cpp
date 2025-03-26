@@ -114,7 +114,7 @@ void down(int l, int r, int *a) {
     while (s <= r) {
         if (s + 1 <= r && a[s] < a[s + 1])
             s++;
-        if (a[fa] > a[s])
+        if (a[fa] >= a[s])
             return;
         else {
             swap(a[fa], a[s]);
