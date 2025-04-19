@@ -28,4 +28,14 @@
         android:text="待办事项内容"
         android:textSize="16sp"
         android:textColor="#000000" />
+
+    <CheckBox
+        android:id="@+id/delete_todo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        style="@style/MyCheckBox"
+        android:visibility="gone"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
 </LinearLayout>

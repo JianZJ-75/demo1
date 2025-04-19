@@ -1,5 +1,6 @@
 package com.jianzj.memo.todo;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -93,6 +94,8 @@ public class TodoActivity extends AppCompatActivity {
     private void loadTodoItems() {
         listView = findViewById(R.id.listView_todos);
 
+        deleteMode();
+
         // 从数据库获取所有待办事项
         todoList = dbHelper.getAllTodoItems();
 
@@ -112,6 +115,15 @@ public class TodoActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
+    /**
+     * 转换删除模式
+     */
+    private void deleteMode() {
+        listView.setOnItemLongClickListener((parent, view, position, id) -> {
+            // TODO 删除
+            return true;
+        });
+    }
 
     /**
      * 添加待办事件

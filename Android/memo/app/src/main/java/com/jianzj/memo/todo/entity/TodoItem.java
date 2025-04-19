@@ -18,9 +18,7 @@ public class TodoItem {
     }
 
     public TodoItem(String content, boolean isDone) {
-        this.content = content;
-        this.isDone = isDone;
-        this.timestamp = new Date(); // 当前时间
+        this(content, isDone, new Date());
     }
 
     public long getId() {
