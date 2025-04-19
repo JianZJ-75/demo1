@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 按钮禁用时颜色为灰色 -->
+    <item android:color="#AAAAAA" android:state_enabled="false" />
+    <!-- 按钮启用时颜色为黑色 -->
+    <item android:color="#000000" />
+</selector>

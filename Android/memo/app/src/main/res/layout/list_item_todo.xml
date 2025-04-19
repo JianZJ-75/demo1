@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:background="@drawable/todo_item_bg">
+
+    <!-- 复选框，表示任务是否完成 -->
+    <CheckBox
+        android:id="@+id/is_done_todo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:theme="@style/MyCheckBox" />
+
+    <!-- 显示待办事项的文本 -->
+    <TextView
+        android:id="@+id/text_todo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="待办事项内容"
+        android:textSize="16sp"
+        android:textColor="#000000" />
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="checked_box">#FFB21E</color>
+    <color name="unchecked_box">#D8D9DC</color>
+    <color name="global_bg">#F7F7F7</color>
+    <color name="btn">#FFB21E</color>
+</resources>
